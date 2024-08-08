@@ -1,0 +1,1231 @@
+
+%Why General Relativity needs a quantisation and which approach is the best who is worth following? This is the question that should be answered at the end of this chapter. 
+In a nutshell, GR is a classical field theory describing the gravitational interaction, which has always been considered one of the four \emph{fundamental interactions} of the physical world: for that, almost everyone believe it should be integrated in the Standard Model of particle as a quantum field theory (see \cite{symmetries}). On the other hand, GR claims the description of reality should be given in a way independent of any observer, and QFT itself does not deliver such a description, being still in a special relativity framework and not being a generally covariant theory.
+
+In the following we will briefly present quantum and gravitational theories, pointing out the main differences among them and try to adapt one to the other. From that, it will come out that a gauge--natural theory dynamically equivalent to GR perfectly fits the quantisation requirements.
+
+
+
+\section{Quantum and gravitational theories}
+
+In this section we will outline the main features of quantum theories by briefly present both the first and the second canonical\footnote{As a matter of fact, the canonical approach is based on the Hamiltonian formalism and it has been the first to be used to quantize mechanics, historically. Modern approaches are instead based on the Lagrangian formalism, e.g. the \emph{path integral quantisation} \cite{pathint1}, \cite{pathint2}.} quantisation procedures. Afterwards, GR will be introduced and it will be remarked how a gravitational theory is blessed (or cursed) by the main trait of \emph{background--independence}: that means GR cannot be quantized as a field theory \emph{in} the spacetime, instead quantize gravity is about to quantize the spacetime itself. As Gordon Belot once said about Einstein's theory of General Relativity: "[...] Now the stage is one of the actor [...]".
+
+
+\subsection{First and second quantisation}
+
+%It could be said that mathematical physics springs up from Lagrangian and Hamiltonian mechanics: a curve $t\mapsto q(t)$ on a general manifold $\M^n$ identifies a physical motion
+
+First quantisation is a procedure through which one is able to give a quantized model for classical mechanics, where physical trajectories $t\mapsto q(t)$ on a smooth manifold $Q^n$---called \emph{configuration space}---are determined by Euler--Lagrange equations $\frac{\der\L}{\der q^i}=\frac{\tiny\d}{\tiny\d t}\frac{\der\L}{\der\dot{q}^i}$ and velocities and conjugated momenta live respectively in $TQ$ and $T^*Q$, with Lagrangian functional $\L(q,\dot{q})\in T^*TQ$.  Physical observables may be regarded as functions of the \emph{phase space} $T^*Q(\cong\R^{2n}$ locally), being the symplectic manifold of coordinates $(q^i,p_i)$ with momenta $p_i=\frac{\der\L}{\der\dot{q}^i}$, containing the \emph{physical states} of the system described by the configuration $q\in Q$.
+
+The main idea of the Hamiltonian approach is to convert Euler--Lagrange equations into evolutionary (or bulk) equations describing how the states evolve in time, through the Hamilton equations---for each $i=1,\hdots,n$
+$$\begin{cases}
+    \dot{q}^i=\frac{\der H}{\der p_i}\\
+    \dot{p}_i=-\frac{\der H}{\der\dot{q}^i}
+\end{cases}\quad\text{where}\quad H(q,p):={\langle p,\dot{q} \rangle}_{T^*Q\times TQ}-\L(q,\dot{q})\in T^*T^*Q$$
+As a matter of fact, functions of the phase space form a Lie algebra if endowed with so--called Poisson bracket $\{f,g\}:=\frac{\der f}{\der q^i}\frac{\der g}{\der p_i}-\frac{\der f}{\der p_i}\frac{\der g}{\der q^i}$ in Einstein sum convention;\, moreover, being for any such function $\frac{\tiny\d}{\tiny\d t}f(p,q)=\frac{\der f}{\der q^i}\dot{q}^i+\frac{\der f}{\der p_i}\dot{p}_i=\{H,f\}$, it allows to express Hamilton equations in such a way as the Hamiltonian generates the dynamics
+$$\begin{cases}
+    \dot{q}^i=\{H,q^i\}\\
+    \dot{p}_i=\{H,p_i\}
+    \end{cases}$$
+    It has to be said that physical theories are not usually described in terms of the minimum possible number of variables, but instead, they present a certain degree of redundancy because of the invariance of the system under certain symmetries (see Section 3.2 of \cite{pullin2}). As already seen in Section \ref{covariant_Cauchy}, in general, given a set of initial data, the end result of the evolution will not be unique but will lie on a set of equivalent physical configurations related somehow by the symmetries of the theory. 
+    
+    As in covariant theories, also in such a canonical framework still can happen to have constrained (or gauge) equations: constraints can be here described as a set of relations among the canonical variables on the form $\phi_m(q^i,p_i)=0$, for $i=1,\hdots,m$, which enters in the full Hamiltonian as Lagrange multipliers---having $H_0$ as free Hamiltonian
+
+    $$H=H_0+\lambda^m\phi_m$$
+%$$\vdots$$
+%$$\text{first and second class constrained theories, see 3.2 Pullin \cite{pullin2}}$$
+%$$\vdots$$
+
+At this stage, canonical quantisation proceed basically through the following steps which are usually taken as axioms of the theory:
+
+\begin{enumerate}\label{first_quantisation}
+
+    \item Interpret physical states as vectors in a separable $\C$omplex Hilbert space $\mathcal{H}$ containing now the \emph{quantum states} on the form of normalizable functionals $\Psi[q]$.
+    \item Select an algebra of quantities in the classical theory containing the most relevant physical \emph{observables} on which Poisson bracket relations on the form $\{q^i,p_j\}=\delta^i_j$ are given and promote them to commutation relations among self--adjoint operators on $\mathcal{H}$ through $\{\cdot,\cdot\}\leftrightarrow-i\hslash[\cdot,\cdot]$.
+    
+
+    \item Promote the constraint equations to wave--equations acting on $\mathcal{H}$ %This process is clearly not unique and tricky: it should be performed
+    in such a way as to promote the classical $\{\cdot,\cdot\}$ of the constraints to consistent commutation relations among wave--functions in $\mathcal{H}$. The space of solutions of the constrained wave--equation, in general, will be a subspace $\widehat{\mathcal{H}}$ of $\mathcal{H}$ which will contain the relevant physical states.
+
+    \item Determine the evolution as a function of the time parameter of the associated classical theory of either the states or the observables, depending on whether one is using respectively Schrödinger or Heisenberg picture, through the Schrödinger or the Heisenberg equation.
+
+    \item Compute expectation values of quantum observables through the inner product of $\mathcal{H}$ which normalizes quantum states, where measurements of physical values of a physical observable must be an eigenvalue.
+
+\end{enumerate}
+
+
+\begin{remark}\label{no_traj}
+    In a quantum perspective, the bulk solution is not expected to be meaningful. In mechanics, the bulk equations would determine the trajectory of a particle that we know is not something well defined in a quantum model. For that reason, a quantum model focuses on boundary equations only.
+\end{remark}
+
+Such an approach was developed within the 1930s and it does not take into account the \emph{framework}. Indeed, after Einstein proposed the existence of photons in 1905, together with his special theory of relativity, Dirac in 1925--27 was able to describe the electron and the positron in Minkowski spacetime, up to Jordan and Wigner, who developed quantum field theory. Essentially, QFT provides a procedure to quantize a classical field theory in the formulation we widely developed in Examples \ref{field_theories}.
+
+When a 
+field theory is formulated in the Hamiltonian fashion, its quantisation procedure goes under the name of second quantisation. Axioms of a QFT are basically the same of first quantisation, with the due reinterpretations which have to take into account the main idea: each particle is mediated---and so mathematically represented---by a \emph{field} on spacetime $\phi:\R^{1,3}\to\Ci$, for some configuration bundle $\Ci$ over Minkowski. The axioms of QFT being:
+
+\begin{enumerate}
+    \item The Hilbert space of the states is here a subspace of $\bigoplus_{n\geq0}\mathcal{H}^{\otimes n}$ which can be a \emph{bosonic} or \emph{fermionic} Fock space\footnote{For this and all other definitions in this QFT context we recommend \cite{talagrand}, \cite{peskin}.}, depending on the spin of the particle, and it contains all possible multi--particles states.
+
+    \item Canonical variables are here fields $\phi$ and their conjugated momenta $\pi:=\frac{\der\L}{\der\phi_0}$ for some Lagrangian density $\L(\phi,\phi_\mu,\phi_{\mu\nu})$ in $\J^k\Ci$ ($k\leq2$) and, once $\phi$ is expressed as a solution of the Euler--Lagrange equations (\ref{least_action}), their plane--wave \emph{on--shell} expansion can be promoted to an operator in terms of the \emph{creation} and \emph{annihilation}  operators on the Fock space, giving so--called \emph{commutation relations at equal time} for $x,y\in\R^{1,3}$, $x^0=y^0$, being
+    $$[\phi(x),\pi(y)]\quad\text{if bosonic}\quad\{\phi(x),\pi(y)\}\quad\text{if fermionic}$$
+    proportional to some Dirac delta $\delta^3(\mathbf{x}-\mathbf{y})$.
+
+    \item Same.
+
+    \item Make quantum particles interact in spacetime by coupling the Lagrangians of the correspondent fields, through the \emph{interacting} or \emph{perturbative quantum field theory}.
+
+    \item Compute expectation values of interactions through Feynmann diagrams and, if needed, renormalize the theory.
+\end{enumerate}
+
+\begin{remark}
+    By the way, it is worth stressing here that quantisation procedures are always ill--defined: they always require a quantum leap to jump from a classical to a quantum viewpoint. As a matter of fact, one should define a quantum theory axiomatically and then investigate its classical limit. However, we consider quantisation as a list of motivations for the axiomatic definition of the quantum theory that we shall do $($see \emph{\cite{LN3})}.
+\end{remark}
+
+Through canonical second quantisation, one is able to quantize the main field theories given in Examples \ref{field_theories}, but also, other theories arise, which seem to perfectly fit with a quantum gravity model. 
+
+%$$\vdots$$
+%$$\text{intro to Yang--Mills theories}$$
+%$$\vdots$$
+
+\subsubsection{Yang--Mills theories}
+In the framework of a principal bundle $P\to\M^{1,n}$ over a spacetime, Yang--Mills theories are gauge--natural theories on the configuration bundle $\Ci=\Lor(\M)\times_\M\Con(P)$\footnote{Given two bundles $(B_1,\pi_1,\M,F_1)$ and $(B_2,\pi_2,\M,F_2)$ over the same base space, then the fibered product total space is defined as $B_1\times_\M B_2:=\{(b_1,b_2)\in B_1\times B_2\,|\,\pi_1(b_1)=\pi_2(b_2)\}$, so that the projection $\pi_{1\times2}:B_1\times_\M B_2\to\M$ define a fiber bundle of standard fiber $F_1\times F_2$.} with fibered coordinates $(x^\mu,g_{\mu\nu},\omega_\mu^A)$ and Lagrangian given on the form 
+\,\newline
+$$\mathbf{L}_{\text{\normalfont{YM}}}:=-\frac{\sqrt{g}}{4\boldsymbol{\kappa}}F_{\mu\nu}^AF_A^{\mu\nu}\,\d\boldsymbol{\sigma}$$
+where $F_{\mu\nu}^A$ stands for the curvature of the connection $\omega$ and $F^{\mu\nu}_A:=\delta_{AB}F^B_{\alpha\beta}g^{\alpha\mu} g^{\beta\nu}$, for $\boldsymbol{\kappa}$ physical constant, having assumed that the Lie algebra $\mathfrak{g}$ of the gauge group $\G$ to be \emph{semisimple} (see \cite{kirillov}). %Theorem \ref{least_action} here yields
+%\begin{align*}
+    %\delta\mathbf{L}_{\text{\normalfont{YM}}}=\frac{\sqrt{g}}{\kappa}\Biggl[-\frac{1}{2}\underbrace{\bigg(F_{\mu\alpha}^AF_{A\nu}^\alpha-\frac{1}{4}F_{\beta\alpha}^AF_A^{B\alpha}g_{\mu\nu}\bigg)}_{=:\kappa\T_{\mu\nu}^{\text{\normalfont{YM}}}}\delta g^{\mu\nu}-F_A^{\mu\nu}\nabla_\mu\delta\omega_\nu^A\Biggl]\d\boldsymbol{\sigma}
+%\end{align*}
+
+Yang--Mills theories are quantized through an argument which involves the \emph{loop representation} of connections (see Theorem \ref{holonomy_repr_conn}), and they provide a prototype of a quantum gravity model. Indeed, by writing a field theory which depends on the field $\omega_\mu^A$ alone, a system with only the field $\omega$ on spacetime and no interaction with anything else could be described, and this is how the gravitational field should behave. 
+
+Physically, each field should interact at least with the gravitational field.
+
+
+\subsection{Interlude: vielbeins and spin frames}\label{interlude}
+
+The tedradic formulation of GR is the very first step towards a Yang--Mills--like formulation of Einstein field theory as a gauge--theory with dynamical variables a \emph{vielbein} (german word for \emph{tetrad}) $e^I_\mu$ and a \emph{spin connection} $\omega^{IJ}_\mu$ and, last but not least, it makes manifest the background--free essence of the theory, washing off the need of considering the metric field as a dynamical variable in the model. For that, we dedicate this section to an exhaustive mathematical well--founded formulation of these fundamental objects.
+
+Consider so a bare manifold $\M^n$ supporting a Riemannian metric $g$ of signature $\eta=(s,t)$ and a frame bundle $L(\M^\eta,g)\to\M^\eta$ on it; furthermore, let us recall definitions
+of the following fundamental $\frac{n(n-1)}{2}$--dimensional compact Lie subgroups of the non--compact $n^2$--dimensional Lie group $\GL_{s+t}$
+$$\O(\eta):=\{\Lambda:T_x\M\to T_x\M\,|\,g(\Lambda v,\Lambda w)=g(v,w)\,,\,\,\,\forall v,w\in T_x\M^\eta\}$$
+$$\SO(\eta):=\{\Lambda\in\O(n)\,|\, \det(\Lambda)=+1\}$$
+We already know that moving frames induce local trivialisations on $L\M$ where transition maps are given with $\GL_n$--valued cocycles, in the form
+$$\begin{matrix}
+    \t:U\times\GL_n\to U\times\GL_n\\
+    \qquad (x^\mu,e_I^\mu)\mapsto(x^\mu,\J^\mu_\nu(x)e_I^\nu)
+\end{matrix}$$
+but when a metric is there, frames can be $g$--orthonormal, i.e. they can satisfy at
+$$g_{\mu\nu}=e^I_\mu\,\eta_{IJ}\,e^J_\nu$$
+where $\eta_{IJ}\in\{\pm1\}$ are the components of the the Minkowski--$\eta$---which would be seen not as a metric field but as a canonical object on $\M^{s,t}$, as the Kronecker--$\delta$ does on $\M^{0,n}$---and $e^I(x^\mu)=e^I_\mu(x)\,\d x^\mu$ defines a so--called \emph{co--frame} as a section of \emph{co--frame bundle}, obtained from the co--tangent bundle instead of the tangent one through an analogue procedure.
+
+This way, transition maps of $L\M$ certainly reduce to $\O(\eta)$--valued cocycles, modulo some topological conditions impose by the generic signature: e.g. in Euclidean signature $\eta=(0,n)$ such a reduction is always possible since there are no obstruction to the existence of such a Riemannian metric, while in Lorentzian signature one has the following
+
+\begin{remark}[On obstruction to lorentzian metrics]
+    A smooth manifold $\M^{n+1}$ does admit a Riemannian metric $g$ of signature $\eta=(s,t)$ with $s+t=n+1$ \emph{iff} its tangent bundle $T\M\to\M$ reduces to a subbundle of fiber $\O(s,0)\times\O(0,t)\subseteq\GL_{s+t}$. From this, the particular case of Lorentzian signature $\eta=(1,n)$ follows.
+\end{remark}
+\,\newline
+Moreover, if one asks for the topological condition on $\M^\eta$ to be \emph{orientable}, then cocycles reduce to $\Lambda^\mu_\nu:U\to\SO(\eta)$ whose transition maps read as
+
+$$\begin{matrix}
+    \t:U\times\SO(\eta)\to U\times\SO(\eta)\\
+    \qquad (x^\mu,e_I^\mu)\mapsto(x^\mu,\Lambda^\mu_\nu(x)e_I^\nu)
+\end{matrix}$$
+defining the so--called \emph{orthonormal frame subbundle} $\SO(\M,g)$.
+\begin{prop}\label{metric_1_1_frames}
+    There is a one--to--one correspondence among moving frames and metric fields:\, moving frames uniquely determine a $($or induce a unique$)$ metric field with respect to which they are orthonormal.%Orthonormal moving frames uniquely determine metric fields.
+\end{prop}
+
+\begin{proof}
+    Consider a Riemannian manifold $(\M^\eta,g)$ with $\eta=(s,t)$ and $s+t=n$ as usual, and let $(U,x^\mu)$ be a chart from the atlas of $\M$. Define moving frames and co--frames as $e_\mu:=e_I^\mu\der_\mu$ and $e^I_\mu:=({e^\mu_I})^{-1}\in\GL_n$, then it holds
+$$\begin{cases}
+    e_\mu=e_I^\mu\,\der_\mu\in\Sec{T^1_0\M}\\
+    e^\mu=e^I_\mu\,\d x^\mu\in\Sec{T_1^0\M}
+\end{cases}$$
+ which hence allows us to regard $e_I,e^I\in\Cinf\left({U,{\SO(\M,g)}}\right)$ as sections of the orthonormal frame bundle.
+ 
+ A direct computation thence shows
+$$\eta_{IJ}=g(e_I,e_J)=g\bigg(e^\mu_I(x)\der_\mu,e^\nu_J(x)\der_\nu\bigg)=e^\mu_I(x)\,e^\nu_J(x)\,g(\der_\mu,\der_\nu)$$
+implying
+$$g_{\mu\nu}=e^I_\mu(x) e_\nu^J(x)\,\eta_{IJ}$$
+We have just characterised the metric field $g$ to be uniquely determined as
+$$g=e^I_\mu(x)\,\eta_{IJ}\,e_\nu^J(x)\,\d x^\mu\otimes\d x^\nu$$
+locally in a chart $(U,x^\mu)$ around $x\in\M^\eta$.
+
+Indices $\mu$ and $I$ are respectively \emph{tangential} and \emph{frame indices}, they both span in $\{1,\hdots,n\}$ and they are raised up or lowered down respectively through $g_{\mu\nu}$ and $\eta_{IJ}$.\, Notice that, for a given metric $g$ there are instead infinitely many frames which are $g$--orthonormal, so the corresepondence is not bijective.
+
+
+\end{proof}
+
+%Even when a metric is there, the frame bundle of $\M^\eta$ is still principal and it does not have sections in general, unless it is trivial---by Theorem 1.3.1---in which case one says that $\M$ is \emph{parallelisable}. 
+
+
+In order to have globally--defined frame fields, which would identify a global defined metric, we should ask for the frame bundle to be trivial (equivalently $\M$ to be \emph{parallelisable}), but this requirement turns out to be too strict, since we would like to consider also non--parallelisable manifolds in our discussion (e.g. the sphere $\S^2$).
+
+For that, accordingly with (\ref{sections}), two nearby moving frames $e_I,e_I'$ define the same \emph{global metric} if and only if they transform well, i.e. as
+$${e'}_I^\mu(x')=\J^\mu_\nu e^\nu_J(x)\,\overline{\Lambda}^J_I(x)\quad\text{for}\quad\Lambda^J_I:U\to\SO(\eta)$$
+This allows us to construct a fiber bundle whose sections are the so--called \emph{vielbeins}, by means of implementing the above gauge--natural transformation rules. 
+
+Indeed, in according with the following
+
+%where we recognise them to be transformation rules for gauge--natural bundle (not only natural). Thus, we follow the path discussed in Section \ref{gauge_theories} and require the configuration bundle to be
+%$$\Ci=\Lor(\M)=P\times_{\SO(\eta)}\left({\R^\eta}^*\odot{\R^\eta}^*\right)$$
+%where $P\to\M^\eta$ is a principal $\SO(\eta)$--bundle. Transition maps are in the form
+%$$\begin{matrix}
+    %\widehat{\t}_{\alpha\beta}:U_{\alpha\beta}\times\left({\R^\eta}^*\odot{\R^\eta}^*\right)\to U_{\alpha\beta}\times\left({\R^\eta}^*\odot{\R^\eta}^*\right)\\
+    %\qquad(x^\mu,g_{\mu\nu})\mapsto\left(x^\mu,{(\Lambda\vartriangleright g)}_{\mu\nu}\right)
+%\end{matrix}$$
+%where $\Lambda^\mu_\alpha$ are cocycles of $P$ and ${(\Lambda\vartriangleright g)}_{\mu\nu}=\overline{\Lambda}^\alpha_\mu(x)\,\overline{\Lambda}^\beta_\nu(x)\,g_{\alpha\beta}$, as in Example \ref{ex_ass}. Here is the perfect timing to give the following
+
+
+\begin{defi}[Vielbein]
+    Let $P\xrightarrow{\vartriangleleft_{\G}}P\xrightarrow{\pi}\M^\eta$ be a principal bundle, a \emph{tedrad (}or \emph{vielbein)} is defined as a principal morphism $\e:P\to L\M^\eta$ which is also vertical \emph{(i.e.} it preserves the bundle projection $\pi)$ and equivariant;\, in other words the following diagram
+    \[\begin{tikzcd}
+P\arrow{r}{\e} \arrow[swap]{d}{\vartriangleleft_{\G}} & L\M^\eta \arrow{d}{\blacktriangleleft_{\GL_n}} \\
+P\arrow{r}{\e}\arrow[swap]{d}{\pi} & L\M^\eta\arrow[swap]{d} \\
+\M^\eta\arrow{r}{\id} & \M^\eta
+\end{tikzcd}
+\]   
+    commutes on both its the upper and lower part.
+\end{defi}
+\,\newline
+one can argue as in Example \ref{ex_ass} and construct the so--called \emph{vielbein bundle} as $\mathcal{F}(P):=L\M\times_\lambda\GL_n$ associated to the frame bundle through the following left--action
+$$\begin{matrix}
+    \lambda:\left(\SO(\eta)\times\GL_n\right)\times\GL_n\to\GL_n\\
+        \qquad\qquad\quad(\Lambda^J_I,\J^\mu_\nu,\,e^\nu_J)\mapsto {e'}^\mu_I
+    \end{matrix}$$
+This turns out to be a gauge--natural bundle, being frame fields $e^\mu_I$ not natural objects (as it is the metric field ${g'}_{\mu\nu}=\J_\mu^\alpha\,g_{\alpha\beta}\,\J^\beta_\nu)$, being instead gauge--natural objects affected by gauge--transformations in $\G=\SO(\eta)$.
+
+Sections of $\mathcal{F}(P)$ are in one--to--one correspondence with vielbeins $\e:P\to L\M$ and, moreover, it always allows global sections (see Section 2.7 \cite{fatib}). %\footnote{It is becoming a quite standard argument in such a variational--bundle framework, since it is quite straightforward to regard certain objects as a section of a (even ugly) bundles by implementing its transformation laws.};\, it is called \emph{vielbein bundle}.
+
+Transition maps are given in the form
+$$\begin{matrix}
+    \widehat{\t}:U\times\GL_n\to U\times\GL_n\\
+    \qquad\qquad(x^\mu,e^\mu_I)\mapsto(x^\mu,\J^\mu_\nu e^\nu_J\overline{\Lambda}^J_I(x))
+\end{matrix}$$
+and Proposition \ref{metric_1_1_frames} yields the existence of a global bundle morphism
+$$\begin{matrix}
+    g:\mathcal{F}(P)\to\Lor(\M)\\
+    \qquad\quad(x^\mu,e^\mu_I)\mapsto(x^\mu,e_\mu^I\,\eta_{IJ}\,e^J_\nu)
+\end{matrix}$$
+which induces a global metric field $g=g_{\mu\nu}\d x^\mu\odot\d x^\nu:\M^\eta\to\Lor(\M)$, %in the form $g\circ\e$, 
+for a given vielbein $\e:\M^\eta\to\mathcal{F}(P)$.
+
+%\begin{teo}
+%Let $\M^\eta$ be any smooth manifold without any given structure on it and let $P\to\M$ be a principal $\G$--bundle over it;\, then, each vielbein $\e:P\to L\M^\eta$ induces a global Riemannian structure $(\M^\eta,g)$.
+%\end{teo}
+%\begin{proof}[Idea of the proof]
+    %One considers a moving frame $e_I\in\Gamma(L\M^\eta)$ which, by Lemma1, induces a metric field on the form
+   % $$g=e_\mu^I\eta_{IJ}e_\nu^J\,\d x^\mu\otimes\d x^\nu$$
+    %and then constructs a global bundle morphism
+    %$$\begin{matrix}
+    %g:\mathcal{F}(P)\to\Lor(\M)\\
+    %\qquad(x^\mu,e^\mu_a)\mapsto(x^\mu,g_{\mu\nu})
+   % \end{matrix}$$
+    %which, by means of vielbeins $\e\in\Sec{\mathcal{F}(P)}$ as equivariant maps, assures the induced metric field $g:=g\circ\e\in\Sec{\Lor(\M)}$ to be global.\\
+    
+%\end{proof}
+
+\begin{remark}\label{backgroundfree}%[On background--independence]
+    The above argument provides a framework in which there is no metric--dependence at a fundamental level: one starts from a gauge--natural bundle $P$ and constructs $\mathcal{F}(P)$ with no need of any a--priori fixed metric on \,$\M^\eta$; the metric--inducing morphism turns out to be \emph{canonical}, so that it provides a canonical way to describe \emph{GR} by means of vielbeins $($and, later, spin frames$)$. 
+    
+    Such an argument strengthens the background--free essence\footnote{Always keep in mind Remarks \ref{bare} and \ref{hole}.} of a gravitational theory, which has to take place on a bare manifold.
+    %In such a framework, we refer to $\M^\eta$ as a \textbf{bare manifold} and we take such a result as the definition of what a \emph{background--free} theory is: a field theory on a bare manifold. 
+\end{remark}
+
+\subsubsection{Construction of spin connections}
+    In complete analogy with what we did before, we can construct \emph{spin--frames}, being nothing but vielbeins for \emph{spin bundles}, which are frame--bundles where the structure group is given by \emph{the} double covering of $\SO(\eta)$. 
+    
+    Their formulation is non--renounceable if one wants to account also spinor matter fields, moreover, the vielbein--spin frame formalism allows to work without a fixed metric, hence in the following only bare manifold possibly allowing metric of signature $\eta$ are considering.\\
+
+    
+    We shall start by the following
+
+%\begin{remark}
+    %Notice that the previous definition is actually based on the complete \emph{universal coverings} theory. As a special case recall the fundamental group of the special orthogonal group being $\pi_1(\SO(3))\cong\ker(\varsigma)\cong\Z_2$.
+%\end{remark}
+\,\newline
+\begin{defi}[Clifford algebra]\label{clifford}
+    Let $V$ be a vector space with a non--degenerate quadratic form $\eta:V\times V\to\R$ of signature $(s,t)$. Consider then the covariant tensor algebra $\mathcal{T}^*(V)$\footnote{It is defined as 
+    $$\mathcal{T}^*(V):=\bigoplus_{k\geq0}T^0_k(V)$$
+    and it is a $\Z$--graded algebra with the tensor product $\otimes$.} and let $\mathcal{I}(\eta)$ be the bilateral ideal generated by elements of the form $v\otimes v+\eta(v,v)\1$, for each $v\in V$, so that the quotient space $\Cl(\eta):=\nicefrac{\mathcal{T}^*(V)}{\mathcal{I}(\eta)}$ is an algebra so--called \emph{Clifford algebra} whose product is denoted by $\mathbf{t}\,\mathbf{r}:=[\,\t\,]\cdot[\,\r\,]=[\t\otimes\r]$, for any $\t,\r\in\mathcal{T}^*(V)$.
+\end{defi}
+
+One readily observes that a representative of $v\in\mathbf{v}\in\Cl(\eta)$ satisfies $v\otimes v=-\eta(v,v)\mathbb{1}$ and hence, for $v+w\in V$ it holds $\{\mathbf{v},\mathbf{w}\}:=[v\otimes w+w\otimes v]=-2\,\eta(v,w)\mathbb{1}$ for so--called \emph{anticommutator}. 
+
+By fixing an $\eta$--orthonormal basis $\{e_J\}_J$ for $V$, we just got the anticommutation relations of the Clifford algebra $\Cl(\eta)$\footnote{CFR with the Dirac matrices $\gamma^\mu\in\Cl(1,3)$ in Example \ref{field_theories}.}
+$$\{\mathbf{e}_I,\mathbf{e}_J\}=-2\eta_{IJ}\mathbb{1}$$
+Particularly, it holds $\mathbf{e}_I\mathbf{e}_J=-\ee_J\ee_I$ whenever $I\neq J$ while $\ee_I\ee_I=\pm\mathbb{1}$. From that, any independent Clifford element stands as a finite linear combination of products of different elements in the basis with ordered indices, i.e.
+$$\begin{matrix}
+    \ee_0:=\mathbb{1}&\ee_I&\ee_{IJ}:=\ee_I\ee_J&\ee_{IJK}:=\ee_I\ee_J\ee_K&\hdots&\ee:=\ee_0\ee_1\hdots\ee_{n-1}\\
+    \,&\,&\tiny{(I<J)}&(I<J<K)&\,
+    
+\end{matrix}$$
+{and constrains the dimension of the Clifford algebra to be $\dim\Cl(\eta)=\sum_k\binom{n}{k}=2^n$. 
+
+Moreover, parity is conserved and a $\Z_2$--graded algebra structure is induced, together with a $2^{n-1}$--dimensional even sub--algebra $\Cl^+(\eta)$, being spanned by the even products $\mathbb{1},\ee_{IJ},\ee_{IJKL},\hdots$\footnote{As a matter of fact, the Clifford algebra is an exterior algebra where the product does not satisfies $\ee^\mu\wedge\ee^\mu=0$ but instead $\ee_I\ee_I=\mp\mathbb{1}$.}, with a odd complement vector space $\Cl^-(\eta)$, being not an algebra since product of two odd elements is even.} \\
+
+{The following Proposition--Definition holds true}
+%$$\begin{cases}
+    %\{\mathbf{e}_i,\mathbf{e}_j\}=-2\eta_{ij}\mathbb{1}\\
+   % \{\mathbf{e}_i,\mathbf{e}_j\}=\mathbb{0\\}
+%\end{cases}$$
+
+
+
+{\begin{defi}[Spin group]
+Let $\Cl(\eta)=\Cl^+(\eta)\oplus\Cl^-(\eta)$ be a Clifford algebra over a vector space $V$ and consider vectors $v_1,\hdots,v_k\in V$ with unitary norms $\eta(v_j,v_j)=\pm1$. Then, elements of the form $\vv_1\hdots\vv_k\in\Cl(\eta)$ with $k\in\N$ even span a subgroup of $\Cl^+(\eta)$, so--called \emph{spin group} $\Spin(\eta)$.
+\end{defi}
+A spin group comes with the two--to--one Lie group homomorphism
+    $$\varsigma:\Spin(\eta)\xrightarrow{2-1}\SO(\eta)$$
+    with $\ker(\varsigma)\cong\Z_2$, i.e. the map $\varsigma$ is a double--covering of $\,\,\SO(\eta)$---see Section 15.4.8 of \cite{fatib}.\, When $\varsigma$ is surjective, an exact sequence of group is there
+    $$\{0\}\to\Z_2\to\Spin(\eta)\to\SO(\eta)\to\{0\}$$
+    and it does not split in $\Spin(\eta)=\SO(\eta)\times\Z_2$, in general.
+    
+    Through the Clifford algebras formalism, it can be shown the following}
+\begin{prop}\label{sl2C}
+Let $\Spin(n)$ be the spin group of Euclidean signature $\delta$ embedded in the spin group $\Spin(1,n)$ of Lorentzian signature $\eta$\footnote{In other words, $\Spin(n):=\Spin(0,n)\hookrightarrow\Spin(1,n)$.}, induced by $(\R^{1,n},\eta)\hookrightarrow(\R^n,\delta)$.\, Then
+    \begin{center}
+    \begin{tabular}{c|c|c}
+        $n$ & $\Spin(n)$&$\Spin(1,n)$\\
+        \hline
+        $1$ & $\O(1)\cong\Z_2$ &$\GL(1,\R)\cong\Z_2\times\SO(1,1)$\\
+        $2$ & $\U(1)$ &$\SL(2,\R)$\\
+        $3$ & $\SU(2)$ &$\SL(2,\C)$\\
+        $4$ & $\SU(2)\times\SU(2)$ &$\Sp(1,1)$\\
+    \end{tabular}
+\end{center}
+\end{prop}
+\,\newline
+Cases $\Spin(3)\cong\SU(2)$ and $\Spin(1,3)\cong\SL(2,\C)$ are particularly interesting in physics, since they encode respectively the non--relativistic and the relativistic spin groups. Also, we refer to Proposition 11.1 of \cite{spinor}, for a geometric proof which not involves Clifford algebras. \\
+
+{It is crucial to observe that, if one considers $V\cong T_x\M^\eta$ as vector space support of a Clifford algebra, for some manifold which supports a metric of signature $\eta$, then $\Cl(\eta)\supseteq\Spin(\eta)$ induces a spin structure on $\M^\eta$, as follow}
+
+\begin{defi}[Spin structures]
+    Consider a bare manifold $\M^\eta$ supporting a metric of signature $\eta$, then a \emph{spin bundle} over it is defined as a principal $\Spin(\eta)$--bundle $\widehat{P}\to\M$ satisfying the following conditions:
+    \begin{enumerate}
+        \item There exists a principal two--to--one bundle morphism $\widetilde{\varphi}:\widehat{P}\leftrightarrow\SO(\M,g)$, \emph{i.e.} the following diagram
+        \[\begin{tikzcd}
+\widehat{P}\arrow{r}{\widetilde{\varphi}} \arrow[swap]{d}{\vartriangleleft_{\Spin(\eta)}} & \SO(\M,g) \arrow{d}{\blacktriangleleft_{\SO(\eta)}} \\
+\widehat{P}\arrow{r}{\widetilde{\varphi}}\arrow[swap]{d} & \SO(\M,g)\arrow[swap]{d} \\
+\M^\eta\arrow{r}{\id} & \M^\eta
+\end{tikzcd}
+\]   
+commutes, for some metric $g$ of signature $\eta$.
+        \item $\widetilde{\varphi}$ is $\varsigma$--equivariant
+        $$\varphi(\widehat{p}\vartriangleleft\s)=\varphi(\widehat{p})\blacktriangleleft\varsigma(\s)\,, \quad\text{for each}\quad\widehat{p}\in\widehat{P},\,\s\in\Spin(\eta)$$
+        %where $\varsigma:\Spin(\eta)\to\SO(\eta)$ is the double cover defining the spin group.
+    \end{enumerate}
+    The pair $(\widehat{P},\widetilde{\varphi})$ is called a \emph{spin structure} over $(\M^\eta,g)$.
+\end{defi}
+\begin{remark}
+    Spin structures are necessary to define global Dirac equations. A manifold allowing a spin structure---\emph{i.e.} on which Dirac equation can be written---is called \emph{spin manifold} and it is denoted by $(\M^\eta,\widetilde{\e})$.
+\end{remark}
+  Existence of spin manifolds is subjected to topological obstructions related to the so--called Stiefel--Whitney class $w_q(\M)\in H^q(\M;\Z_2)$
+\begin{teo}
+    A manifold $\M^\eta$ admits a spin structure if and only if the second Stiefel--Whitney class vanishes, i.e. $w_2(\M^\eta)=0$.
+\end{teo}
+\begin{proof}
+    See \cite{spin}
+\end{proof}
+
+\begin{example}
+    \begin{itemize}
+    \item The sphere $\mathbb{S}^n$ for $n\geq2$ has a unique spin structure with principal $\Spin(n+1)$--bundle. So that, a spin bundle on $\S^2$ has fibers diffeomorphic to $\SU(2)$.
+    \item $\C\mathbb{P}^n$ $($does not$)$ admits a spin structure \emph{iff} $n$ is $($even$)$ odd.
+    \item A genus$-\g$ Riemann surface \emph{(i.e.} a connected $\C$omplex $1-$manifold$)$ admits $2^{2\g}$ non--equivalent spin structures.
+    \item Any compact orientable manifold $\M^n$ admits a spin structure, for $n\leq3$.
+    \item Any Calabi--Yau manifold admits a spin structure.
+    \item $\R^3\setminus\{0\}$ allows inequivalent spin strcutres (see \emph{\cite{jadwisin}}).
+\end{itemize}
+\end{example}
+
+
+\begin{defi}[Spin frame]
+    Let $\widehat{P}\xrightarrow{\vartriangleleft_{\Spin(\eta)}}\widehat{P}\xrightarrow{\pi}\M^\eta$ be a spin bundle, a \emph{spin frame} is defined as a principal morphism $\widehat{\e}:\widehat{P}\to L\M^\eta$ which is also vertical \emph{(i.e.} it preserves the bundle projection $\pi)$ and equivariant;\, in other words the following diagram
+    \[\begin{tikzcd}
+\widehat{P}\arrow{r}{\widehat{\e}} \arrow[swap]{d}{\vartriangleleft_{\Spin(\eta)}} & L\M^\eta \arrow{d}{\blacktriangleleft_{\GL_n}} \\
+P\arrow{r}{\widehat{\e}}\arrow[swap]{d}{\pi} & L\M^\eta\arrow[swap]{d} \\
+\M^\eta\arrow{r}{\id} & \M^\eta
+\end{tikzcd}
+\]   
+    commutes on both its the upper and lower part.
+\end{defi}
+
+\begin{teo}
+Spin frames induce the subbundle of orthonormal frames:
+    $$\widehat{e}(\widehat{P})=\SO(\M^\eta,g)\subseteq L\M^\eta$$
+    for some metric $g$ of signature $\eta$ on $\M$.
+\end{teo}
+\begin{proof}[Idea of the proof]
+We are in the following framework
+     \[\begin{tikzcd}
+\widehat{P}\arrow{r}{\widehat{\e}} \arrow[swap]{d}{\vartriangleleft\s} & L\M^\eta \arrow{d}{\blacktriangleleft\imath\circ\varsigma(\s)} \\
+\widehat{P}\arrow{r}{\widehat{\e}}\arrow[swap]{d}{\widehat{\vartheta}} & L\M^\eta\arrow{d}{\pi} \\
+\M^\eta\arrow{r}{\id} & \M^\eta
+\end{tikzcd}\qquad\begin{tikzcd}
+\widehat{P}\arrow{r}{\widetilde{\e}} \arrow[swap]{d}{\vartriangleleft_{\Spin(\eta)}} & \SO(\M,g) \arrow{d}{{\blacktriangleleft'}_{\SO(\eta)}} \\
+\widehat{P}\arrow{r}{\widetilde{\e}}\arrow[swap]{d}{\widehat{\vartheta}} & \SO(\M,g)\arrow{d}{\vartheta} \\
+\M^\eta\arrow{r}{\id} & \M^\eta
+\end{tikzcd}
+\]  
+The key idea is to construct the bundle $\mathcal{F}(\widehat{P})$, whose sections are spin frames, together with a fibered morphism with $\Lor(\M)$, as such that the induced metric does restrict the image of the spin frame to the orthonormal frame bundle $\SO(\M,g)$.
+%$$\vdots$$
+%$$\text{pag 173}$$
+%$$\vdots$$
+
+\end{proof}
+
+Observe that any spin frame $\widehat{\e}:\widehat{P}\to L\M$ \emph{canonically} restricts to an equivariant principal morphism $\widetilde{\e}:\widehat{P}\to P$, i.e. it provides a spin structure $(\widehat{P},\widetilde{\e})$ over $\M^\eta$ %but at this stage, it seems that a fixed metric is there, this being not suitable for a right formulation of GR. This puzzle blurs away since 
+and that the just--proved theorem implies Remark \ref{backgroundfree} holds for spin frames as well, yielding a perfect framework to formulate GR possibly coupled with spinor fields, in according with the following
+
+\begin{defi}[Spinorial bundle]
+    Let $V$ be a $n$--dimensional vector space and $\M^\eta$ be a spin manifold of spin bundle $\widehat{P}\to\M$. Then, the associated bundle $\widehat{P}\times_{\Spin(\eta)}V=:\mathcal{S}(\widehat{P})$ defined by virtue of the left--action given by a representation $\varrho:\Spin(\eta)\to\GL_n$:
+    $$\begin{matrix}
+    \vartriangleright:\Spin(\eta)\times V\to V\\
+    \qquad (\s,v)\mapsto\varrho(\s)v
+    \end{matrix}$$
+    is called \emph{spinorial bundle} over $\M^\eta$ and sections $\Psi:\M\xrightarrow{\Cinf}\mathcal{S}(\widehat{P})$ are called \emph{spinors} $($or spinorial fields$)$.
+\end{defi}
+
+%As in every bundle theories we have treated so far, it is worth introducing here a connection to differentiate fields! 
+
+By summarizing, a spin manifold $(\M^\eta,\widetilde{\e})$ comes with a fixed spin frame $\widehat{\e}:\widehat{P}\to L\M$ which induces a global--defined metric field $g\in\Sec{\Lor(\M)}$, and since a metric field on $\M$ uniquely determines a Levi--Civita connection $\nabla$, induced in turn by a principal connection on $L\M$ locally represented by the Chrystoffels $\{g\}^\alpha_{\beta\mu}$, then we can pull--back it to the spin bundle $\widehat{P}$ along the fixed spin frame: what we will get is called \textbf{spin connection} and it will turn out fundamental in Holst--formulation of GR.
+
+For this reason, we are providing a fully characterisation of its local description
+
+\begin{teo}[Characterisation of spin connections]
+Let $(\M^\eta,\widetilde{\e})$ be a spin manifold, then there exists a principal connection on its spin bundle $\widehat{P}\to\M$ on the form  
+    $$\Gamma=\d x^\mu\otimes\left(\der_\mu-\omega^{IJ}_\mu(x)\,\sigma_{IJ}\right)$$
+for some skew--symmetric right--invariant basis of vector fields $\sigma_{IJ}$ in $\widehat{P}$.
+\end{teo}
+
+
+\begin{proof}
+    On a local chart $(U,x^\mu)$ of a bare manifold $\M^\eta$, let $\widehat{\e}:\widehat{P}\to L\M^\eta$ be a spin frame inducing some a--priori unfixed metric $g\in\Sec{T^*\M\odot T^*\M}$ satisfying $g_{\mu\nu}=e^I_\mu\,\eta_{IJ}\,e^J_\nu$, for some matrices $e^I_\mu\in\GL_n$ in the standard fiber of $\mathcal{F}(\widehat{P})$.\, Consider then a general moving frame $e_I\in\Sec{L\M}$, possibly expressed through a local section $\sigma:U\to\widehat{P}$ as 
+    $$
+    \widehat{\e}(\sigma(x))=\bigg(x,\overbrace{e^\mu_I(x)\der_\mu}^{=e_I(x)}\bigg)
+    $$
+    and two different fibered charts of coordinates $\left({x'}^\mu,\epsilon^\mu_I\right), \left(x^\mu,\alpha^J_I\right)\in U\times\GL_n$, respectively called \emph{natural} and \emph{adapted} coordinates. Lastly, let $\Gamma$ be a principal connection on $\widehat{P}$, then, in natural coordinates, it reads---for $\rho^\beta_\alpha=\epsilon^\beta_I\der^I_\alpha\in\mathfrak{gl}_n$
+    $$\Gamma=\d{x'}^\mu\otimes\left(\der_\mu'-\omega^\alpha_{\beta\mu}(x)\rho^\beta_\alpha\right)$$
+    Let us write $\Gamma$ in adapted coordinates as $\Gamma=\d x^\mu\otimes\left(\der_\mu-\omega^K_{J\mu}(x)\rho^J_K\right)$: since sections behave tensorially with respect to change of trivialisations, it is
+    \begin{equation}
+        e_I=\epsilon^\mu_I\der_\mu=\alpha^J_I e_J=\alpha^J_Ie_J^\mu\der_\mu
+    \end{equation}
+    and since the right--invariant vertical fields transform as $\rho^I_K=e^I_\nu\,\rho^\nu_\mu\,e^\mu_K$ then one gets\footnote{
+    Using the simplest sections invariance one can aim  $F({x'}^\mu,\epsilon^\alpha_I)=F(x^\mu,\alpha^J_I)$, chain rule yields
+    $$\frac{\der F}{\der x^\mu}({x'}^\mu,\epsilon^\alpha_I)=\frac{\der F}{\der{x'}^\mu}\frac{\der{x'}^\mu}{\der x^\mu}+\frac{\der F}{\der\epsilon^\alpha_I}\frac{\der\epsilon^\alpha_I}{\der x^\mu}\overbrace{=}^{(2.1)}\der_\mu'F+\der_\mu(\alpha^J_Ie^\alpha_J)\frac{\der F}{\der\epsilon^\alpha_I}$$
+    \begin{align*}
+        \Leftrightarrow\quad\der_\mu&=\der_\mu'+\alpha^J_I\,\der_\mu e^\alpha_J\frac{\der}{\der\epsilon^\alpha_I}=\der_\mu'+\der_\mu e^\alpha_J\,\alpha^J_I\,\epsilon^I_\beta\overbrace{\epsilon^\beta_K\der_\alpha^K}^{=\rho^\beta_\alpha}\\
+        &=\der_\mu'+\der_\mu e^\alpha_J\,\alpha^J_I\epsilon^I_\beta\,\rho^\beta_\alpha=\der_\mu'+\der_\mu e_J^\alpha\,e^J_\beta\rho^\beta_\alpha
+    \end{align*}
+    } the following transformation rules
+    $$\begin{cases}
+        \rho^\beta_\alpha=e^\beta_I\rho^I_Je^J_\alpha\\
+        \der_\mu'=\der_\mu-\der_\mu e^\alpha_I\,e^K_\alpha\rho^J_K
+    \end{cases}$$
+    which then imply
+    \begin{align*}
+        \Gamma&=\d{x'}^\mu\otimes\left(\der_\mu'-\omega^\alpha_{\beta\mu}(x)\rho^\beta_\alpha\right)\\
+        &=\d x^\mu\otimes\left(\der_\mu-\der_\mu e^\alpha_I e^K_\alpha \rho^J_K-\omega^\alpha_{\beta\mu}(x)e^\beta_I\rho^I_Je^J_\alpha\right)\\
+        &=\d x^\mu\otimes\left[\der_\mu-\left(\der_\mu e^\alpha_I\,e^K_\alpha+\omega^\alpha_{\beta\mu}(x)e^\beta_Je^K_\alpha\right)\rho^J_K\right]\\
+        &=\d x^\mu\otimes\left[\der_\mu-e^K_\alpha\left(\omega^\alpha_{\beta\mu}(x)e^\beta_J+\der_\mu e^\alpha_I\right)\rho^J_K\right]
+    \end{align*}
+    $$\Leftrightarrow\quad\omega^K_{J\mu}(x)=e^K_\alpha\left(\omega^\alpha_{\beta\mu}(x)e^\beta_J+\der_\mu e^\alpha_I\right)$$
+    Since there is an induced metric on $\M^\eta$, we now want to see how the reducuction of $L\M$ to $\SO(\M,g)$ affects the connection: indeed, restricting $\Gamma$ to the orthonormal subbundle does not keep it horizontal a--priori, so, somehow, we need to project it suitable. First, let us trace $\eta^{JK}\omega^I_{K\mu}=\omega^{IJ}_{\cdot\mu}$ and $\eta_{JK}\rho^K_I=\rho^\cdot_{JI}$ and split  
+    \begin{align*}
+        \Gamma&=\d x^\mu\otimes\left(\der_\mu-\omega^{IJ}_\mu(x)\rho_{JI}\right)\\
+        &=\d x^\mu\otimes\left(\der_\mu-\omega^{[IJ]}_\mu(x)\rho_{[JI]}\right)+\d x^\mu\otimes\left(\der_\mu-\omega^{(IJ)}(x)\rho_{(JI)}\right)\\
+        &=:\widehat{\Gamma}+\widetilde{\Gamma}
+    \end{align*}
+    It can be shown (see \cite{fatib}) that $\rho_{[JI]}=:\sigma_{IJ}$ are right--invariant vector fields which are tangent to the fibers of $\SO(\M,g)$ and, moreover, that there is a complete characterisation of connections on $\SO(\M,g)$ to be \emph{the all and the only} ones in the form $\widehat{\Gamma}=\d x^\mu\otimes\left(\der_\mu-\omega^{IJ}_\mu\sigma_{IJ}\right)$ , or, equivalently, the ones for which $\omega^{(IJ)}_\mu=0$. Finally, since $\varsigma:\Spin(\eta)\to\SO(\eta)$ is a two--to--one local diffeomorphism along the fibers of the following 
+    $$\widehat{P}\xrightarrow{\widetilde{\e}}\SO(\M^\eta,g)\hookrightarrow L\M^\eta$$
+    we are allowed to pull--back vector fields from $\SO(\M,g)$ to $\widehat{P}$ along $\widetilde{\e}$, while if $\widehat{\sigma}_{IJ}$ are right--invariant vector fields on $\widehat{P}$, they are naturally push--forwarded on $\SO(\M,g)$ via tangent maps. In details, for $\widehat{\xi}\in\V_{\widehat{p}}\subseteq T_{\widehat{p}}\widehat{P}$, it turns out
+    $$\widehat{\xi}=\widetilde{\e}\,^*(\xi)=-\frac{1}{4}\xi^{IJ}\gamma_I\gamma_J=\xi^{IJ}\widehat{\sigma}_{IJ}$$
+    for some $\xi=\xi^{IJ}\sigma_{IJ}\in\V_{\widetilde{\e}(\widehat{p})}$ and $\gamma_J\in\Cl(1,3)$. So, we just proved that $\Gamma=\d x^\mu\otimes\left(\der_\mu-\omega^{IJ}_\mu(x)\sigma_{IJ}\right)$ on $\SO(\M,g)$ induces a---so--called \emph{spin}---connection on $\widehat{P}$ given by
+    \begin{align*}
+        \widehat{\Gamma}&=\d x^\mu\otimes\left(\der_\mu-\omega^{IJ}_\mu(x)\widehat{\sigma}_{IJ}\right)\\
+        &=\d x^\mu\otimes\left(\der_\mu+\frac{1}{4}\omega^{IJ}_\mu(x)\gamma_I\gamma_J\,\right)
+    \end{align*}
+    and the theorem is proved.
+\end{proof}
+
+%Commento sul fatto che i fisici chiamano spin connection quella su $\SO(\M,g)$, giustamete i coefficienti sono uguali
+
+\begin{cor}\label{spin_connection}
+    In the setting of the previous theorem, there exists a unique skew--symmetric in $[IJ]$ and frame--compatible spin connection of coefficients
+    $$\{\e\}^{IJ}_\mu=e^I_\alpha\left(\{g\}^\alpha_{\beta\mu}e^\beta_K+\der_\mu e^\alpha_K\right)\eta^{JK}$$
+    where $\{g\}^\alpha_{\beta\mu}$ are the Chrystoffel symbols.
+\end{cor}
+
+\begin{proof}[Sketch of proof]
+    We just proved above that a spin connection does exist in $\widehat{P}$, induced by a principal connection on $\SO(\M,g)$ of coefficients
+    $$\omega^{IJ}_\mu=e^I_\alpha\left(\omega^\alpha_{\beta\mu}e^\beta_K+\der_\mu e^\alpha_K\right)\eta^{JK}$$
+    obtained by projecting a given principal connection $\omega^\alpha_{\beta\mu}$ on $L\M$. It can be checked that, once one chooses $\omega^\alpha_{\beta\mu}=\{g\}^\alpha_{\beta\mu}$, such a principal connection induces on sections of $\mathcal{F}(\widehat{P})$ a covariant derivative $\nablat$ compatible with spin frames, in the sense 
+    $$\nablat_\mu e^I_\nu=\der_\mu e_\nu^I+\omega^I_{J\lambda}e^J_\nu-\{g\}^\lambda_{\nu\mu}e_\lambda^I\overbrace{=}^{\nabla g=0}0$$
+    %while on $\mathcal{S}(\widehat{P})$ a covariant derivative for spinors
+    %$$\widehat{\D}_\mu\Psi=\der_\mu\Psi-\frac{1}{4}\{g\}^{ij}_\mu\gamma_i\gamma_j\,\Psi$$
+    Indeed, Levi--Civita $\{g\}$ on $L\M$ results in adapted coordinates as $\{g\}^I_{K\mu}=:\{\e\}^I_{K\mu}$ and it restricts properly to $\SO(\M,g)$ since $\{\e\}^{(IJ)}_\mu=0$.
+\end{proof}
+%Thus, $\omega^{IJ}_\mu$ will be our prototype of spin connection and when its covariant derivative $\nablaw$ satisfies the \emph{frame--compatibility condition}
+%$$\overset{\omega}{\nabla}$$
+%$$\widehat{\nabla}_\mu e^I_\nu=\der_\mu e_\nu^I+\omega^I_{J\lambda}e^J_\nu-\Gamma_{\nu\mu}e_\lambda^I\overbrace{=}^{\nabla g=0}0$$
+
+
+\subsubsection{On curvature of spin connections}
+The curvature of a spin connection $\omega^{IJ}_\mu$ is computed as usual through the curvature tensor $F_{\mu\nu}=[\nablaw_\mu,\nablaw_\nu]=\der_{[\mu}\omega_{\nu]}+[\omega_\mu,\omega_\nu]$ measuring the non--commutativity of the covariant derivative; in this case it locally reads as
+\begin{align*}
+R^I_{J\mu\nu}=&\,\,\der_\mu\omega^I_{J\nu}-\der_\nu\omega^I_{J\mu}+\omega^I_{K\mu}\omega_{J\nu}^K-\omega_{K\nu}^I\omega_{J\mu}^K\\
+    =&\,\,e^I_\alpha R^\alpha_{\beta\mu\nu}e^\beta_J
+    \end{align*}
+while its Ricci tensor and Ricci scalar 
+    \begin{align*}
+    R^I_\mu=&\,\,R^I_{I\mu\mu}=R^I_{J\mu\nu}e^{J\nu}=e^{I\alpha}R_{\alpha\mu}\\
+    \Scal=&\,\,e^\mu_I R^{IJ}_{\mu\nu}e^\nu_J=\Scal_{\e\circ g}
+    \end{align*}
+where $R^\alpha_{\beta\mu\nu}$ and $R_{\alpha\nu}$ are respectively the Riemann and the Ricci tensors defined in Section \ref{tensor_theory}, related to Levi--Civita $\nabla$. Surely
+\begin{equation}\label{spin_curv}
+\begin{split}
+    R^{IJ}_{\mu\nu}&=\der_\mu\omega_\nu^{IJ}+\omega^I_{K_\mu}\omega^{KJ}_\nu-[\mu\nu]\\
+    &=\der_{[\mu}\omega_{\nu]}^{IJ}+[\omega_\mu,\omega_\nu]^{IJ}  
+\end{split}
+\end{equation}
+where $- [\mu\nu]$ means "minus the same terms with the indices $[\mu\nu]$ exchanged". That allows us to define a skew--symmetric curvature 2--form on $\M^\eta$ as follow
+$$R^{IJ}=\frac{1}{2}R^{IJ}_{\mu\nu}\,\d x^\mu\wedge\d x^\nu$$
+
+
+%\subsubsection{On the background--free essence of gravitational theories}
+
+%Concludi con \textbf{bare manifolds} citando Remark \ref{backgroundfree} 
+
+%\emph{Real physics is in the quotient, on bare manifolds up to diffeomorphisms. The gravitational field is geometry which is in the quotient.}
+
+%\emph{Physical information is in the relations among observes, not in the observers themselves}
+
+
+\subsection{The Einstein metric--model for GR}
+
+Einstein's general theory of relativity is the prototype of a \emph{gravitational theory}, which refers to a general dynamical description of the spacetime structure.\, In our jargon, it is a natural--theory in the configuration bundle $\Ci=\Lor(\M)$ whose dynamics is solved by a spacetime geometry $(\M^{1,3},g)\in\left\{\left[\phi(\M),\phi_*g\right]\right\}$\footnote{See Remark \ref{hole}.} on which covariant Cauchy problems are in general ill--posed (see Section \ref{covariant_Cauchy}).\, We devote this section to the discussion of \emph{standard} GR, in its purely metric formulation: we derive field equations as they have been stated in Section \ref{gauge_theories} and provide a well--posed initial value problem for it, by reducing field equations in an ADM--foliation.
+
+ In its first naive physical formulation based on the \emph{equivalence principle} and the \emph{general covariance principle}, GR perfectly fits with the fiber bundle formalism of a variational field theory on a spacetime $(\M^{1,3},g)$, whose tangent bundle
+$$T\M^{1,3}\cong\bigsqcup_{\p\in\M}\{\p\}\times\R^{1,3}$$
+is made of Minkowskian fibers $\R^{1,3}:=(\R^4,\eta),\,\eta=\diag(-1,1,1,1)$, where different observers around a point $\p$ in spacetime within the same fiber $\R^{1,3}$ are modelled by different trivialisation of $T\M$ and transition maps $\g_{\alpha\beta}(\p):\R^{1,3}\to\R^{1,3}$ are diffeos with $\eta$--compatibility, i.e. so--called \emph{spacetime isometries} (Poincaré maps) and cocycles are $\SO(1,3)$--valued.\, Anyway, we want to set the theory in our formalism for relativistic theories so far developed. For that, let us consider a $2$--nd order Lagrangian of the form\footnote{Physical constant are $\boldsymbol{\kappa}:=8\pi Gc^{-3}$, $\sqrt{g}:=\sqrt{-\det(g)}$ and $\Lambda$ being so--called \emph{cosmological constant}}
+$$\mathbf{L}_H=\frac{\sqrt{g}}{2\boldsymbol{\kappa}}\left(\Scal_g-2\Lambda\right)\,\d\boldsymbol{\sigma}$$
+where configurations locally write as $\sigma(x)=\left(x^\mu,g_{\mu\nu}(x)\right)\in U\times\left(T^*_xU\odot T^*_xU\right)$ on $\Ci=\Lor(\M)$.\, Here one can choose coordinates in the first jet $\J^1\Ci$ given by the Chrystoffels 
+$$\{g\}^\alpha_{\beta\mu}=\frac{1}{2}g^{\alpha\rho}\left(\d_\beta g_{\rho\mu}+\d_\mu g_{\alpha\rho}-\d_\rho g_{\beta\mu}\right)$$
+since they depend on first derivatives of the metric, and coordinates in the second jet $\J^2\Ci$ given by the Riemann curvature and its non--trivial traces, since they depend on second derivatives of the metric
+$$\begin{cases}
+    {R^\alpha}_{\beta\mu\nu}=\d_\mu\{g\}^\alpha_{\beta\nu}+\{g\}^\alpha_{\rho\mu}\{g\}^\rho_{\beta\nu}-[\mu\nu]\\
+    R_{\beta\nu}={R^\alpha}_{\beta\alpha\nu}\\
+    \Scal_g=g^{\mu\nu}R_{\mu\nu}=\Scal_g(g_{\mu\nu},\d_\lambda g_{\mu\nu},\d_{\lambda\rho}g_{\mu\nu})
+\end{cases}$$
+ First of all observe that a deformation is here in the form $X=\delta g^{\mu\nu}\der_{\mu\nu}$ and being $\mathbf{L}_H\in\Omega^4(\J^2\Ci)$ we get $j^2X=\delta g^{\mu\nu}\der_{\mu\nu}+\d_\lambda\delta g^{\mu\nu}\der_{\mu\nu}^\lambda+\d_{\lambda\rho}\delta g^{\mu\nu}\der_{\mu\nu}^{\lambda\rho}$. Let us now denote by $\delta$ the variation along $X$, then the identity $\delta R_{\mu\nu}=\nabla_\lambda\delta u^\lambda_{\mu\nu}=\der_\lambda\delta_{\mu\nu}^\lambda+\{g\}^\lambda_{\mu\rho}\delta u^\rho_{\mu\nu}-\{g\}^\rho_{\lambda\nu}\delta u^\lambda_{\rho\nu}-\{g\}^\rho_{\mu\lambda}\delta u^\lambda_{\mu\rho}$, for $u^\lambda_{\mu\nu}:=\{g\}^\lambda_{\mu\nu}-\delta^\lambda_{(\mu}\{g\}^\rho_{\nu)\rho}$, yields
+$$
+    \delta\mathbf{L}_H=\,\,\frac{\sqrt{g}}{2\boldsymbol{\kappa}}\bigg(\overbrace{R_{\mu\nu}-\frac{1}{2}g_{\mu\nu} \Scal_g}^{=:\G_{\mu\nu}}+\Lambda\,g_{\mu\nu}\bigg)\delta g^{\mu\nu}\,+\d_\mu\left(\frac{\sqrt{g}}{2\boldsymbol{\kappa}}g^{\mu\nu}\,\delta u^\lambda_{\mu\nu}\right)\d\boldsymbol{\sigma}
+$$
+By arguing as in Theorem \ref{least_action}, integration by parts gives a vanishing boundary term from the pure divergence term and yields field equations on the form
+\begin{equation}\label{einstein}
+    \G_{\mu\nu}=-\Lambda\,g_{\mu\nu}
+\end{equation}
+which evidently shows that GR in its simplest formulation does not really resemble a gauge theory, since no finite--dimensional subgroup of $\Diffeo(\M)$ has come out here. %which allows to quantize the other main field theories of the Standard Model of particles! (see forthcoming Section \ref{standard_model}). 
+
+Equations (\ref{einstein}) are actually independent from the dimension and they hold true in any bare manifold $\M^{1,n}$ allowing a Lorentzian metric; in the physical four--dimensional spacetime, they are ten non--linear PDEs, so--called Einstein field equations.
+
+{One can also add to $\mathbf{L}_H$ a term $\mathbf{L}_{\text{matter}}$ representing the matter interaction, with respect which the stress--energy tensor $\T_{\mu\nu}$ can be computed, giving matter field equations
+\begin{equation}\label{matter_einstein}
+    \G_{\mu\nu}+\Lambda \,g_{\mu\nu}=\boldsymbol{\kappa}\T_{\mu\nu}
+\end{equation}}
+
+%\subsubsection{Equivalence with tetrads dynamics}
+%(cite Purely--metric and metric--affine Palatini formalism up to purely--frame and frame--affine)\\
+%\\
+%vielbeins $\e:\M\to\mathcal{F}(P)$---also called \emph{tedrads}---are morally sort of a square--root of the metric and they can be implemented in the Einstein model for gravity to reduce $\mathbf{L}_H\left[x^\mu,g_{\mu\nu},\{g\}^\alpha_{\beta\mu}\right]$ to a $1$--st order Lagrangian, recasting GR as a $1$--st order field theory in the fundamental fields $e^I_\mu\in\GL_4$. Indeed:
+%\begin{align*}
+ %   \sqrt{g}&:=\sqrt{-\det(g_{\mu\nu})}=\sqrt{-\det(e^I_\mu\eta_{IJ}e^J_\nu)}\\
+  %  &=-\det(\eta_{IJ})\sqrt{\det(e^I_\mu e^J_\nu)}=+\sqrt{\det(\e)^2}\\
+   % &=\det(\e)
+%\end{align*}
+%Now, by observing the following implications hold true
+%\begin{align*}
+ %   e^\lambda_Ie^I_\nu=\delta^\lambda_\nu\quad\Rightarrow\quad e^\lambda_I=\delta^\lambda_\nu e^\nu_I\quad\Rightarrow\quad\delta e^\lambda_I&=\cancel{\delta(\delta^\lambda_\nu)e^\nu_I}+\delta^\lambda_\nu\delta e^\nu_I=e^\lambda_I e^I_\nu\,\delta e^\nu_I\\
+  %  &=-e^\lambda_Je^\nu_I\,\delta e^J_\nu
+%\end{align*}
+%and by recalling that the \emph{vielbein connection} has coefficients on the form
+%$$\Gamma^I_{J\mu}=e^I_\alpha\left(\{g\}^\alpha_{\beta\mu}e^\beta_J+\der_\mu e^\alpha_J\right)$$
+%inducing  (thanks to $\nabla g=0$ of Levi--Civita) a frame--compatible covariant derivative on tedrads components on the form
+%$$\nablaw_\mu e^I_\nu=\der_\mu e^I_\nu+\Gamma^I_{J\mu}e^J_\nu+\{g\}^\rho_{\nu\mu}e_\rho^I=0$$
+%then we can easily compute $\nablaw\delta e^\lambda_I=-e^\lambda_J e^\nu_I\,\nablaw\delta e^J_\nu$ from which one infers
+%$$\begin{cases}
+   % \delta g^{\mu\nu}=\delta(e^\mu_I\eta_{IJ}e^\nu_J)=2e^{I\mu}\delta e^\nu_I\\
+  %  g^{\mu\nu}\delta u^\lambda_{\mu\nu}=\left(2e^I_\beta g^{\lambda\rho}-\delta^\lambda_\beta e^{I\rho}-\delta^\rho_\beta e^{I\lambda}\right)\nablaw_\rho\delta e^\beta_I
+%\end{cases}$$
+%Finally, recalling (\ref{spin_curv}), the Hilbert--Einstein Lagrangian recasts as
+%$$\mathbf{L}_H=\frac{\det(\e)}{2\boldsymbol{\kappa}}\left(e^\mu_IR^{IJ}_{\mu\nu}e^\nu_J-2\Lambda\right)\d \boldsymbol{\sigma}$$
+%for $\sigma(x)=\left(x^\mu,e^I_\mu\eta_{IJ}e^J_\nu\right)$---in this new dynamical variables;\, its variation then reads as
+%$$\delta\mathbf{L}_H=\frac{1}{\boldsymbol{\kappa}}\Biggl[\det(\e)\left(R^I_\nu-\frac{1}{2}\Scal_{e\circ g}e^I_\nu+\Lambda e^I_\nu\right)\delta e^\nu_I+\nablaw_\lambda\left(\frac{\det(\e)}{2}g^{\mu\nu}\delta u^\lambda_{\mu\nu}\right)\Biggl]\d\boldsymbol{\sigma}$$
+%and integration by parts Theorem \ref{least_action}--like provides Einstein field equations for tedrads
+%$$R^I_\mu-\frac{1}{2}\Scal\,e^I_\mu=-\Lambda\,e^I_\mu$$
+%proving the dynamical equivalence among GR and tedrad formulation.
+
+\subsubsection{Bulk and gauge Einstein equations}\label{canonical_GR}
+
+For the time being, we just presented GR in its original covariant formulation as a natural--theory whose equations determine a spacetime geometry: try to interpret solutions of equations (\ref{einstein}) as space geometries evolving in time would be natural too. Such a problem takes place in the framework of covariant Cauchy problems that we have already seen to be ill--posed in general, due to the hole--argument.\, However, a well--posed initial value problem for Einstein equations can still be yielded.
+
+Consider an ADM--foliation in $(\M^{1,3},g)$ providing us with a globally hyperbolic structure $\M\cong\R\times\Sigma$ with local coordinates $(t,k^a)$, so that a vector $\xi\in T_\p\M$ splits in the foliation as
+$$\xi=-g(\xi,\n)\n+(\xi+g(\xi,\n)\,\n)$$
+if $\n$ defines a time--like unit normal vector field on $\Sigma$.\, Asking for the time evolution to stand along the flow of the vector field $\der_t$, the above splitting yields
+\begin{align*}
+    \der_t&=-g(\der_t,\n)\n+(\der_t+g(\der_t,\n)\n)\\
+    &=:N\n+\boldsymbol{\beta}
+\end{align*}
+and---said $\nabla$ the Levi--Civita connection of the metric $g$
+\begin{align*}
+    \nabla_XY&=-g\left(\nabla_XY,\n\right)\n+\left(\nabla_XY+g\left(\nabla_XY,\n\right)\n\right)\\
+    &=:\kappa(X,Y)\n+D_XY
+\end{align*}
+where $N,\boldsymbol{\beta}$ are the famous \emph{lapse function} and \emph{shift vector}, $\kappa$ is the \emph{second fundamental form} of $\Sigma\hookrightarrow\M$ and $D_\cdot\cdot$ identifies the Levi--Civita connection of the metric $g_\Sigma=:q$ induced on the leaves of the foliation. Since $\mathbf{n}$ depends on the metric $g$, being a unit vector, then lapse and shift uniquely determines the global spacetime metric, the correspondence $g_{\mu\nu}\leftrightarrow(N,\boldsymbol{\beta},q_{ab})$ being one--to--one.
+
+Eventually, we have just constructed a framework on which a globally hyperbolic spacetime $(\M^{1,3},g)$ foliates in a family of Riemannian manifolds $(\Sigma^3,q)$ and it turns out natural to use Gauss--Codazzi equations\footnote{See Section 2.1 of \cite{lee}.} in order to study the intrinsic and extrinsic curvature properties of the hypersurfaces with respect to the ambient manifold.\\
+\,\newline
+Applying them to the (vacuum) Einstein equations %(\ref{einstein})
+$$\G^\mu_\nu=R^\mu_\nu-\frac{1}{2}\delta^\mu_\nu\Scal_g=0$$
+yields
+$$\begin{cases}
+    \G^0_0=-\frac{1}{2}\bigg(\Scal_q+\tr_q(\kappa)^2-\tr_q(\kappa^2)\bigg) &\text{Gauss or diffeomorphism constraint}\\
+    \G^0_i=\left(\Div_q(\kappa)\right)_i-D_i\tr_q(\kappa)^2 &\text{Codazzi or Hamiltonian constraints}
+\end{cases}$$
+which points out that only the six equations $\G_{ij}=0$ are bulks for the six bulk fields $q_{ij}$, while the other four are gauges, being constraints on the extrinsic curvature of the spatial leaves.\, This provides us with a well--posed Cauchy problem for $\G_{ij}(q_{ij})=0$.\\
+\,\newline
+As a matter of fact, we have seen in Section \ref{covariant_Cauchy} that such a formulation of the Cauchy problem for GR is not actually well--founded, since it seems to be obtained by working with a fixed metric. The underlying purpose of anyway presenting this classical argument would be outlining its critical issues: indeed it can be reformulated in the more suitable fashion of Cauchy bubbles, on which the following fundamental result holds true
+
+%The subject of constrained Hamiltonian systems was pioneered by Dirac \cite{dirac} in the 1950s
+
+%$$\vdots$$
+%$$\text{pag 429 Baez: attempt to canonically quantize GR}$$
+%$$\text{Dirac argument for physical states}$$
+%$$\text{Wheeler--De Witt equation and standstill of this approach!}$$
+%$$\text{E' qui che l'approccio self--dual di Ashtekar sblocca la situa fino ad arrivare a noi}$$
+
+\newpage
+\begin{teo}[Choquet--Bruhat and Geroch \cite{lee}]\label{geroch}
+    Let $(\Sigma^n,q)$ be a smooth Riemannian manifold and let $\kappa\in\Sec{T^*\Sigma\odot T^*\Sigma}$ be a symmetric $(0,2)$--tensor field on $\Sigma$. Suppose the following equations hold true
+    $$\begin{cases}
+    \Scal_q+\tr_q(\kappa)^2-|\kappa|_q^2=0\\
+        \Div_q(\kappa)-D\tr_q(\kappa)
+    \end{cases}
+    $$
+    Then, there exists a spacetime $(\M^{1,n},g)$ solving \emph{(\ref{einstein})} %in vacuum, 
+    such that $(\Sigma,q)$ isometrically embeds into $(\M,g)$ as a Cauchy surface of second fundamental form $\kappa$. Moreover, this solution is the unique \emph{(}up to isometries\emph{)} maximal globally hyperbolic solution, meaning that $(\M,g)$ does not sit inside any larger globally hyperbolic spacetime.\, In jargon, the spacetime $(\M,g)$ is the \emph{vacuum development} of the initial data $(\Sigma,q,\kappa)$.
+\end{teo}
+\begin{proof}
+    See \cite{geroch}.
+\end{proof}
+It has to be noticed the above theorem to stand as a particular case of Theorem \ref{geroch_th}, applied to the covariant Cauchy problem of GR.
+
+
+
+\newpage
+\section{General Reltivity as a gauge--natural theory}\label{gauge_GR}
+
+In this section we will show that, in order to apply kind of Yang--Mills--like quantisation to GR, we have to formulate it as a $\SU(2)$--gauge theory in the spatial leaves of an ADM--splitting: firstly, we will formulate so--called Holst model for gravity as a $\SL(2,\C)$--gauge theory in a $4$--dimensional spacetime, and we will show it is equivalent to the Einstein--metric GR;\, then, we will reduce it to a $\SU(2)$--gauge theory, still in spacetime, and we will find its constraint equations in such a reduction through the covariant Hamilton--Jacobi approach.
+
+
+\subsection{The gravitational Holst model}
+
+Yet, along the whole previous sections, we saw bit by bit that GR has to be considered as a field theory over a \emph{bare manifold}, in which all (non--canonical) structures must be dynamically determine by field equations. For this reason, spin--frame formulation of GR better fits with its backgorund--free essence:
+%frame bundle here is $\SO\left(\M^{1,3}\right)\to\M^{1,3}$ and so
+%$$\text{tg bundle as associated, global and local description}$$
+%%$$\text{Equivalence among GR and vielbein dynamics}$$
+%$$\vdots$$
+%$$\text{gauge--bundle formulation}$$
+so we let spacetime $\M^{1,3}$ be also a \emph{spin manifold}, with spin structure on the form $(P,\widetilde{\e})$ induced by some fixed spin frame $\e:P\to L\M$ such that $\widetilde{\e}=\e_{|_{\Im(\e)}}$;\, clearly $P$ is a $\Spin(1,3)\cong\SL(2,\C)$--principal bundle and by setting up a representation $\ell:\Spin(1,3)\to\End(\R^{1,3})$\footnote{Notice that the representation $\ell$ is really well known, being nothing but the composition of the double covering map $\Spin(1,3)\xrightarrow{\varsigma}\SO(1,3)$ with the embedding $\imath:\SO(1,3)\hookrightarrow\GL_4(\R)$.
+}  we are in the following framework 
+
+\[\begin{tikzcd}\label{holst_diagram}
+P\arrow{r}{\e} \arrow[swap]{d}{\vartriangleleft\s} & L\M^{1,3} \arrow{d}{\blacktriangleleft\ell(\s)} \\
+P\arrow{r}{\e}\arrow[swap]{d}{\pi} & L\M^{1,3}\arrow{d}{\Pi} \\
+\M^{1,3}\arrow{r}{\id} & \M^{1,3}
+\end{tikzcd}\qquad\begin{matrix}
+    \text{(equivariance)}\\
+    \e(p\vartriangleleft\s)=\e(p)\blacktriangleleft\ell(\s)\\\,
+    \text{(verticality)}\\
+    \pi(p\vartriangleleft\s)=\pi(p)\\
+    \text{and}\\
+    \Pi\left(\e(p)\blacktriangleleft\ell(\s)\right)=\Pi(\e(p))
+\end{matrix}\]
+A moving frame $e_I=e_I^\mu\,\der_\mu:\M\to L\M$ induces natural coordinates $(x^\mu,e^\mu_I)$ on $L\M$ and a global--defined metric field $g\circ\e=g_{\mu\nu}\,\d x^\mu\otimes\d x^\nu$ such that
+$$g_{\mu\nu}=e_\mu^I\,\eta_{IJ}\,e_\nu^J$$
+while on the principal bundle $P$ one can induce trivialisations $\t_\sigma$ through a uniquely determined %(because $\vartriangleleft$ is free) 
+local section $\sigma:U\to\pi^{-1}(U)$ on the form\footnote{See Remark \ref{moving_frames}.}
+$$\begin{matrix}
+    \t_\sigma:\pi^{-1}(U)\to U\times\SL(2,\C)\\
+    \sigma(x)\vartriangleleft\s\mapsto(x,\s)
+\end{matrix}$$
+Transition maps are given in the form
+$$\begin{cases}
+    x'=x\\
+    \s'=\varphi(x)\vartriangleleft\s
+\end{cases}\quad\text{for cocycles}\quad\varphi:U\to\SL(2,\C)$$
+and by moving towards another trivialisation $\t_{\sigma'}$ one gets
+$$\begin{cases}
+    
+    {x'}^\mu={x'}^\mu(x)\\
+    \sigma'(x)=\sigma(x)\vartriangleleft\overline{\varphi}
+\end{cases}\quad\text{where}\quad\overline{\varphi}:={\varphi(x)}^{-1}\in\SL(2,\C)$$
+which implies an \emph{intrinsic and global description of a spin frame}
+$$
+    \begin{cases}
+    {e'}^\mu_I=\J^\mu_\nu\, e^\nu_J\,\ell^J_I(\overline{\varphi})\\
+    \e(\sigma(x))=e^\mu_I(x)\der_\mu
+\end{cases}
+$$
+as a family of local sections $e_I$ of $L\M^{1,3}$ which differ on overlaps by an $\SL(2,\C)$--transformation in the matrix--representation $\ell$. We have already learnt that, in a natural--gauge theory, given a structure bundle $P$ one can functorially define so--called spin frames bundle $\mathcal{F}(P)$ whose (global) sections are one--to--one with (global) spin frames $\e:P\to L\M$ and local fibered coordinates are $(x^\mu,e^\mu_I)$.\\
+\\
+Let us now consider the Lie algebra $\mathfrak{sl}(2,\C)\cong\V_p\subseteq T_pP$ and a right--invariant pointwise basis $\sigma_{IJ}$, skew in $[IJ]$. Then, a map $\omega:\pi^*T\M\to TP$ such that $\omega_p:T_{\pi(p)}\M\to T_pP$ defines a principal connection $p\mapsto\omega_p(T_{\pi(p)}\M)=:\H_p$; moreover, through the horizontal lift $\omega_p(\xi)=\xi^\mu\left(\der_\mu-\omega^{IJ}_\mu(x)\sigma_{IJ}(p)\right)$, it locally expresses as in (\ref{prinConn}). 
+
+By moving towards another trivialisation $\t_{\sigma'}$, as before, one  gets an \emph{intrinsic and global description of a principal connection} on $P$
+$$\begin{cases}
+        {\omega'}^{IJ}_\mu=\antij^\nu_\mu\ell^I_K(\varphi)\bigg(\ell^J_L(\varphi)\omega_\nu^{KL}+\der_\nu\ell^K_L(\overline{\varphi})\eta^{LJ}\bigg)\\
+        \omega=\d x^\mu\otimes\left(\der_\mu-\omega_\mu^{IJ}(x)\sigma_{IJ}\right)
+    \end{cases}$$
+Also here, one can functorially define the so--called \emph{connections bundle} $\Con(P)$ whose (global) sections are one--to--one with (global) principal connections on $P$ and local fibered coordinates are $(x^\mu,\omega_\mu^{IJ})$.
+
+We are ready to define the \textbf{Holst model} for GR as the field theory on the gauge--natural configuration bundle $\Ci=\mathcal{F}(P)\times_{\M^{1,3}}\Con(P)$, whose fibered coordinates are $\left(x^\mu,e^\mu_I,\omega^{IJ}_\mu\right)$ and transition maps 
+\begin{equation}\label{holst_trans_maps}
+    \begin{cases}
+        {x'}^\mu={x'}^\mu(x)\\
+        {e'}^\mu_I=\J^\mu_\nu\, e^\nu_J\,\ell^J_I(\overline{\varphi})\\
+        {\omega'}^{IJ}_\mu=\antij^\nu_\mu\ell^I_K(\varphi)\bigg(\ell^J_L(\varphi)\omega_\nu^{KL}+\der_\nu\ell^K_L(\overline{\varphi})\eta^{LJ}\bigg)
+    \end{cases}
+\end{equation}
+Notice that, the above also says how gauge--symmetries of $\Aut(P)$ act on this $\Ci$, by virtue of Proposition \ref{gauge_action_Aut(P)}. 
+
+The Lagrangian of this theory is required to be of $1$--st order, with spin frames $e^\mu_I$ entering at order $0$ and with connections $\omega^{IJ}_\mu$ entering at order $1$, so that we will really end up with gauge--covariant Lagrangian $\mathbf{L}_\gamma\in\Omega^4(\J^1\Ci)$, by means of (\ref{holst_trans_maps}). 
+
+Recall now (\ref{spin_curv}) for the curvature 
+\begin{align*}
+    R^{IJ}_{\mu\nu}&=\der_\mu\omega_\nu^{IJ}+\omega^I_{K_\mu}\omega^{KJ}_\nu-[\mu\nu]\\
+    &=\der_{[\mu}\omega_{\nu]}^{IJ}+[\omega_\mu,\omega_\nu]^{IJ}
+\end{align*}
+being a tensor field that transforms as ${R'}^{IJ}_{\mu\nu}=\ell^I_K(\varphi)\ell^J_L(\varphi)\,R^{KL}_{\alpha\beta}\,\antij_\mu^\alpha\antij^\beta_\nu$, from which one gets the Ricci and scalar curvature for the frame--induced metric
+$$\begin{cases}
+    R^I_\mu=e^\nu_J R^{IJ}_{\mu\nu}\\
+    \Scal_{\e\circ g}=e^\mu_I R^I_\mu&
+\end{cases}$$
+This way we got $R^{IJ}=\frac{1}{2}R^{IJ}_{\mu\nu}\,\d x^\mu\wedge\d x^\nu\in\Omega^2(\J^1\Ci)$ and $e^I=e^I_\mu\,\d x^\mu\in\Omega^1(\J^1\Ci)$ to be combined in order to get a horizontal volume form made of gauge--covariant quantities, so we can choose a combination of the following objects in $\Omega^4(\J^1\Ci)$
+$$\begin{cases}
+    R^{IJ}\wedge e_I\wedge e_J\\
+    R^{IJ}\wedge e^K\wedge e^L\,\epsilon_{IJKL}\\
+    e^I\wedge e^J\wedge e^K\wedge e^L\,\epsilon_{IJKL}
+    
+\end{cases}$$
+to define a \emph{good} Lagrangian, according to Utiyama theorems\footnote{See Section \ref{gauge_theories} and also Section 2.2 of \cite{fatib}}.
+\begin{defi}[Holst action]
+Let $\M^{1,3}$ be a $4$--dimensional spacetime and $\Dd$ a closed region of the same dimension. Then the \emph{Holst action} is 
+    \begin{align*}
+        \mathbf{S}_\gamma[\e,j^1\omega]:=&\,\,\frac{1}{4\boldsymbol{\kappa}}\int_\Dd R^{IJ}\wedge e^K\wedge e^L\,\epsilon_{IJKL}+\frac{2}{\gamma}R^{IJ}\wedge e_I\wedge e_J-\frac{\Lambda}{6}e^I\wedge e^J\wedge e^K\wedge e^L\,\epsilon_{IJKL}\\
+        =&\,\,\frac{1}{2\boldsymbol{\kappa}}\int_\Dd R^{IJ}\wedge B_{IJ}-\frac{\Lambda}{12} e^I\wedge e^J\wedge e^K\wedge e^L\,\epsilon_{IJKL}
+    \end{align*}
+    where $B_{IJ}:=\frac{1}{2}e^K\wedge e^L\,\epsilon_{IJKL}+\frac{1}{\gamma}e_I\wedge e_J$ and $\gamma\in\R\setminus\{0\}$ is the so--called \emph{Holst parameter} and $\boldsymbol{\kappa}:=8\pi Gc^{-4}$ is the gravitational constant of \emph{(\ref{matter_einstein})}. 
+\end{defi}
+\,\newline
+Theorem \ref{least_action} provides field equations for Holst action in the form
+\begin{equation}\label{holst_eqs}
+    \begin{cases}
+        \epsilon_{IJKL}\widehat{\nabla}e^K\wedge e^L+\frac{2}{\gamma}\widehat{\nabla}e_{[I}\wedge e_{J]}=0\\
+        R^{IJ}\wedge\left(\epsilon_{IJKL}e^K+\frac{2}{\gamma}e_{[I}\eta_{J]L}\right)=\frac{\Lambda}{3}\epsilon_{IJKL}\,e^I\wedge e^J\wedge e^K
+    \end{cases}
+\end{equation}
+
+A sketch of proof of equation (\ref{holst_eqs}) is here needed:
+
+\begin{proof}[Derivation of Holst field equations]
+    We are going to directly compute variation of the Holst Lagrangian $\mathbf{L}_\gamma$, given in Definition 2.2.1
+    $$\mathbf{S}_\gamma[\e,j^1\omega]=\frac{1}{4\boldsymbol{\kappa}}\int_{\Dd}\mathbf{L}_\gamma=\frac{1}{4\boldsymbol{\kappa}}\int_{\Dd}\L_\gamma(\e,j^1\omega)\,\d\boldsymbol{\sigma}$$
+    Indeed, being the variation $\delta_X\mathbf{S}_\gamma$ done along a compact supported deformation $X=\delta y^i\der_i$ in $T\Ci$---here on the form $\delta y^i=\left(\delta e^I,\delta\omega^{IJ}\right)$---the fundamental lemma of calculus of variations here gives $\delta\mathbf{S}_\gamma=0$ \,\emph{iff}\, $\delta\mathbf{L}_\gamma=0$, and once $\delta\mathbf{L}_\gamma$ is explicitly expressed in terms of the variations of the fundamental fields $e^I$, $\omega^{IJ}$, then we get EL--field equations for this theory through the vanishing of the coefficients of $\delta e^I$ and $\delta\omega^{IJ}$\footnote{Roughly speaking, we are going to retrace the proof of Theorem \ref{least_action} adapted to $\mathbf{S}_\gamma[\sigma]$ which depends only on $\e$ and $j^1\omega$;\, this means that the terms of $\delta\mathbf{L}_\gamma$ here are in the form
+    \begin{align*}
+        \delta\L_\gamma(\e,j^1\omega)&=\frac{\der\L_\gamma}{\der y^i}\delta y^i+\frac{\der\L_\gamma}{\der y^i_\mu}\d_\mu\delta y^i=\Bigg(\frac{\der\L_\gamma}{\der\e}\delta\e\,,\overbrace{\frac{\der\L_\gamma}{\der j^1\e}}^{=0}\d_\mu\delta\e\Bigg)+\Bigg(\overbrace{\frac{\der\L_\gamma}{\der\omega}}^{=0}\delta\omega\,,\frac{\der\L_\gamma}{\der j^1\omega}\d_\mu\delta\omega\Bigg)\\
+        &=\frac{\der\L_\gamma}{\der\e}\delta\e+\frac{\der\L_\gamma}{\der j^1\omega}\d_\mu\delta\omega
+    \end{align*}
+    and integration by parts yields $\delta\L_\gamma=\frac{\der\L_\gamma}{\der\e}\delta\e-\d_\mu\frac{\der\L_\gamma}{\der j^1\omega}\delta\omega=0$ which holds true \emph{iff}
+    $\begin{cases}
+        \frac{\der\L_\gamma}{\der\e}=0\\
+        \d_\mu\frac{\der\L_\gamma}{\der j^1\omega}=0
+    \end{cases}$
+    
+    } (notice that, by Remark \ref{connections_affine}, $\delta\omega^{IJ}$ is a tensor, so we can properly compute $\nablaw\delta\omega^{IJ}$).\, For this aim, let us split the Holst Lagrangian as 
+    \begin{align*}
+        \mathbf{L}_\gamma&=\,\,R^{IJ}\wedge e^K\wedge e^L\,\epsilon_{IJKL}+\frac{2}{\gamma}R^{IJ}\wedge e_I\wedge e_J-\frac{\Lambda}{6}e^I\wedge e^J\wedge e^K\wedge e^L\,\epsilon_{IJKL}\\
+        &=:\,\,\mathbf{L}^1_\gamma+\mathbf{L}^2_\gamma+\mathbf{L}^3_\gamma
+    \end{align*}
+    Since the variation $\delta$ is a derivation, then it is linear, satisfies Leibnitz and commutes with $\d_\mu$;\, particularly, $\delta\mathbf{L}_\gamma=\delta\mathbf{L}^1_\gamma+\delta\mathbf{L}^2_\gamma+\delta\mathbf{L}^3_\gamma$.\, Let us now recall again that $R^{IJ}_{\mu\nu}=\der_\mu\omega_\nu^{IJ}+\omega^I_{K_\mu}\omega^{KJ}_\nu-[\mu\nu]$;\, then fields are here in the form 
+    $$\begin{cases}
+        e^I=e^I_\mu\d x^\mu\\
+        R^{IJ}=\frac{1}{2}R^{IJ}_{\mu\nu}\,\d x^\mu\wedge\d x^\nu
+    \end{cases}$$
+    and we are left with expressing each $\delta\mathbf{L}^j_\gamma$ as an explicit (linear) combination of $\delta e^I$, $\delta\omega^{IJ}$, for each $j=1,2,3.$
+
+    \begin{enumerate}
+        \item 
+    
+    \begin{align*}
+        \delta\mathbf{L}^1_\gamma&=\,\,\epsilon_{IJKL}\left(\delta R^{IJ}\wedge e^K\wedge e^L+R^{IJ}\wedge\delta e^K\wedge e^L+R^{IJ}\wedge e^K\wedge\delta e^L\right)\\
+        &=\,\,\epsilon_{IJKL}\left(\delta R^{IJ}\wedge e^K\wedge e^L+2R^{IJ}\wedge e^K\wedge\delta e^L\right)
+    \end{align*}
+    Let us now compute $\nablaw\delta\omega^{IJ}_\nu$ through the formula (\ref{tensor_cov_der})---introducing a frame--dependent connection $\Gamma^{\alpha}_{\nu\mu}(\e)$ on $\M^n$ to contract the lower spacetime index
+    $$ \nablaw_\mu\delta\omega^{IJ}_\nu=\d_\mu\omega^{IJ}_\nu+\omega^I_{K\mu}\delta\omega^{KJ}_\nu+\omega^J_{K\mu}\delta\omega^{IK}_\nu-\Gamma_{\nu\mu}^\alpha\delta\omega^{IJ}_\alpha$$
+    Now, since the antisymmetry of $\omega^{[IJ]}$ implies
+    \begin{align*}
+        -\omega^{KJ}_\mu\delta\omega^I_{K\nu}&=\omega^{JK}_\mu\delta\omega^I_{K\nu}\\
+        &=\eta^{LK}\eta_{KL}\,\omega^J_{L\mu}\delta\omega^{IL}_\nu\\
+        &=\omega^J_{K\mu}\delta\omega^{IK}_\nu
+    \end{align*}
+    we get---by also using the variation property of being a derivation 
+    \begin{align*}
+        \delta R^{IJ}_{\mu\nu}&=\,\,\delta R^{IJ}_{\mu\nu}\pm\Gamma^\alpha_{\nu\mu}\delta\omega^{IJ}_\alpha\\
+        &=\,\,\d_\mu\delta\omega^{IJ}_\nu-\delta\omega^{IK}_{\mu}\omega^{J}_{K\nu}+\omega^I_{K\mu}\delta\omega^{KJ}_\nu-[\mu\nu]\pm\Gamma^\alpha_{\nu\mu}\delta\omega^{IJ}_\alpha\\
+        %\pm\Gamma^\alpha_{\nu\mu}\delta\omega^{IJ}_\alpha\\
+        &=\,\,\nablaw_\mu\delta\omega^{IJ}_\nu-\nablaw_\nu\delta\omega^{IJ}_\mu%
+    \end{align*}
+    which yields---combined with the antisymmetry of $\d x^\mu\wedge\d x^\nu$
+    \begin{align*}
+        \delta R^{IJ}&=\,\,\frac{1}{2}\delta R^{IJ}_{\mu\nu}\,\d x^\mu\wedge\d x^\nu\\
+        &=\frac{1}{2}\left(\nablaw_\mu\delta\omega^{IJ}_\nu\d x^\mu\wedge\d x^\nu-\nablaw_\mu\delta\omega^{IJ}_\nu\d x^\nu\wedge\d x^\mu\right)\\
+        &=\nablaw_\mu\delta\omega^{IJ}_\nu\d x^\mu\wedge\d x^\nu=\nablaw\delta\omega^{IJ}
+    \end{align*}
+    Now we can proceed integrating by parts the volume--form $\nablaw(\delta\omega^{IJ}\wedge e^K\wedge e^L)$ over the spacetime closed region $\Dd^{1,3}$: indeed, $\delta\omega^{IJ}\wedge e^K\wedge e^L=\delta\omega^{IJ}_\nu\,e_\alpha^Ke_\beta^L\,\d x^\nu\wedge\d x^\alpha\wedge\d x^\beta$ is a 3--form in $\J^1\Ci$ and Stokes theorem here tells
+    \begin{align*}
+        0=&\,\,\int_{\der\Dd}\delta\omega^{IJ}\wedge e^K\wedge e^L=\int_\Dd\nablaw\left(\delta\omega^{IJ}\wedge e^K\wedge e^L\right)\\
+        =&\,\,\int_\Dd\nablaw\delta\omega^{IJ}\wedge e^K\wedge e^L+\delta\omega^{IJ}\wedge\underbrace{\nablaw(e^K\wedge e^L)}_{=\nablaw e^K\wedge e^L-e^K\wedge\nablaw e^L}\\
+        =&\,\,\int_\Dd\nablaw\delta\omega^{IJ}\wedge e^K\wedge e^L+2\delta\omega^{IJ}\wedge\nablaw e^K\wedge e^L
+    \end{align*}
+    $$\Leftrightarrow$$
+    $$\int_\Dd\nablaw\delta\omega^{IJ}\wedge e^K\wedge e^L=-2\int_\Dd \delta\omega^{IJ}\wedge\nablaw e^K\wedge e^L$$
+   thus
+   $$\delta\mathbf{L}^1_\gamma=-2\epsilon_{IJKL}\left(\delta\omega^{IJ}\wedge\nablaw e^K\wedge e^L+R^{IJ}\wedge e^K\wedge\delta e^L\right)$$
+
+   \item In analogy with the previous:
+   \begin{align*}
+       \delta\mathbf{L}^2_\gamma&=\,\,\frac{2}{\gamma}\delta\left(R^{IJ}\wedge e_I\wedge e_J\right)\\
+       &=\,\,\frac{2}{\gamma}\left(\delta R^{IJ}\wedge e_I\wedge e_J\right)-\frac{4}{\gamma}R^{IJ}\wedge e_I\wedge\delta e_J\\
+       &=\,\,\frac{2}{\gamma}\left(\nablaw\delta\omega^{IJ}\wedge e_I\wedge e_J\right)-\frac{4}{\gamma}R^{IJ}\wedge e_I\wedge\delta e_J
+   \end{align*}
+    and by integration by parts on the first term we get
+    $$\frac{2}{\gamma}\left(\nablaw\delta\omega^{IJ}\wedge e_I\wedge e_J\right)=-\frac{4}{\gamma}\delta\omega^{IJ}\wedge\nablaw e_I\wedge e_J$$
+    thus
+    $$\delta\mathbf{L}^2_\gamma=-\frac{4}{\gamma}\left(\delta\omega^{IJ}\wedge\nablaw e_I\wedge e_J+R^{IJ}\wedge e_I\wedge\delta e_J\right)$$
+    \item In this case, just by Leibnitz rule, we get the following
+    \begin{align*}
+        \delta\mathbf{L}^3_\gamma&=-\frac{\Lambda}{6}\epsilon_{IJKL}\delta\left(e^I\wedge e^J\wedge e^K\wedge e^L\right)\\
+        &=-\frac{2}{3}\Lambda\,\epsilon_{IJKL}e^I\wedge e^J\wedge e^K\wedge\delta e^L
+    \end{align*}
+   \end{enumerate}
+\,\newline
+Putting it all together, $\delta\mathbf{L}_\gamma=0$ is equivalent to\footnote{In the sense that
+$$\begin{cases}
+    \frac{\der\L}{\der\e}=-2\epsilon_{IJKL}\,R^{IJ}\wedge e^K-\frac{4}{\gamma}R^{IJ}\wedge e_I-\frac{2}{3}\Lambda\,\epsilon_{IJKL}e^I\wedge e^J\wedge e^K\\
+    \d_\mu\frac{\der\L}{\der j^1\omega}=-2\epsilon_{IJKL}\,\nablaw e^K\wedge e^L-\frac{4}{\gamma}\nablaw e_I\wedge e_J
+\end{cases}$$
+roughly.}
+$$\begin{cases}
+    R^{IJ}\wedge\left(\epsilon_{IJKL}e^K+\frac{2}{\gamma}e_I\right)=\frac{\Lambda}{3}\epsilon_{IJKL}e^I\wedge e^J\wedge e^K\\
+    \epsilon_{IJKL}\nablaw e^K\wedge e^L+\frac{2}{\gamma}\nablaw e_I\wedge e_J=0
+    
+\end{cases}$$
+and the derivation of Holst field equations is completed.
+
+
+   
+\end{proof}
+
+The next step is proving that Holst and Einstein formulation are equivalent as classical field theories.
+
+\begin{proof}[Dynamical equivalence among Holst and GR]
+
+To provide a dynamical equivalence among these two field theories we have to show that solutions of (\ref{holst_eqs}) one--to--one correspond to solutions of (\ref{einstein}).\, First of all, we recall by Corollary \ref{spin_connection} that our spin frame $\e:P\to L\M$ induces a special connection $\{\e\}$ on $P$, whose covariant derivative $\widetilde{\nabla}_\mu e^I_\nu=\der_\mu e^I_\nu+\{\e\}^I_{K\mu}e^K_\nu$ is \emph{frame--compatible}, that is $\nablat e^I=0$, and it holds
+$$\widetilde{\nabla}_\mu e^I_\nu=0 \quad\Leftrightarrow\quad \{\e\}^{IJ}_\mu=e^I_\alpha\left(\{g\}^\alpha_{\beta\mu}e_K^\beta+\d_\mu e^\alpha_K\right)\eta^{KJ}$$
+Since the difference of two connections is a $1$--form over the spacetime $\M^{1,3}$, we consider sort of "spin--tensor" $z^{IJ}:=\omega^{IJ}-\{\e\}^{IJ}$ by setting
+$$z^{IJK}:=\left(\omega^{IJ}_\mu-\{\e\}^{IJ}_\mu\right)e^{K\mu}$$
+$$z^I_K=\omega^I_K-\{\e\}^I_K$$
+ and we prove that $z^{IJK}$ vanishes intrinsically (being a tensor), by showing that it is both symmetric in $[JK]$ and antisymmetric in $(IJ)$, which would imply $z^{IJK}=0$, as one can easily see
+$$
+z^{IJK}=-z^{JIK}=-z^{JKI}=z^{KJI}=z^{KIJ}=-z^{IKJ}=-z^{IJK}    
+$$
+Skew--symmetry in $(IJ)$ is inherited from spin connections $\omega^{(IJ)}=0=\{\e\}^{(IJ)}$, while for the symmetry in $[JK]$ instead, we observe that a direct computation of 
+
+$$\nablaw_\mu e^I_\nu-\nablat_\mu e^I_\nu=\cancel{\der_\mu e^I_\nu}+\omega^I_{K\mu}e^K_\nu-\cancel{\der_\mu e^I_\nu}-\{\e\}^I_{K\mu}e^K_\nu=z^I_{K\mu}e^K_\nu$$
+proves the identity $\nablaw e^I= z^I_K\wedge e^K$, which allows to rewrite the first Holst equation $\left(\gamma^2+1\right)\nablaw e^{[I}\wedge e^{J]}=0$ in an algebraic form as $z^{I[JK]}=0$.
+%$$z^{IJ}=\frac{1}{2}\left(z^{IJ}-z^{JI}\right)+\frac{1}{2}\left(z^{IJ}+z^{JI}\right)=:z^{(IJ)}+z^{[IJ]}$$ 
+\,Therefore, $\omega^{IJ}=\{\e\}^{IJ}$ along solutions of the first Holst equation, and since by Example \ref{ex_ass}, for $\e=e^I_\mu\d x^\mu\otimes\der_I$ we have
+$$\det(\e)=\frac{1}{4!}\epsilon_{\alpha\beta\gamma\delta}\,e^\alpha_I e^\beta_J e^\gamma_K e^\delta_L \epsilon^{IJKL}$$
+and being the curvature of $\{\e\}$ of the form $\widetilde{R}^{IJ}=\frac{1}{2}e^I_\alpha e^{J\beta}\,R^\alpha_{\beta\mu\nu}\,\d x^\mu\wedge\d x^\nu$, using the first Bianchi identity $R^\alpha_{[\beta\mu\nu]}=0$ and
+plugging it all into the second Holst equation yields 
+$$-4\det(\e)\gamma\,\left(R_\mu^\sigma-\frac{1}{2}\Scal_g\,\delta^\sigma_\mu\right)=4\det(\e)\gamma\,\Lambda\delta^\sigma_\mu e^\mu_K$$
+$$\Leftrightarrow$$
+$$R_{\mu\nu}-\frac{1}{2}\Scal_g\,g_{\mu\nu}=-\Lambda\,g_{\mu\nu}\,,\quad\text{for each}\quad\gamma\in\R\setminus\{0\}$$
+\end{proof}
+
+Essentially, by resuming the commutative diagram at the beginning of this Section \ref{holst_diagram}, we have just pulled--back equation (\ref{einstein}) %$\delta\mathbf{L}_H=0$
+from the principal $\GL_4$--bundle $L\M\to\M$ to the principal $\SL(2,\C)$--bundle $P\to\M$ along a spin frame, producing kind of a $\SL(2,\C)$--gauge--natural field theory which turns out to be dynamically equivalent to Einstein field theory, provided that the Holst parameter is non--zero. Accordingly, the Holst model resembles a gauge--theory for GR.
+
+
+
+\subsection{Ashtekar--Barbero--Immirzi spacetime formulation}\label{BI_red}
+
+
+{From a historical point of view, looking for a $\SU(2)$--connection within the spatial leaves of spacetime, the Ashtekar self--dual approach has been introduced and the subsequent formulation of Barbero and Immirzi effectively addressed the challenge of produce a gauge--formulation for GR (see \cite{OF1}, \cite{FFR1}, \cite{FFR2}).}
+
+{Why so? The main motivation is that $\SL(2,\C)$ has not finite--dimensional unitary irreducible representations, being non--compact, which should play a major role in any quantisation scheme; $\SU(2)$ is instead compact and for that one aims for some $\SU(2)$--reduction of Holst theory. Ashtekar self--dual approach (see \cite{FF}) finds out from the particular Euclidean case $\Spin(4)\cong\SU(2)\times\SU(2)$ a pair of conjugate variables for a $\SU(2)$--gauge theory for gravity;\, we are generalizing such an argument for any Lorentzian $\Spin(1,n)$ theory.}
+
+\begin{defi}[Reductive splitting]
+Consider two principal bundles $$P\xrightarrow{\vartriangleleft_\G}P\xrightarrow{\pi}\M\,\quad\,Q\xrightarrow{\blacktriangleleft_\H}Q\xrightarrow{\tau}\M$$ 
+and assume there exists a map $\imath:\H\hookrightarrow\G$ that embeds $\H$ as a closed Lie subgroup of \,$\G$ and a vertical and $\imath$--equivariant fibered map $\iota:Q\to P$, i.e. $\tau=\pi\circ\iota$ and
+$$\iota(q)=\iota(q\blacktriangleleft\h)\quad\text{and}\quad\iota(q\blacktriangleleft\h)=\iota(q)\vartriangleleft\imath(\h)$$
+Then, a pair $(Q,\iota)$ is called a $\H$--\emph{reduction} of $P\to\M$. Moreover, the pair $(\H,\G)$ is called a \emph{reductive pair (}or \emph{reductive splitting)} if, at the level of Lie algebras, there exists a linear subspace $\mathfrak{m}\subseteq\mathfrak{g}$ such that $\mathfrak{g}=\mathfrak{h}\oplus\mathfrak{m}$ and $\mathfrak{m}$ is an invariant subspace for $\Ad_\G$ restricted to $\H$. Equivalently, a \emph{reductive splitting} is a map $\Phi:\mathfrak{m}\cong\nicefrac{\mathfrak{g}}{\mathfrak{h}}\to\mathfrak{g}$ such that the sequence $\{0\}\to\mathfrak{h}\to\mathfrak{g}\to\mathfrak{m}\to\{0\}$ is exact and $\Phi(\mathfrak{m})$ is invariant under the tangent map ${\T\Ad_\G}\Biggl|_\H=\ad_\G\Bigg|_\H$.
+\end{defi}
+\,\newline
+In general, the existence of a principal $\G$--bundle reduction is subjected to topological obstructions: for instance, a frame bundle $L(\M,g)$ with $g$--orthonormal frames naturally reduces to a $\O(n)$--principal bundle, as well as if $(\M,g)$ is orientable then the strucure group $\GL_n$ reduces to $\SO(n)$, while on generic signature $\eta=(s,t)$ the condition $\O(s,t)=\O(s)\times\O(t)$ is needed.
+
+\begin{teo}
+    Let $\M^{1,n}$ be a $n+1$--dimensional Lorentzian spin manifold and $P\to\M$ a principal $\Spin(1,n)$--bundle. Then, there always exists a $\Spin(n)$--reduction of $P$. 
+\end{teo}
+\begin{proof}
+    It relies on a coset--argument (see Section I.5 of \cite{kobayashi1}), by proving that the coset ${\Spin(1,n)}/{\Spin(n)}\cong\R^n$ (see Theorem 1 of \cite{OF1}).
+\end{proof}
+\,\newline
+What is remarkable is the fact that, in view of reductive splittings, there is actually a way to define a $\Spin(n)$--connection $\A$ out of a $\Spin(1,n)$--connection $\omega$, which surprisingly coincides with the so--called Barbero--Immirzi (BI) connection\footnote{See \cite{FFR1}, \cite{FFR2}.} by virtue of the following theorems
+
+\begin{teo}[Kobayashi--Nomizu]\label{koba-nomi}
+    Let $(\H,\G)$ a reductive splitting, so that $\mathfrak{g}=\mathfrak{h}\oplus\mathfrak{m}$, and let $P\xrightarrow{\pi}\M^\eta$ be a principal $\G$--bundle; consider a principal connection $\omega\in\Sec{\pi^*T\M\otimes\mathfrak{g}}$ and a $\H$--reduction $(Q,\iota)$ of $P$. Then, the connection splits as
+    $$\omega=\A\oplus \kappa:\pi^*T\M\to\mathfrak{h}\oplus\mathfrak{m}$$
+    and in such a case, there is a one--to--one correspondence among $\omega$ in $P$ and pairs $(\A,\kappa)$ in $Q$.
+\end{teo}
+\begin{proof}
+    See Proposition 6.4 of \cite{kobayashi1}.
+\end{proof}
+
+\begin{teo}[Fatibene--Orizzonte]\label{orizzonte}
+    The reductive pair $\left(\Spin(1,n),\Spin(n)\right)$ has a unique splitting
+    $$\spin(1,n)=\spin(n)\oplus\mathfrak{m}_0 \quad\text{for}\quad n>3$$
+    while, for $n=3$, there exists a $1$--parameter family of splittings
+    $$\spin(1,3)=\spin(3)\oplus\mathfrak{m}_\beta$$
+    The parameter $\beta\in\R$ is the so--called \emph{Immirzi parameter}.
+\end{teo}
+\begin{proof}
+    See Theorem 4 of \cite{OF1}.
+\end{proof}
+
+In the above fashion, the Holst model sits in $n=3$, so there always exists a $\SU(2)$--reduction of its principal $\SL(2,\C)$--bundle over the spin bare manifold $\M^{1,3}$.\, Thus, a principal $\SU(2)$--bundle $Q\xrightarrow{\tau}\M$ is there, where trivialisations $\t_\sigma$ give transition maps as follow---for cocycles $\psi:U\to\SU(2)$ 
+$$\begin{matrix}
+    \t_\sigma:\tau^{-1}(U)\to U\times\SU(2)\\
+    \quad\sigma(x)\vartriangleleft\u\mapsto(x,\u)
+\end{matrix}\quad\Rightarrow\quad\begin{matrix}
+    \begin{cases}
+    {x'}^\mu={x'}^\mu(x)\\
+    \u'=\psi(x)\vartriangleleft\u
+\end{cases}
+\end{matrix}$$
+%\[\begin{tikzcd}
+%Q\arrow{r}{\iota} \arrow[swap]{d}{\vartriangleleft\u} & P \arrow{d}{\vartriangleleft\s} \\
+%Q\arrow{r}{\iota}\arrow[swap]{d}{\tau} & P\arrow{d}{\pi} \\
+%\M^{1,3}\arrow{r}{\id} & \M^{1,3}
+%\end{tikzcd}
+%\]
+and transformation laws towards another $\t_{\sigma'}$ will be
+$$\begin{cases}
+    {x'}^\mu={x'}^\mu(x)\\
+    \sigma'(x)=\sigma(x)\vartriangleleft\overline{\psi}
+\end{cases}\quad\text{where}\quad\overline{\psi}:=\psi(x)^{-1}\in\SU(2)$$
+This way, the representation $\ell$ restricts on $\SU(2)\hookrightarrow\SL(2,\C)$ as $\ell(\psi)\in\GL_4$ and, considering also the representation $\lambda:\SU(2)\to\SO(3)\hookrightarrow\GL_3$ and the embedding $\GL_3\hookrightarrow\GL_4$, one easily gets $\ell^J_I(\overline{\psi})=\begin{bmatrix}
+    1&0\\
+    0&\lambda(\overline{\psi})
+\end{bmatrix}$.\, Let it now be a principal $\SL(2,\C)$--connection, which reads locally at a fibered chart of $P$ as
+$$\omega=\d x^\mu\otimes\left(\der_\mu-\omega^{IJ}_\mu(x)\sigma_{IJ}\right)%=\omega^{IJ}\otimes\sigma_{IJ}
+$$
+for skew--symmetric right--invariant vector fields $\sigma_{IJ}\in\mathfrak{sl}(2,\C)\cong\mathfrak{so}(1,3)\cong\Lambda^2(\R^4)$ (see \cite{spin}) and so that, once a basis $\{e_I\}_{I=0,\hdots,3}$ of $\R^4$ is fixed, we can choose $\sigma_{IJ}=\frac{1}{2}e_I\wedge e_J$ to make bivectors $\{\sigma_{IJ}\}_{I<J}$ a basis for $\mathfrak{sl}(2,\C)$. 
+
+This way, by considering Pauli matrices $\sigma_k$ spanning $\su(2)$ and by setting $\tau_k:=i\sigma_k$, one gets $\sigma_{IJ}$ acting on a generic vector $v\in(\R^{4},\eta)$ as
+
+$$\sigma_{IJ}(v)=\frac{1}{2}\bigg(\eta(e_I,v)e_J-\eta(e_J,v)e_I\bigg)$$
+thence, looking at commutators $[\sigma_{IJ},\sigma_{KL}]$ yields $\sigma_{0k}=-\frac{1}{2}\sigma_k$ and $\sigma_{ij}=\frac{1}{2}{\epsilon_{ij}}^k\tau_k$ and so
+$$\frac{1}{2}\sigma_{IJ}=\sigma_{0i}+\frac{1}{2}\sigma_{ij}=-\frac{1}{2}\sigma_i+\frac{1}{4}{\epsilon^k}_{ij}\tau_k$$
+and by virtue of the previous Theorem 2.2.3, thinking at $p$--forms as $\omega=\frac{1}{p!}\omega_{\mu_1\hdots\mu_p}\d x^{\mu_1}\wedge\hdots\wedge\d x^{\mu_p}$ for possibly $\omega_{\mu_1\hdots\mu_p}\in\mathfrak{g}$, the spin connection splits as
+\begin{align*}
+    \omega&=\frac{1}{2}\omega^{IJ}\otimes\sigma_{IJ}=\omega^{0k}\otimes\sigma_{0k}+\frac{1}{2}\omega^{ij}\otimes\sigma_{ij}\\
+    &=\omega^{0k}\otimes\Biggl(-\frac{1}{2}\sigma_k\Biggl)+\omega^{ij}\otimes\frac{1}{4}{\epsilon^k}_{ij}\tau_k\pm\frac{1}{2}\beta\omega^{0k}\tau_k\\
+    &=\omega^{0k}\otimes\Biggl(-\frac{1}{2}\left(\sigma_k+\beta\tau_k\right)\Biggl)+\left(\frac{1}{2}\omega^{ij}{\epsilon^k}_{ij}+\beta\omega^{0k}\right)\otimes\Biggl(\frac{1}{2}\tau_k\Biggl)\\
+    &=:\kappa^k\otimes\Biggl(-\frac{1}{2}\left(\sigma_k+\beta\tau_k\right)\Biggl)+\A^k\otimes\Biggl(\frac{1}{2}\tau_k\Biggl)
+\end{align*}
+and being able to choose $\left\{-\frac{1}{2}\left(\sigma_k+\beta\tau_k\right)\right\}_{k=1,2,3}$ and $\{\frac{1}{2}\tau_k\}_{k=1,2,3}$ as basis respectively of $\mathfrak{m}_\beta$ and $\su(2)$, we just got coefficients of $\omega$ in the splitting, so--called respectively \emph{BI connection} and \emph{extrinsic curvature}
+\,\newline
+\begin{equation}\label{BI_conn}
+    \begin{cases}
+        \A^i_\mu=\frac{1}{2}\omega^{jk}_\mu{\epsilon^i}_{jk}+\beta\omega^{0i}_\mu\\
+        \kappa^i_\mu=\omega^{0i}_\mu
+    \end{cases}
+\end{equation}
+Indeed, they can be checked to transform respectively as a $\SU(2)$--connection and a $\su(2)$--valued 1--form on $\M^{1,3}$, since one can easily get
+
+\begin{align*}
+    \omega&=\frac{1}{2}\omega^{IJ}\otimes\sigma_{IJ}=\omega^{0k}\otimes\sigma_{0k}+\frac{1}{2}\omega^{ij}\otimes\sigma_{ij}\pm\frac{1}{2}\beta{\epsilon_k}^{ij}\omega^{0k}\otimes\sigma_{ij}\\
+    &=\omega^{0k}\otimes\left(\sigma_{0k}-\frac{1}{2}\beta{\epsilon^{ij}}_k\sigma_{ij}\right)+\frac{1}{2}\Biggl(\omega^{ij}+\beta{\epsilon^{ij}}_k\omega^{0k}\Biggl)\otimes\sigma_{ij}\\
+    &=:\kappa^k\otimes\left(\sigma_{0k}-\frac{1}{2}\beta{\epsilon^{ij}}_k\sigma_{ij}\right)+\frac{1}{2}\A^{ij}\otimes\sigma_{ij}
+\end{align*}
+and can deduce from the transformation laws of $\omega$ the ones for $\A$ and $\kappa$ from
+$$\omega=\d x^\mu\otimes\left(\der_\mu-\omega^{IJ}_\mu\sigma_{IJ}\right)=\d x^\mu\otimes\left(\der_\mu-\A^{ij}_\mu\sigma_{ij}\right)\oplus\d x^\mu\otimes\kappa^k_\mu\sigma_{0k}$$
+being---once defined $\A^k_\mu:=\frac{1}{2}{\epsilon^k}_{ij}\A^{ij}_\mu$
+
+$$\begin{cases}
+{\A'}^i_\mu=\antij^\nu_\mu\left(\lambda^i_j\A_\nu^j+\frac{1}{2}{{\epsilon^i}_j}^l\lambda^j_m\der_\nu\overline{\lambda}^m_l\right)\\
+{\kappa'}^i_\mu=\lambda^i_j(\psi)\kappa^j_\nu\,\antij^\nu_\mu
+\end{cases}$$
+providing a global description of $\A\in\Sec{\tau^*TQ\otimes\su(2)}$ and $\kappa\in\Sec{T^*Q\otimes\su(2)}$ on the form
+$$\begin{cases}
+    \A=\d x^\mu\otimes\left(\der_\mu-\A^i_\mu\sigma_i\right)\\
+    \kappa=\kappa^i_\mu\d x^\mu\otimes\sigma_i
+\end{cases}$$
+\\
+Thereafter, relations (\ref{BI_conn}) can be inverted, providing a one--to--one correspondence among a spacetime $\SL(2,\C)$--connection $\omega^{IJ}_\mu$ and a pair $(\A_\mu^i,\kappa^i_\mu)$ made of a spacetime $\SU(2)$--connection and a $\su(2)$--valued spacetime co--vector field, carrying the information to rebuild the original $\omega$ uniquely\footnote{Notice that, now, horizontal subspaces of $\omega^{IJ}\in\Sec{\pi^*T\M}=\Omega^1(P)$ may or may not be tangent subspaces in $\iota(Q)$ with respect to $\A^i\in\Omega^1(Q)$: we have to project them properly in the reduction.};\, this implies that we are nothing but doing a change of the dynamical variables of Holst theory, with inverse formulae given by
+\begin{equation}\label{inverse_BI}
+    \begin{cases}
+    \omega^{0i}_\mu=\kappa_\mu^i\\
+    \omega^{jk}_\mu={\epsilon^{jk}}_i\left(\A^i_\mu-\beta\kappa^i_\mu\right), & \beta\in\R
+\end{cases}
+\end{equation}
+
+Eventually, we had a $\SL(2,\C)$--gauge natural theory for gravity, the Holst model, and we have recast it through a $\SU(2)$--reduction $\iota:Q\to P$ as a gauge--theory in the group $\SU(2)$ which has more manageable properties, being compact.\, We can go to see how that affects the Holst Lagrangian.
+
+\subsubsection{Recasting Holst Lagrangian}
+Since $(e^I,\omega^{IJ})\leftrightarrow(e^0,e^i,\A^i,\kappa^i)$ is just an (algebraic) field transformation, we shall not even need to prove dynamical equivalence since it will follow directly from the fact that the Lagrangian is global.\\
+
+Observe first that $[\A_\mu^i,\A_\nu^j]=-{\epsilon^k}_{ij}\A^i_\mu\A^j_\nu$, thus, set $\nabla$ to be the covariant derivative associated with $\A$, by using (\ref{princ_curv}) for curvature of a principal connection, we get for the curvature of the BI connection the following
+$$F_{\mu\nu}^k=\d_\mu\A^k_\nu-\d_\nu\A^k_\mu-{\epsilon_{ij}}^k\A^i_\mu\A^j_\nu$$
+which transforms properly in the adjoint representation of $\su(2)$ and
+\begin{align*}
+    R^{IJ}&=\frac{1}{2}\left(\der_\mu\omega_\nu^{IJ}+\omega^I_{K\mu}\omega^{KJ}_\nu-[\mu\nu]\right)\d x^\mu\wedge\d x^\nu\\
+    &=\frac{1}{2}\left(2R^{0i}_{\mu\nu}+R^{ij}_{\mu\nu}\right)\d x^\mu\wedge\d x^\nu=R^{0i}+\frac{1}{2}R^{ij}
+\end{align*}
+If we now differentiate the extrinsic curvature through (\ref{gen_cov_der}) getting $\nabla_\mu\kappa^i_\nu=\der_\mu\kappa^i_\nu-{\epsilon^i}_{jk}\A^j_\mu\kappa^k_\nu+\Gamma^\lambda_{\mu\nu}\kappa^i_\lambda$ we easily get, combining with (\ref{inverse_BI}), the following
+%\begin{align*}
+    %R^{0i}_{\mu\nu}&=\der_\mu\omega^{0i}_\nu+\overbrace{\omega^0_{k\mu}}^{=\delta_{kl}\omega^{0l}_\mu}\omega^{ki}_\nu-[\mu\nu]\\
+    %&=\der_\mu k^i_\nu+\delta_{kl}\epsilon^{ki}_j\,k^l_\mu(\A^j_\nu-\beta k^j_\nu)-[\mu\nu]\\
+    %&=\der_\mu k^i_\nu+\epsilon^i_{jk}\A^j_\nu k^k_\mu-\beta\epsilon^i_{jk}k^k_\mu k^j_\nu-\der_\nu k^i_\mu-\epsilon^i_{jk}\A^j_\mu k^k_\nu+\beta\epsilon^i_{jk}k^k_\nu k^j_\mu\\
+    %&={\nabla_\mu}k^i_\nu-\nabla_\nu k^i_\mu+\beta\epsilon^i_{jk}(k^k_\nu k^j_\mu-k^k_\mu k^j_\nu)
+%\end{align*}
+%\begin{align*}
+    %\Rightarrow\quad R^{0i}&=R^{0i}_{\mu\nu}\,\d x^\mu\wedge\d x^\nu\\
+    %&=\nabla_\mu k^i_\nu\,\d x^\mu\wedge\d x^\nu-\nabla_\mu k^i_\nu\,\d x^\nu\wedge\d x^\mu+\\
+    %&+\beta\epsilon^i_{jk}\left(k^k_\nu k^j_\mu\,\d x^\mu\wedge\d x^\nu-k^k_\nu k^j_\mu\,\d x^\nu\wedge\d x^\mu\right)\\
+    %&=\left(2\nabla_\mu k^i_\nu+2\beta\epsilon^i_{jk}k^k_\nu k^j_\mu\right)\d x^\mu\wedge\d x^\nu=2\left(\nabla k^i+\beta\epsilon^i_{jk}k^j\wedge k^k\right)
+%\end{align*}
+
+%\begin{align*}
+    %R^{ij}&=\left(\der_\mu\omega^{ij}_\nu+\delta_{kj}\omega^{ij}_\mu\omega^{kj}_\nu-[\mu\nu]\right)\,\d x^\mu\wedge\d x^\nu\\
+    %&=\epsilon^{ij}_kF^k-2\beta\epsilon^{ij}_k\nabla k^k+\epsilon^{ij}_k\epsilon^i_{jk}\left[\A^j\wedge\A^k+\beta\left(\A^j\wedge k^k+k^j\wedge\A^k\right)+2\beta^2k^j\wedge k^k\right]\\
+    %&=\epsilon^{ij}_kF^k-2\beta\epsilon^{ij}_k\nabla k^k+\epsilon^{ij}_k\epsilon^i_{jk}\left[\left(\A^j+\beta k^j\right)\wedge\left(\A^k+\beta k^k\right)+\beta^2k^j\wedge k^k\right]
+%\end{align*}
+%$$\Leftrightarrow\quad\frac{1}{2}\epsilon_{ij}^kR^{ij}=F^k-\beta\nabla k^k+\frac{1-\beta^2}{2}\epsilon_{ij}^kk^i\wedge k^j$$
+
+\begin{align*}
+    R^{0i}&=2\left(\nabla k^i+\beta{\epsilon^i}_{jk}\kappa^j\wedge\kappa^k\right)\\
+    \frac{1}{2}{\epsilon^k}_{ij}R^{ij}&=F^k-\beta\nabla\kappa^k+\frac{1-\beta^2}{2}{\epsilon^k}_{ij}\,\kappa^i\wedge\kappa^j
+\end{align*}
+which yield (see \cite{holst})
+
+\begin{align*}
+    \mathbf{L}_{\gamma,\beta}\left(\e,j^1\A,j^1\kappa\right)&=\frac{1}{\boldsymbol{\kappa}}\Biggl(F^i\wedge L_i+\nabla\kappa^i\wedge(K_i-\beta L_i)-\frac{1}{2}\epsilon_{ijk}\kappa^i\wedge\kappa^j\wedge\bigg((\beta^2-1)L^k+\\
+    &\quad-2\beta K^k\bigg)+\frac{\Lambda}{3}\frac{\gamma^2}{1-\gamma^2}K^k\wedge L_k\Biggl)
+\end{align*}
+where $K_k:=\frac{1}{2}\epsilon_{kij}e^i\wedge e^j-\frac{1}{\gamma}e^0\wedge e_k$ and $L_k:=e^0\wedge e_k+\frac{1}{2\gamma}{\epsilon_k}^{ij}e_i\wedge e_j$ are the \emph{boost} and \emph{rotational parts} of $B_{IJ}$ respectively (see Definition 2.2.1).
+
+As a matter of fact, the Holst parameter $\gamma\in\R\setminus\{0\}$ comes from the dynamics, while the Barbero--Immirzi parameter arises from the reductive splittings, hence it is kinematical. There are no reasons to assume $\beta=\gamma$ a priori, as their nature is fundamentally distinct. 
+
+According to Definition \ref{momenta}, we can also compute momenta on the form
+\begin{equation}\label{holst_momenta}
+   \begin{split}
+       p^{\mu\nu}_i&:=\frac{\der\L_{\gamma,\beta}}{\der\left(\der_\mu\A^i_\nu\right)}=\frac{1}{\boldsymbol{\kappa}}\left(e^0_\alpha e_{i\beta}+\frac{1}{2\gamma}\epsilon_{ijk}e^j_\alpha e^k_\beta\right)\epsilon^{\mu\nu\alpha\beta}\\
+       \pi^{\mu\nu}_i&:=\frac{\der\L_{\gamma,\beta}}{\der\left(\der_\mu\kappa^i_\nu\right)}=\frac{1}{\boldsymbol{\kappa}}\left(\frac{\gamma-\beta}{2\gamma}\epsilon_{ijk}e^j_\alpha e^k_\beta-\frac{1+\beta\gamma}{\gamma}e^0_\alpha e_{i\beta}\right)\epsilon^{\mu\nu\alpha\beta}
+   \end{split} 
+\end{equation}
+Holst equations (\ref{holst_eqs}) in these new variables read as (see \cite{LN3})
+
+\begin{equation}\label{ABI_eqs}
+    \begin{cases}
+    \nabla L_k=\frac{\beta-\gamma}{\gamma}\kappa^i\wedge e_i\wedge e_k\frac{\gamma\beta+1}{\gamma^2+1}\epsilon_{kij}\kappa^i\wedge(K^j-\gamma L^j)\\
+    \nabla K_k=\frac{\beta\gamma+1}{\gamma}\kappa^i\wedge e_i\wedge e_k+\frac{\gamma-\beta}{\gamma^2+1}\epsilon_{kij}\kappa^i\wedge(K^j-\gamma L^j)\\
+    F^k\wedge e_k-\frac{1+\gamma\beta}{\gamma}\nabla\kappa^k\wedge e_k+\frac{\gamma-2\beta-\gamma\beta^2}{2\gamma}{\epsilon^k}_{ij}\kappa^i\wedge\kappa^j\wedge e_k\\
+    \quad+\frac{\Lambda}{6}\epsilon_{ijk}e^i\wedge e^j \wedge e^k=0\\
+    \left(\gamma F^h-(1+\gamma\beta)\nabla\kappa^h+\frac{\gamma-2\beta-\gamma\beta^2}{2}{\epsilon^h}_{ij}\kappa^i\wedge\kappa^j-\frac{\Lambda}{2}{\epsilon^h}_{ij}e^i\wedge e^j\right)\wedge e^0+\\
+    \quad+\bigg({\epsilon^h}_{kj}F^k\wedge e^j+(\gamma-\beta){\epsilon^h}_{kj}\nabla\kappa^k\wedge e^j+\\
+    \quad-(\beta^2-1-2\beta\gamma)\kappa^h\wedge\kappa_l\wedge e^l\bigg)=0
+\end{cases}
+\end{equation}
+Observe the first two can be read as
+$${\epsilon^k}_{ij}\nablaw e^i\wedge e^j=0\qquad\qquad\nablaw e^0\wedge e^k=\nablaw e^k\wedge e^0$$
+
+\subsection{Boundary equations for ABI model}
+
+So far we have expressed Holst equations with respect to new spacetime--variables $(\e,\A,\kappa)$ getting ABI field equations (\ref{ABI_eqs}) which are covariant equations for a (relativistic) natural--gauge theory for the compact group $\SU(2)$, dynamically equivalent to GR. 
+
+Our intent is now to interpret such equations \emph{evolutionary}, by setting the problem in a Cauchy bubble $(\overline{\Dd},\zeta,\imath)$, %\footnote{See Definition \ref{cauchybubble}.}, %(see Section \ref{covariant_Cauchy}), 
+in order to find out the constraint equations of the theory, which will be the starting point of the quantisation procedure of LQG.
+
+First, we notice that the $\SU(2)$--reduction $(Q,\iota)$ of the spin bundle $P\to\M^{1,3}$ does restrict to a principal $\SU(2)$--bundle $Q\to\Sigma$ over the spatial leaves of the bubble\footnote{Indeed, for a local chart $(V,k^a)$ of $\Sigma$ we can provide $Q$ with a fibered atlas of coordinates $(k^a,U)$ with transition maps---for cocycles $\lambda:V\to\SU(2)$
+$$\begin{matrix}
+    V\times\SU(2)\to V\times\SU(2)\\
+    \qquad(k^a,U)\mapsto(k^a,\lambda(k)U)
+\end{matrix}$$
+out from a free, vertical and transitive along the fibers canonical right--action $Q\times{\SU(2)}\to Q$.}.\, Next, we have to adapt the fundamental fields $(e^0,e^i,\A^i,\kappa^i)$ to the foliation induced by $\zeta$ on $\Dd$ (see Definition \ref{cauchybubble}), by pulling--back through $\imath_t:\Sigma\hookrightarrow\M$ both without any contraction and by first contracting them with $e_0$.\, We get 
+$$\begin{matrix}
+    \,^*\A^i:={\imath_t}^*\A^i&\,^*\kappa^i:={\imath_t}^*\kappa^i&{\imath_t}^*e^0=0&\epsilon^i:={\imath_t}^*e^i\\
+    \,_0\A^i:={\imath_t}^*(e^0\lrcorner \A^i)&\,_0\kappa^i:={\imath_t}^*(e^0\lrcorner \kappa^i)&{\imath_t}(e^0\lrcorner e^0)=1&e_0=:\n
+\end{matrix}$$
+where we have to emphasize that, since no metric is yet there, $e_0$ in adapted coordinates $(t,k^a)$ is meant to be \emph{transverse} and not yet normal to $\Sigma$;\, as a matter of fact, it can be parametrized by a smooth function $N$ called \emph{lapse} and a vector $\boldsymbol{\beta}:=\beta^a\der_a\in T_{k^a}\Sigma$ called \emph{shift}, on the form  $\n=N^{-1}(\zeta-\beta^a\der_a)$. The spatial part of a spacetime moving frame and co--frame in such adapted coordinates are respectively denoted as \emph{triad} $\epsilon_i=\epsilon^a_i\der_a$ and \emph{co--triad} $\epsilon^i=\epsilon^i_a\d k^a$\footnote{Notice that, for $\theta^i\in\{\A^i,\kappa^i\}$, both the correspondence $\theta^i\leftrightarrow(\,^*\theta^i,\,_0\theta^i)$ and $(N,\beta^a,\epsilon^a_i)\leftrightarrow e^\mu_I$ are one--to--one: the former because by counting components it holds $3\binom{4}{3}=3\left(\binom{3}{k}+\binom{3}{k-1}\right)$, the latter because for $e^\mu_I=\begin{bmatrix}
+    e^0_0&e^0_i\\
+    e^a_0&e^a_i
+\end{bmatrix}\in\GL_4$ it holds $e^\mu_I=\begin{bmatrix}
+    N^{-1}&0\\
+    -N^{-1}\beta^a&\epsilon^a_i
+\end{bmatrix}$ and $e^I_\mu=\begin{bmatrix}
+    N&0\\
+    \beta^a\epsilon_a^i&\epsilon^i_a
+\end{bmatrix}$.} and by applying the Hodge operator $\star:\Lambda^1(\R^3)\to\Lambda^2(\R^3)$ induced on $\Sigma$, we get so--called \emph{densitized triad}
+\begin{equation}\label{densitized_triad}
+    \begin{split}
+    \E_i&:=\star\epsilon_i=\epsilon_{ia}\star\d k^a=\frac{1}{2}\,\epsilon\epsilon^a_i\,\epsilon_{abc}\d k^b\wedge\d k^c=\epsilon\epsilon^a_i\,\d S_a=:\E_i^a\d S_a\\
+    &=\frac{1}{2}\epsilon\epsilon^a_i\epsilon_{abc}\d k^b\wedge\d k^c=\frac{1}{2}\epsilon_{ijk}\epsilon^j_b\epsilon^k_c\,\d k^b\wedge\d k^c=\frac{1}{2}\epsilon_{ijk}\epsilon^j\wedge\epsilon^k
+\end{split}
+\end{equation}
+where $\epsilon:=\det(\epsilon)=\frac{1}{3!}\epsilon_{ijk}\epsilon^i_a\epsilon^j_b\epsilon^k_c\epsilon^{abc}$.\, By resuming (\ref{holst_momenta}), we can also split momentum $p^{\mu\nu}_i$ in the evolution foliation and get
+$$
+    \begin{matrix}
+    \boldsymbol{\kappa}\, p^{ab}_i=N\epsilon_{ic}\epsilon^{cab}+\frac{2}{\gamma}\E_i^{[a}\beta^{b]}\quad&\quad
+    \boldsymbol{\kappa}\, p^{0a}_i=\frac{1}{\gamma}\E^a_i\\
+    %\boldsymbol{\kappa}\,\pi^{ab}_i=2\boldsymbol{\kappa}\frac{1+\gamma^2}{\gamma^2}p_i^{0[a}\beta^{b]}-\frac{1+\beta\gamma}{\gamma}\boldsymbol{\kappa} p^{ab}_i \quad&\quad\boldsymbol{\kappa}\,\pi^{0a}_i=\frac{\gamma-\beta}{\gamma}\E^a_i%=\boldsymbol{\kappa}(\gamma-\beta)p_i^{0a} 
+\end{matrix}
+$$
+where we want to stress the fundamental relation
+
+\begin{equation}\label{conj_momenta_holst}
+    p_i^{0a}=\frac{1}{\boldsymbol{\kappa}\gamma}\E^a_i
+\end{equation}
+\,\newline
+At this stage, one has all the necessary tools for doing \emph{canonical analysis} of ABI equations (\ref{ABI_eqs}) and outline which are bulks and which are gauges: it turns out that evolution in $(\overline{\Dd},\zeta,\imath)$ is determined by eighteen bulk equations and seven constraint equations in the eighteen fields $(\A^i_a,\E^a_i)$---for the twenty--five ABI equations
+%Our approach allows us to drop the above steps, since we only need now to know how our covariant spacetime equations reduce as evolutionary equations on the spatial leaves of an ADM splitting!\, Another fundamental reason to discuss the canonical analysis is also to find algebraic relations among spatial fields which in fact traditionally have been imposed as ad hoc definitions, while here can be derived as a consequence of the spacetime action, i.e. as a consequence of Holst dynamics (see LN3).
+\begin{equation}\label{ABI_boundary_eqs}
+    \begin{cases}
+        D_a\E_k^a=0&\text{Gauss constraint}\\
+        F^i_{ab}\E^b_i=0&\text{Momentum constraint}\\
+        \left({\epsilon^{ij}}_kF^k_{ab}+2(\beta^2+1)\kappa^i_a\kappa^j_b+\frac{\Lambda}{3}\epsilon^{ijk}\E^c_k\right)\E^{[a}_i\E^{b]}_j =0&\text{Hamiltonian constraint}\\
+    \end{cases}
+\end{equation}
+where $D_a\E^b_j=\der_a\E^b_j+\A_b^i\E_j^c-\A^k_a\E_k^b$ denotes the covariant derivative of the spatial $\SU(2)$--connection $\A_a^i$ while $k=1,2,3$ and $a=1,2,3$ respectively in the Gauss and the momentum constraint. 
+
+This way, boundary equations do balance the fields which are left undetermined by evolution equations and so they parametrize the pre--quantum state, providing us with a well--posed Cauchy problem for the ABI model (see \cite{LN3} for the derivation).\\
+
+Boundary equations of a relativistic theory are, almost always, quite an intricate and subtle matter to handle, in general. For this reason, we decide here to present an equivalent derivation of the ABI constraint equations based on the HJ--approach (see Section \ref{HJ}): we are showing that, for a given functional $\Psi[\A]$ of a $\SU(2)$--gauge connection, the following equations
+\begin{equation}\label{constr_eqs_psi}
+    \begin{cases}
+    D_a\left(\frac{\delta\Psi}{\delta\Aa^i_a}\right)=0\\
+    F^i_{ab}\frac{\delta\Psi}{\delta\Aa^i_a}=0\\
+    %\epsilon^{jk}_i\left(F^i_{ab}+2(\beta^2+1)k^j_{[a}k^k_{b]}+\frac{\Lambda}{3}\epsilon^{jkn}\epsilon_{abc}\E^c_n\right)\frac{\delta\Psi}{\delta\A^j_a}\frac{\delta\Psi}{\delta\A^k_b}=0
+\end{cases}
+\end{equation}
+are equivalent to the Gauss and momentum boundary equations, which are turning out to be nothing but a manifestation of the gauge and the general covariance of the theory, respectively, at a quantum level\footnote{The Hamiltonian constraint, instead, refers to so--called Wheeler--DeWitt equation $\widehat{H}\Psi[q]=i\frac{\der}{\der t}\Psi[q]$, which is supposed to represent the quantum dynamics: it do not implement any covariance principle at all and it is where \emph{spin--foams} arise from.}.
+
+\begin{proof}[Derivation of Gauss and momentum constraints through HJ]\label{ABI_states}
+    We shall start the discussion from the hole--argument applied to the covariant ABI model: by recalling Remark \ref{hole}, physical states of ABI--gravity are characterised to be gauge--connections $[\A]\in\Con\bigg(\Sigma^3,\SU(2);\mathscr{SU}(2)\bigg)=\nicefrac{\Con(Q)}{\Aa'\sim\phi_*\Aa}$\footnote{See Theorem \ref{holonomy_repr_conn}.}. Let us now consider a right--invariant vertical point--wise basis of $\mathfrak{su}(2)$ on the form $\rho_i:={\epsilon^h}_{ij}U^j_k\frac{\der}{\der U^h_k}$, for some matricial representation of $U\in\SU(2)$, and let us pick a projectable vector field in $Q$ on the form
+    $$\Xi=\xi^a(k)\der_a+\xi^i(k)\rho_i\overbrace{=}^{\xi^i\rho_i=:\xi^i_{(V)}\rho_i-\A^i_a\rho_i}\xi^a(k)(\der_a-\A^i_a\rho_i)+\xi^i_{(V)}(k)\rho_i$$
+    inducing flows $\Phi_s\in\Aut(Q)$ and $\varphi_s\in\Diffeo(\Sigma)$ on the total and the base space. Through the transformation laws of $\A^i_a$ we are able to read $\Xi$ in the associated bundle $\Con(Q)$ as
+    $$\widehat{\Xi}=\xi^a(k)\der_a+\xi^i_a(k,\A)\overbrace{\der_i^a}^{:=\frac{\der}{\der\Aa^i_a}}$$
+    where coefficients $\xi^i_a$ are obtained by differentiating ${\A'}^i_a=\antij^b_a\left(\lambda^i_j\A_b^j+\frac{1}{2}{{\epsilon^i}_j}^l\lambda^j_m\der_b\overline{\lambda}^m_l\right)$ with respect to the flow parameter, from which it turns out to be
+    $$\xi^i_a(k,\A)=\d_a\xi^b\,\A^i_b-{\epsilon^i}_{jk}\A^j_a\,\xi^k+\d_a\xi^i$$
+    Hence, we can compute its Lie derivative through (\ref{lie_der}) as $\pounds_{\widehat{\Xi}}\A=\pounds_{\widehat{\Xi}}\A^i_a\,\der_i^a$, where---by also recalling (\ref{princ_curv}) yielding $F^i_{ab}=\d_{[a}\A^i_{b]}+[\A_a,\A_b]^i$
+    \begin{align*}
+        \pounds_{\widehat{\Xi}}\A^i_a&=\xi^a(k)\der_a\A^i_b-\xi^i_a(k,\A(k))\\
+        &=\xi^a(k)\der_a\A^i_b-\d_a\xi^b(k)\,\A_b^i+{\epsilon^i}_{jk}\,\A^j_a\xi^k(k)-\d_a\xi^i(k)\\
+        &=\xi^b F^i_{ab}+D_a\xi^i_{(V)}
+    \end{align*}
+    This way, being $\pounds$ a derivation, combining chain and Leibnitz rule yields
+    \begin{align*}
+        \pounds_{\widehat{\Xi}}\Psi[\A]&=\frac{\delta\Psi}{\delta\A^i_a}\pounds_{\widehat{\Xi}}\A^i_a=\frac{\delta\Psi}{\delta\A^i_a}\,\xi^bF^i_{ab}+\frac{\delta\Psi}{\delta\A^i_a}\,D_a\xi^i_{(V)}\\
+        &=\frac{\delta\Psi}{\delta\A^i_a}\,\xi^b F^i_{ab}+D_a\left(\frac{\delta\Psi}{\delta\A^i_a}\,\xi^i_{(V)}\right)-\left(D_a\frac{\delta\Psi}{\delta\A^i_a}\right)\xi^i_{(V)}
+    \end{align*}
+{from which, by integrating on a closed region of $Q$, by using Stokes theorem together with the fact that $\pounds_{\widehat{\Xi}}\Psi[A]=0$, being the field $\widehat{\Xi}$ generating a symmetry, we get}
+    $$
+        \frac{\delta\Psi}{\delta\A^i_a}F^i_{ab}=0 \quad\text{and}\quad D_a\frac{\delta\Psi}{\delta\A^i_a}=0
+   $$
+   If we now resume (\ref{boundary_S}) and (\ref{holst_momenta}), since in adapted coordinates $\n=\tiny\begin{bmatrix}
+        1\\0\\0\\0
+    \end{bmatrix}$, then
+    $$\frac{\delta\mathbf{S}_{\gamma,\beta}}{\delta\A^i_a}=p_i^{a\alpha}\n_\alpha=p_i^{a0}=\frac{1}{\boldsymbol{\kappa}\gamma}\E^a_i$$ 
+    which concludes the proof, being the action $\mathbf{S}_{\gamma,\beta}$ a functional of the connection.\, Notice that, such an argument also proves that $(\A^i_a,\E_i^a)$ are a pair of conjugate variables for ABI theory.\\
+    \,\newline
+\end{proof}
+
+%\newpage
+%\section{Theories of quantum gravity}
+%The main fundamental idea of quantum field theory (QFT) can be summarized in the following cite: if light and electromagnetic waves are carried through space by photons, then all other physical \emph{fields} must be carried by fundamental particles in some analogous way. There would be so the temptation to apply second quantisation to GR, assuming somehow the existence of a gravitational particle\footnote{gravitino, $spin=2$} which would carry the gravitational interaction; but where? Here is the main fact that a quantum theory of gravity should be a quantisation of the spacetime itself: none background on which the gravitational field propagates is there, since the gravitational field \emph{is} the background itself! This suggests to address the problem of quantize gravity in a fist quantisation fashion, by using a formalism close to the canonical one, as we described in Section \ref{covariant_Cauchy}.
+
+
+%\subsection{Perturbative quantum gravity}
+
+%There have been several attempts to somehow interpret GR as a perturbative quantum field theory and some of them are even good (John Donoghue)
+
+%$$\vdots$$
+
+%The main reason for getting a perturbative description of quantum gravity is that perturbation theory have so far produced our best interpretation of the physical world and of all the way on which the main interactions talk to each other: this is the Standard Model of particle theory
+
+%\subsubsection{Birefs on the Standard Model}\label{standard_model}
+%Sono tutte teorie specialmente relativistiche, i.e. rispetto a $\SO(1,3)$, ma non rispetto a $\Diffeo(\M)$.
+%Electromagnetism is a $\G=\U(1)$--gauge theory. In General Relativity $\G=\SO(1,3)$ for tensor fields or $\G=\SL(2,\C)$ for spinor fields, while in Yang--Mills theories $\G=\SU(2)$ for the \emph{weak interaction} and $\G=\SU(3)$ for the \emph{strong interaction}. All of those are meant to be \emph{gauge} field theories and the \emph{grand unified theory} is actually formulated as a gauge theory where $\G=\SU(3)\times\SU(2)\times\U(1)$.
+%$$\vdots$$
+%$$\text{leggi cap 33, 34 di \cite{50idee}}$$
+%$$\vdots$$
+%\subsubsection{QED}
+%\subsubsection{Electro--weak}
+%\subsubsection{QCD}
+
+
+%\subsection{Why physics needs LQG?}
+
+%It comes quite natural to apply a quantisation procedure to GR being a field theory, but unfortunately, following the paths described in Section \ref{first_quantisation} faces serious obstructions at a very early stage.\, The main problem with quantum gravity is that GR is a generally covariant field theory and nobody knows what a generally covariant quantum field theory really is! For that, the path which seems logical to follow would be the first quantisation one, though if one tries to apply it directly to the metric--formulation of GR in Hamiltonian form, as drawn in Section \ref{canonical_GR}, then one inevitably reaches a standstill point:\, consider an ADM--foliation of space--like leaf $(\Sigma,q)$ where the configuration space may be $\Lor(\Sigma)$ (see see III.4 \cite{baez})
+
+%$$H=\int_\Sigma\mathscr{H}\,\d\boldsymbol{\sigma}_q$$
+%\begin{align*}
+    %\mathscr{H}&=N\left(-\Scal_q+q^{-1}\left(\tr(p^2)-\frac{1}{2}\tr(p)^2\right)\right)+N^i\left(-2\,D^j(\sqrt{q}\,p_{ij})\right)\\
+    %&=:NC+N^iC_i
+%\end{align*}
+%where $C=-2\G_{\mu\nu}n^\mu n^\nu$ and $C_i=-2\G_{\mu i}n^\mu$.
+
+%%$$\widehat{H}=\int_\Sigma N\widehat{C}+N^i\widehat{C}_i\,\d\boldsymbol{\sigma}_q$$
+
+%$$\text{Wheeler--De Witt}$$
+%$$\widehat{H}\Psi=0$$
+%where $\Psi[q]$ should be an element of $T^*\Lor(\Sigma)$
+
+%$$\vdots$$
+%It is worth mentioning here the several historical attempts to apply canonical quantisation to GR (see Sections 7.2 and 7.3 of \cite{pullin2}):
+
+%\begin{itemize}
+    %\item Traditional Hamiltonian formulation of metric GR (ADM formulation, cite)
+    %$$\begin{cases}
+        %\mathcal{H}:=\der_0K-\n^kD_kK-D_iD^iN+N\,K^{ij}K_{ij}=0\\
+        %\mathcal{M}_i:=(q^{lj}\delta^k_i-q^{kj}\delta^l_i)D_lK_{kj}=0\\
+        %\left(q_{il}\der_0K^l_j-\n^kD_kK_{ij}+D_k\n_iK^k_j-D_j\n^kK_{ik}-D_iD_jN\right)+\\
+        %+N\,^3R_{ij}+NKK_{ij}=0
+    %\end{cases}$$
+    %One of the difficulties is the fact that such constraints are non--polynomial functions of the basic variables and the standard canonical quantisation stalls here (see pag. 170 Gamibini--Pullin \cite{pullin2})
+    %\item The new Hamiltonian formalism for tetradic GR (Ashtekar self--dual approach, cite)
+%\end{itemize}
+%$$\vdots$$
+%on the other hand, canonical quantisation of Yang--Mills theories has been more successful and to apply Yang--Mills--like quantisation to gravity one needs the Ashtekar self--dual formulation to interpret GR as a $\SU(2)$--gauge theory.\, In this work, we go through the equivalent Holst theory, well developed in Section \ref{gauge_GR}, which produces in the BI--reduction a $\SU(2)$--gauge theory too.
+
+%\begin{remark}
+    %Occhio! Che GR e Holst sono equivalenti classicamente ma nessuno dice che lo siano quantisticamente.
+%\end{remark}
+
+%$$\vdots$$
+%The quantum theory that arise from this approach is called Loop Quantum Gravity (LQG): it takes GR and its background--free essence very seriously, resulting, in the end, as a covariant dynamical quantum theory for the spacetime.\, In a nutshell, LQG is nothing but a non--perturbative and background--free quantisation of the boundary equations for the ABI model.
+
+
+As a concluding remark, it is worth highlighting that the boundary equations (\ref{ABI_boundary_eqs}) turn out to only depend on the Barbero--Immirzi parameter $\beta \in \mathbb{R} \setminus \{0\}$, concerning them as kinematical constraints on the allowed dynamics, emphasizing the difference with respect to the Holst parameter $\gamma$.

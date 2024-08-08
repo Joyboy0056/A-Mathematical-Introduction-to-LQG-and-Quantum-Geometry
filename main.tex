@@ -1,0 +1,204 @@
+\documentclass[a4paper,twoside, 12pt]{book}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[main=english]{babel}
+\usepackage[shortlabels]{enumitem}
+%\usepackage[autostyle]{csquotes}
+\usepackage{amsmath,amssymb,amsthm,latexsym,breqn,titling,graphicx,hyperref,wrapfig,verbatim,layout,mathrsfs,cancel,stmaryrd}
+%\usepackage{amsfonts,breqn,titling}
+\usepackage[capitalize]{cleveref}
+\usepackage{graphicx, nicefrac,bbold}
+
+\usepackage[dvipdfm]{hyperref}
+
+%commutative diagrams
+\usepackage{pst-node}
+\usepackage{auto-pst-pdf}
+\usepackage{tikz-cd} 
+\usepackage[small]{caption2}
+
+%Wick-like contraction
+\usepackage{physics}
+\usepackage{simpler-wick}
+
+\newtheorem{teo}{Theorem}[section]
+\newtheorem{cor}[teo]{Corollary}
+
+\newtheorem{remark}{Remark}[section]
+\newtheorem{defi}{Definition}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{note}{Notation}
+\newtheorem{lemma}{Lemma}
+
+\renewcommand{\ket}[1]{\left| #1 \right >}
+\renewcommand{\bra}[1]{\left< #1 \right |}
+\renewcommand{\braket}[2]{\left\langle#1\right|\left#2\right\rangle}
+\newcommand{\der}[2]{\frac{\partial#1}{\partial#2}}
+\newcommand{\pder}[1]{\frac{\partial}{\partial#1}}
+
+\providecommand{\N}{\mathbb{N}}
+\providecommand{\R}{\mathbb{R}}
+\providecommand{\C}{\mathbb{C}}
+\providecommand{\Z}{\mathbb{Z}}
+\providecommand{\Q}{\mathbb{Q}}
+\providecommand{\K}{\mathbb{K}}
+\providecommand{\M}{\text{\normalfont M}}
+\providecommand{\mM}{\mathcal{M}}
+\providecommand{\mN}{\mathcal{N}}
+
+\providecommand{\A}{\text{\normalfont A}}
+\providecommand{\Aa}{\text{\normalfont\scriptsize{A}}}
+
+\providecommand{\Etilde}{\tilde{\text{\normalfont E}}}
+\renewcommand{\S}{\mathbb{S}}
+\newcommand{\T}{\text{\normalfont T}}
+\renewcommand{\H}{\text{\normalfont H}}
+\newcommand{\V}{\text{\normalfont V}}
+\renewcommand{\L}{\mathscr{L}}
+\newcommand{\D}{\mathcal{D}}
+\newcommand{\n}{\mathbf{n}}
+\renewcommand{\a}{\mathbf{a}}
+\newcommand{\q}{\mathbf{q}}
+\renewcommand{\k}{\mathbf{k}}
+\renewcommand{\j}{\mathbf{j}}
+\newcommand{\p}{\mathbf{p}}
+\renewcommand{\b}{\mathbf{b}}
+\newcommand{\f}{\mathbf{f}}
+\newcommand{\h}{\mathbf{h}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\1}{\mathbb{1}}
+\newcommand{\0}{\mathbb{0}}
+\newcommand{\Sec}[1]{\Gamma\left(#1\right)}
+\newcommand{\ristr}[1]{_{|_#1}}
+
+\providecommand{\Cinfc}{\mathcal{C}^{\infty}_0}
+\providecommand{\Cinf}{\mathscr{C}^\infty}
+\providecommand{\Ci}{\mathscr{C}}
+\providecommand{\Cl}{C\ell}
+\providecommand{\Hol}{\text{\normalfont Hol}}
+\providecommand{\Dd}{\text{\normalfont D}}
+\newcommand{\supp}{\text{\normalfont supp}}
+\newcommand{\gl}{\mathfrak{gl}}
+\newcommand{\spin}{\mathfrak{spin}}
+\providecommand{\sl}{\mathfrak{sl}}
+\providecommand{\su}{\mathfrak{su}}
+\providecommand{\spec}{\text{\normalfont{spec}}}
+
+\newcommand{{\antij}}{{\overline{\J}}}
+
+\DeclareMathOperator{\spann}{span}
+\renewcommand{\der}{\partial}
+\newcommand{\im}{\text{\normalfont Im}}
+\newcommand{\Id}{\text{\normalfont I}}
+\newcommand{\sgn}{\text{\normalfont sgn}}
+\renewcommand{\O}{\text{\normalfont O}}
+\newcommand{\G}{\text{\normalfont G}}
+\newcommand{\SO}{\text{\normalfont SO}}
+\newcommand{\so}{\text{\frak{so}}}
+\newcommand{\SU}{\text{\normalfont SU}}
+
+\newcommand{\U}{\text{\normalfont U}}
+\newcommand{\Sp}{\text{\normalfont Sp}}
+\newcommand{\GL}{\text{\normalfont GL}}
+\newcommand{\SL}{\text{\normalfont SL}}
+\newcommand{\Aut}{\text{\normalfont Aut}}
+\newcommand{\Hom}{\text{\normalfont Hom}}
+\newcommand{\End}{\text{\normalfont End}}
+\newcommand{\diag}{\text{\normalfont diag}}
+\providecommand{\Pin}{\text{\normalfont Pin}}
+\providecommand{\Spin}{\text{\normalfont Spin}}
+\providecommand{\Ad}{\text{\normalfont Ad}}
+\providecommand{\ad}{\text{\normalfont ad}}
+\renewcommand{\d}{\text{\normalfont d}}
+\newcommand{\Der}{\text{\normalfont Der}}
+\renewcommand{\tr}{\text{\normalfont tr}}
+\newcommand{\Ric}{\text{\normalfont Ric}}
+\newcommand{\Scal}{\text{\normalfont R}}
+\newcommand{\Met}{\text{\normalfont Met}}
+\newcommand{\Con}{\text{\normalfont Con}}
+
+\newcommand{\Diffeo}{\text{\normalfont Diff}}
+\newcommand{\Omeo}{\text{\normalfont Homeo}}
+\newcommand{\J}{\text{\normalfont J}}
+
+\newcommand{\Riem}{\text{\normalfont Riem}}
+
+\newcommand{\hor}{\text{\normalfont hor}}
+\renewcommand{\vert}{\text{\normalfont ver}}
+
+\newcommand{\g}{\text{\normalfont g}}
+\renewcommand{\h}{\text{\normalfont h}}
+\renewcommand{\t}{\text{\normalfont t}}
+\newcommand{\s}{\text{\normalfont s}}
+\newcommand{\id}{\text{\normalfont id}}
+\newcommand{\e}{\text{\normalfont e}}
+\renewcommand{\c}{\text{\normalfont c}}
+\newcommand{\Uu}{\mathscr{U}}
+\newcommand{\F}{\text{\normalfont F}}
+\newcommand{\E}{\text{\normalfont E}}
+
+\newcommand{\nablaw}{\widehat{\nabla}}
+\newcommand{\nablat}{\widetilde{\nabla}}
+
+\newcommand{\Lor}{\text{\normalfont Lor}}
+\providecommand{\Met}{\text{\normalfont Met}}
+\providecommand{\Con}{\text{\normalfont Con}}
+
+\providecommand{\Latt}{\text{\normalfont L}}
+\providecommand{\Nn}{\text{\normalfont N}}
+\renewcommand{\P}{\text{\normalfont P}}
+\newcommand{\Div}{\text{\normalfont div}}
+\renewcommand{\r}{\text{\normalfont r}}
+\renewcommand{\u}{\text{\normalfont u}}
+
+\newcommand{\Inv}{\text{\normalfont Inv}}
+
+
+\providecommand{\Kk}{\mathcal{K}}
+\providecommand{\Gg}{\mathcal{G}}
+
+\providecommand{\Pp}{\mathcal{P}}
+
+\newcommand{\Sym}{\text{\normalfont Sym}}
+
+\newcommand{\Geo}{\text{\normalfont Geo}}
+
+\newcommand{\ff}{\text{\normalfont f}}
+
+\renewcommand{\l}{\vec{\ell}}
+\newcommand{\ee}{\mathbf{e}}
+\newcommand{\vv}{\mathbf{v}}
+
+
+
+
+\input{Impaginazione/packages}
+
+\begin{document}
+
+     
+\input{Impaginazione/inizio}
+
+
+\chapter{Bundles, connections, curvature and fields}
+\input{capitoli/capitolo1}
+
+
+
+\chapter{Steps to a quantisation of General Relativity}
+\input{capitoli/capitolo2}
+
+
+
+\chapter{Covariant Loop Quantum Gravity}
+\input{capitoli/capitolo3}
+
+
+
+\input{Impaginazione/fine}
+
+
+
+\end{document}

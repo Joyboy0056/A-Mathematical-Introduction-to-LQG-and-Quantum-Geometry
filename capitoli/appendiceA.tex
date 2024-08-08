@@ -1,0 +1,275 @@
+%\section{Lie Operators for the ground state}
+
+In the final part of this work, we have seen that the quantisation of a gauge theory equivalent to GR leads to a quantum theory of space where the invariant quantum states are represented by superpositions of spin networks, which can be identified as quantum tetrahedra, the observables of this theory corresponding to the geometric properties of these tetrahedra. We have also observed that the algebra of observables is polynomial in the dihedral angles $\Dd_{ij}$, which can be viewed as inner products of Lie operators $(L_i)_a$, regarding them as the fundamental building blocks of such a geometric algebra.
+
+Technically, quantum tetrahedra with generic spins \((j_1, j_2, j_3, j_4)\) imply geometric operators that are endomorphisms of the vector space \(\mathbb{C}^{n_{(j_1)}} \otimes \mathbb{C}^{n_{(j_2)}} \otimes \mathbb{C}^{n_{(j_3)}} \otimes \mathbb{C}^{n_{(j_4)}}\) and the Lie operators reconstruct these by acting Leibniz--like manner on each component of the tensor product through some representation $L_a$ on the correspondent $\C^{n_{(j_i)}}$. Consequently, the dimensions of the matrices are highly sensitive to the values of the spins: the first two simplest examples (except the ground state) are the tetrahedra \((1, \frac{1}{2}, \frac{1}{2}, 1)\) and \((1, 1, 1, 1)\), whose geometric algebras have bases spanned by symmetric matrices of dimensions \(36 \times 36\) and \(81 \times 81\) respectively, and quickly escalating to the case \((\frac{3}{2},\frac{3}{2},\frac{3}{2},\frac{3}{2})\) which has a support of dimension $256$.
+
+Therefore, we opted to exploit invariance to tame the exponential growth in dimension of these matrices, viewing them restricted to the relevant subspace $\Inv(\rho)$, resulting in matrices of dimensions \((2j+1) \times (2j+1)\) at most\footnote{Indeed, unlike the Lie ones, dihedral angles are invariant operators, hence they allow the spin networks space $\Inv(\rho)$, which is of dimension $2$ for the ground state tetrahedron, and they write as $2\times2$ symmetric matrices.}---see Theorem 3.1.3.\\
+
+However, the case of the geometric algebra of the ground state tetrahedron is still manageable in its general version, where its Lie operators can be written as \(16 \times 16\) matrices.
+The whole machinery relies on the isomorphism ${\C^{2}}^{\otimes 4}\cong\C^{16}$, that can be cumbersomely written explicitly on the basis and then extend by linearity. For instance
+$$\begin{matrix}
+    \ket{++++}\in{\C^2}^{\otimes4}&\leftrightarrow&\begin{bmatrix}
+    1\\
+    0\\
+    0\\
+    \vdots\\
+    0\\
+    \vdots\\
+    0
+\end{bmatrix}\quad\begin{matrix}
+    \ket{++++}\\
+    \ket{+++-}\\
+    \ket{++-+}\\
+    \vdots\\
+    \ket{+-+-}\\
+    \vdots\\
+    \ket{----}
+\end{matrix}\in\C^{16}
+\end{matrix}$$
+
+$$\begin{matrix}
+    \ket{+-+-}\in{\C^2}^{\otimes4}&\leftrightarrow&\begin{bmatrix}
+    0\\
+    0\\
+    0\\
+    \vdots\\
+    1\\
+    \vdots\\
+    0
+\end{bmatrix}\quad\begin{matrix}
+    \ket{++++}\\
+    \ket{+++-}\\
+    \ket{++-+}\\
+    \vdots\\
+    \ket{+-+-}\\
+    \vdots\\
+    \ket{----}
+\end{matrix}\in\C^{16}
+\end{matrix}$$
+$$\vdots$$
+$$\begin{matrix}
+    \ket{----}\in{\C^2}^{\otimes4}&\leftrightarrow&\begin{bmatrix}
+    0\\
+    0\\
+    0\\
+    \vdots\\
+    0\\
+    \vdots\\
+    1
+\end{bmatrix}\quad\begin{matrix}
+    \ket{++++}\\
+    \ket{+++-}\\
+    \ket{++-+}\\
+    \vdots\\
+    \ket{+-+-}\\
+    \vdots\\
+    \ket{----}
+\end{matrix}\in\C^{16}
+\end{matrix}$$
+
+%$$\text{e.g.}\quad\ket{+-+-}\in{\C^{2}}^{\otimes 4}\cong\C^{16}\quad\text{reads as}$$
+%$$\begin{bmatrix}
+ %   0\\
+  %  0\\
+   % 0\\
+    %\vdots\\
+    %1\\
+    %\vdots\\
+    %0
+%\end{bmatrix}\quad\begin{matrix}
+ %   \ket{++++}\\
+  %  \ket{+++-}\\
+   % \ket{++-+}\\
+    %\vdots\\
+    %\ket{+-+-}\\
+    %\vdots\\
+    %\ket{----}
+%\end{matrix}$$
+
+%Now you can compute the matrices $(L_i)_a\in\C^{16\times 16}\Rightarrow(L_i)_a\ket{\pm\pm\pm\pm}\in\C^{16}$ such that---for indices $a,i=1,2,3$ they are $9$ matrices
+%$$\begin{bmatrix}
+ %   (L_i)_a\ket{++++}&(L_i)_a\ket{+++-}&\hdots&(L_i)_a\ket{----}
+%\end{bmatrix}\in\C^{16\times 16}$$
+%through (\ref{tau_i}), by extending Leibnitz--like in each component.
+
+%\newpage
+%$$\begin{bmatrix}
+ %   1\\
+  %  0\\
+   % 0\\
+    %0\\
+ %   0\\
+  %  0\\
+   % 0\\
+    %0\\
+ %   0\\
+  %  0\\
+   % 0\\
+    %0\\
+ %   0\\
+  %  0\\
+   % 0\\
+    %0\\
+    %0\\
+%\end{bmatrix}=\ket{++++}$$
+
+%$$\vdots$$
+%$$\mathfrak{geo}=\bigg\{X\in\mathfrak{gl}_3(\R)\,\bigg|\,X^{-1}+X\in\mathfrak{so}(3)\bigg\}$$
+%if $\Geo$ were a Lie group, the above would be its Lie algebra. Actually it is a homogenoeus space, i.e. it has smooth structure supporting the action of $\SO(3)$ through its diffeomorphisms, i.e. there exists a group homomorphism (a representation) $\rho:\SO(3)\to\Diffeo(\Geo)$.\\
+
+Let us now compute Lie operators---for each $a=1,2,3,4$ and $i=1,2,3$.
+
+Recall the Kronecker product, being defined for two vectors $x,y\in\C^n$ as $(x\otimes y)_{ij}=x^iy^j$, while for two matrices $X,Y\in\C^{n\times n}$ results $(X\otimes Y)_{ij}=X_{ij}Y$. This way, we can compute the twelve Lie matrices 
+
+\begin{align*}
+    (L_1)_a&=\tau_a\otimes\1_2\otimes\1_2\otimes\1_2\\
+    (L_2)_a&=\1_2\otimes\tau_a\otimes\1_2\otimes\1_2\\
+    (L_3)_a&=\1_2\otimes\1_2\otimes\tau_a\otimes\1_2\\
+    (L_0)_a&=-\bigg((L_1)_a+(L_2)_a+(L_3)_a\bigg)
+\end{align*}
+Since $\1_1\otimes\1_2=\1_4$, we have
+\begin{align*}
+    (L_1)_1&=-\frac{i}{2}\begin{bmatrix}
+    0&1\\
+    1&0
+\end{bmatrix}\otimes\begin{bmatrix}
+    1&0\\
+    0&1
+\end{bmatrix}\otimes\1_4=-\frac{i}{2}\begin{bmatrix}
+    0&0&1&0\\
+    0&0&0&1\\
+    1&0&0&0\\
+    0&1&0&0
+\end{bmatrix}\otimes\begin{bmatrix}
+    1&0&0&0\\
+    0&1&0&0\\
+    0&0&1&0\\
+    0&0&0&1
+\end{bmatrix}\\
+&=-\frac{i}{2}\begin{bmatrix}
+    \mathbb{0}_4&\mathbb{0}_4&\1_4&\mathbb{0}_4\\
+    \mathbb{0}_4&\mathbb{0}_4&\mathbb{0}_4&\1_4\\
+    \1_4&\mathbb{0}_4&\mathbb{0}_4&\mathbb{0}_4\\
+    \mathbb{0}_4&\1_4&\mathbb{0}_4&\mathbb{0}_4
+\end{bmatrix}
+\end{align*}
+
+\,\newline
+Analogously we can compute
+\begin{align*}
+    (L_1)_2&=\tau_2\otimes\1_2\otimes\1_2\otimes\1_2=\frac{1}{2}\begin{bmatrix}
+        \0_4&\0_4&-\1_4&\0_4\\
+        \0_4&\0_4&\0_4&-\1_4\\
+        \1_4&\0_4&\0_4&\0_4\\
+        \0_4&\1_4&\0_4&\0_4
+    \end{bmatrix}
+\end{align*}
+
+\begin{align*}
+    (L_1)_3&=\tau_3\otimes\1_2\otimes\1_2\otimes\1_2=-\frac{i}{2}\begin{bmatrix}
+        \1_4&\0_4&\0_4&\0_4\\
+        \0_4&\1_4&\0_4&\0_4\\
+        \0_4&\0_4&-\1_4&\0_4\\
+        \0_4&\0_4&\0_4&-\1_4
+    \end{bmatrix}
+\end{align*}
+\begin{align*}
+    (L_2)_1&=\1_2\otimes\tau_1\otimes\1_2\otimes\1_2=-\frac{i}{2}\begin{bmatrix}
+        \0_4&\1_4&\0_4&\0_4\\
+        \1_4&\0_4&\0_4&\0_4\\
+        \0_4&\0_4&\0_4&\1_4\\
+        \0_4&\0_4&\1_4&\0_4
+    \end{bmatrix}
+\end{align*}
+\begin{align*}
+    (L_2)_2&=\1_2\otimes\tau_2\otimes\1_2\otimes\1_2=\frac{1}{2}\begin{bmatrix}
+        \0_4&-\1_4&\0_4&\0_4\\
+        \1_4&\0_4&\0_4&\0_4\\
+        \0_4&\0_4&\0_4&-\1_4\\
+        \0_4&\0_4&\1_4&\0_4
+    \end{bmatrix}
+\end{align*}
+
+\begin{align*}
+    (L_2)_3&=\1_2\otimes\tau_3\otimes\1_2\otimes\1_2=-\frac{i}{2}\begin{bmatrix}
+        \1_4&\0_4&\0_4&\0_4\\
+        \0_4&-\1_4&\0_4&\0_4\\
+        \0_4&\0_4&\1_4&\0_4\\
+        \0_4&\0_4&\0_4&-\1_4
+    \end{bmatrix}
+\end{align*}
+
+
+
+\begin{align*}
+    (L_3)_1&=\1_4\otimes-\frac{i}{2}\begin{bmatrix}
+        0&1\\
+        1&0
+    \end{bmatrix}\otimes\1_2=-\frac{i}{2}\1_4\otimes\begin{bmatrix}
+        \0_2&\1_2\\
+        \1_2&\0_2
+    \end{bmatrix}\\
+    &=-\frac{i}{2}\begin{bmatrix}
+        \0_2&\1_2&\0_2&\0_2&\0_2&\0_2&\0_2&\0_2\\
+        \1_2&\0_2&\0_2&\0_2&\0_2&\0_2&\0_2&\0_2\\
+        \0_2&\0_2&\0_2&\1_2&\0_2&\0_2&\0_2&\0_2\\
+        \0_2&\0_2&\1_2&\0_2&\0_2&\0_2&\0_2&\0_2\\
+        \0_2&\0_2&\0_2&\0_2&\0_2&\1_2&\0_2&\0_2\\
+        \0_2&\0_2&\0_2&\0_2&\1_2&\0_2&\0_2&\0_2\\
+        \0_2&\0_2&\0_2&\0_2&\0_2&\0_2&\0_2&\1_2\\
+        \0_2&\0_2&\0_2&\0_2&\0_2&\0_2&\1_2&\0_2\\
+    \end{bmatrix}
+\end{align*}
+
+\begin{align*}
+    (L_3)_2&=\1_4\otimes-\frac{i}{2}\begin{bmatrix}
+        0&-i\\
+        i&0
+    \end{bmatrix}\otimes\1_2=\frac{1}{2}\1_4\otimes\begin{bmatrix}
+        \0_2&-\1_2\\
+        \1_2&\0_2
+    \end{bmatrix}\\
+    &=\frac{1}{2}\begin{bmatrix}
+        \0_2&-\1_2&\0_2&\0_2&\0_2&\0_2&\0_2&\0_2\\
+        \1_2&\0_2&\0_2&\0_2&\0_2&\0_2&\0_2&\0_2\\
+        \0_2&\0_2&\0_2&-\1_2&\0_2&\0_2&\0_2&\0_2\\
+        \0_2&\0_2&\1_2&\0_2&\0_2&\0_2&\0_2&\0_2\\
+        \0_2&\0_2&\0_2&\0_2&\0_2&-\1_2&\0_2&\0_2\\
+        \0_2&\0_2&\0_2&\0_2&\1_2&\0_2&\0_2&\0_2\\
+        \0_2&\0_2&\0_2&\0_2&\0_2&\0_2&\0_2&-\1_2\\
+        \0_2&\0_2&\0_2&\0_2&\0_2&\0_2&\1_2&\0_2\\
+    \end{bmatrix}
+\end{align*}
+
+
+\begin{align*}
+    (L_3)_3&=\1_4\otimes-\frac{i}{2}\begin{bmatrix}
+        1&0\\
+        0&-1
+    \end{bmatrix}\otimes\1_2=-\frac{i}{2}\1_4\otimes\begin{bmatrix}
+        \1_2&\0_2\\
+        \0_2&-\1_2
+    \end{bmatrix}\\
+    &=-\frac{i}{2}\begin{bmatrix}
+        \1_2&\0_2&\0_2&\0_2&\0_2&\0_2&\0_2&\0_2\\
+        \0_2&-\1_2&\0_2&\0_2&\0_2&\0_2&\0_2&\0_2\\
+        \0_2&\0_2&\1_2&\0_2&\0_2&\0_2&\0_2&\0_2\\
+        \0_2&\0_2&\0_2&-\1_2&\0_2&\0_2&\0_2&\0_2\\
+        \0_2&\0_2&\0_2&\0_2&\1_2&\0_2&\0_2&\0_2\\
+        \0_2&\0_2&\0_2&\0_2&\0_2&-\1_2&\0_2&\0_2\\
+        \0_2&\0_2&\0_2&\0_2&\0_2&\0_2&\1_2&\0_2\\
+        \0_2&\0_2&\0_2&\0_2&\0_2&\0_2&\0_2&-\1_2\\
+    \end{bmatrix}
+\end{align*}
+
+Once all Lie matrices are computed, we can use them to reconstruct each dihedral operator of the ground state through $\Dd_{ij}=(L_i)_a\delta^{ab}(L_j)_b$. For instance
+
+$$\Dd_{12}=\frac{1}{4}\begin{bmatrix}
+    -\1_4&\0_4&\0_4&\0_4\\
+    \0_4&\1_4&-2\1_4&\0_4\\
+    \0_4&-2\1_4&\1_4&\0_4\\
+    \0_4&\0_4&\0_4&-\1_4
+\end{bmatrix}\quad\text{and}\quad\Dd_{33}=-\frac{3}{4}\1_{16}$$
+
+

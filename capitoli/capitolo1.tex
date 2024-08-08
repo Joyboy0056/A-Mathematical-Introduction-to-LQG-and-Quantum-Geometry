@@ -1,0 +1,1810 @@
+Why fiber bundle theory? Essentially because fiber bundles provide a formalism that perfectly fits with the idea of different equivalent local observers on the same geometrical place, that is, a \emph{relativistic theory}. Farther, they seem to be the most natural framework where connections, that come together with their curvature, can be defined and, also, fields can be variationally studied.
+
+%Fiber bundle theories as datum of $(E\to\M^n,\D)$: the first entry is a fiber bundle while in the second $\D$ is a so--called \emph{connection} acting on sections of the bundle. Connections are fundamental objects which imply concepts of \emph{covariant derivative}, \emph{parallel transport} (from which geodesics arise), \emph{holonomies}, from which one is able to study curvature of $\D$ on $\M^n$. All of these known concepts are usualy based on a linear structure: Ehresmann (metti riferimento) was able to formulate a bundle--theory without no more structure that the differentiable one and he defined connections in any smooth fiber bundle, so that \emph{linear connections} (like Levi--Civita, Koszul) and \emph{principal connections} (like spin) follow as special cases.\newline\\
+
+%Field theories, instead, should be called \emph{section theories}, being nothing but a variational study of sections of certain fiber bundles, in which some physics can be made.
+
+\section{General fiber bundles theory}\label{gen_fib}
+In this section we will study general smooth fiber bundles over smooth manifolds on which we will consider connections a--lá Ehresmann.
+\begin{defi}[Fiber bundle]
+    Let $\M,\,F$ be smooth manifolds. A $($smooth$)$ \emph{fiber bundle} over $\M$ of \emph{standard fiber} $F$ is the datum of $(B,\pi,\M,F)$, where $\pi:B\to\M$ is a surjective map for which there exist an open covering $\Uu=\{U_\alpha\}_{\alpha\in\mathcal{I}}$ of \,\,$\M$\, and local diffeomorphisms $\phi_\alpha:\pi^{-1}(U_\alpha)\to U_\alpha\times F$ satisfying the commutation condition
+    $$\pi=\pi_1\circ\phi_\alpha$$
+    The set $\{(U_\alpha,\phi_\alpha)\}_{\alpha\in\mathcal{I}}$ is called a \emph{local trivialisation} of the bundle and $\pi$ is called \emph{projection map} of the bundle.
+\end{defi}
+\,\newline
+Open sets of $\Uu$ have to be seen as neighbourhoods of points $\p\in\M^n$ and \emph{trivialisations} $(U,\phi)$ constrain the \emph{total space} $B$ to locally resemble the trivial product $U\times F$ (up to diffeomorphisms).\, Being both the \emph{base space} $\M^n$ and the \emph{standard fiber} $F^r$ smooth manifolds, it is natural to expect $B^{n+r}$ to be a smooth manifold too, so that its global structure can be reconstructed by gluing together local data.\, In fact, on overlaps $U_{\alpha\beta}:=U_\alpha\cap U_\beta\neq\emptyset$ of two local trivialisations $(U_\alpha,\phi_\alpha), (U_\beta,\phi_\beta)$ around the same point $\p$, one gets---by definition---\emph{transition maps} $\phi_\alpha\circ\phi_\beta^{-1}$ on the form 
+$$\begin{matrix}
+    \phi_{\alpha\beta}:U_{\alpha\beta}\times F\to U_{\alpha\beta}\times F\\
+    \qquad\qquad\quad(\p,\f)\mapsto\left(\p,\g_{\alpha\beta}(\p)\,\f\right)
+\end{matrix}$$
+which are diffeomorphisms as well.
+Here $\g_{\alpha\beta}:U_{\alpha\beta}\to\Diffeo(F)$ satisfies the \emph{cocycles properties} and completely encodes the behaviour of transition functions---for this reason we will often confuse them with no fear of misunderstanding. Farther, from local charts of coordinates $x^1,\hdots,x^n$,\, $y^1,\hdots,y^r$ respectively on $\M^n$ and $F^r$ one naturally gets an atlas of \emph{fibered charts} of coordinates $(x^\mu,y^i)$ on $B$ where transition maps among different charts are hither given by
+$$\begin{matrix}
+    \phi_{\alpha\beta}:U_{\alpha\beta}\times F\to U_{\alpha\beta}\times F\\
+    \qquad\qquad (x^\mu,y^i)\mapsto\underbrace{(x^\mu,\g_{\alpha\beta}(x)\,y^i)}_{=:({x'}^\mu,{y'}^i)}
+\end{matrix}$$
+By this means, it arises a fundamental feature of a bundle theory: \emph{transformation rules}, which in the most general case can be written as
+
+\begin{equation}\label{gen_trans_maps}
+    \begin{cases}
+    {x'}^\mu={x'}^\mu(x)\\
+    {y'}^i=Y^i(x,y)
+\end{cases}
+\end{equation}
+
+It could also occur for fiber bundles to carry a group--structure, when some finite--dimensional subgroup $\G$ of $\Diffeo(F)$ is there: if so, then $\g_{\alpha\beta}:U_{\alpha\beta}\to\G$ and we have to involve some (smooth) representation $\varrho$ of $\G$ in $F$, so that
+$$\varrho\circ\g_{\alpha\beta}:U_{\alpha\beta}\to\Diffeo(F)$$
+is still diffeo--valued. The here induced transition functions $\phi_{\alpha\beta}$ depend on $\G$ through $\g_{\alpha\beta}$.\,\, As a flashforward, associated bundles are quite natural objects, since they arise when $\G$ is a Lie group and $\varrho$ acts as a left--action. 
+\begin{remark}
+\begin{itemize}
+    \item \emph{(On regularity of cocycles)}\,\, Notice that \emph{regularity} of trivialisations encodes the structure of the bundle: if they were required to be "only" local homeomorphisms, then we would have a \emph{topological bundle} whose fiber is a topological space, while if they were linear we would have a \emph{vector bundle} whose fiber is a $r$--dimensional $\K$--vector space, and so on. In particular, on overlaps $U_{\alpha\beta}$ of two different trivialisations around same point, the above translates on the level of transition maps $\phi_{\alpha\beta}$ as having $\Omeo(F)$--valued or $\GL_r(\K)$--valued cocycles $\g_{\alpha\beta}$.\, Recall $\GL_r$ being an $r^2$--dimensional Lie sub--group of the infinite--dimensional Lie group $\Diffeo(F)$.
+
+    \item \emph{(On local triviality)}\,\,
+    A fiber bundle can or cannot be $($globally$)$ trivial, while it is always \emph{locally trivial} by its own definition. As smooth manifolds $\M^n$ resemble $\R^n$, locally around \,\,$\p\in U$---and are made by gluing together patches of \,$\R^n$ along local diffeomorphisms---so fiber bundles $(B,\pi,\M^n,F^r)$ locally resemble a tube $U\times F$ and they are made by gluing together tubes along local fibered morphisms. In other words, $B$ is foliated by fibers $\pi^{-1}(\p)=:B_\p$ all diffeomorphic to $F$, \emph{i.e.} a fiber bundle is a \emph{constant--rank} $r$ \emph{foliation} of the total space.
+\end{itemize}
+    
+\end{remark}
+\begin{defi}[Fibered morphisms and sections]
+    A fiber bundle $\pi:B\to\M^n$ is said to be \emph{trivial} if $B\cong\M^n\times F$ as smooth manifolds. A \emph{bundle morphism} among $(B,\pi)$ and $(B',\pi')$ is a pair $(\Phi,\varphi)$ such that the following diagram commute\[\begin{tikzcd}
+B \arrow{r}{\Phi} \arrow[swap]{d}{\pi} & B' \arrow{d}{\pi'} \\
+\M \arrow{r}{\varphi} & \M' \\
+\end{tikzcd} \qquad\varphi\circ\pi=\pi'\circ\Phi
+\] and it can be injective, surjective or a \emph{bundle isomorphism}. A \emph{(global) section} of a fiber bundle $(B,\pi)$ is a map $\sigma:\M^n\to B$ such that $\pi\circ\sigma=\id_\M$ while a \emph{local section} is $\sigma:U\to\pi^{-1}(U)$ satisfying $\pi\circ\sigma=\id_U$, for some open neighbourhood $U\subseteq\M^n$. Sections of $B\to\M^n$ are denoted by $\Gamma(B):=\Cinf(\M,B)$ while local sections by $\Gamma(B_{|_U}):=\Cinf(U,B)$.
+\end{defi}
+\,\newline
+Fundamental examples of sections are so--called \emph{coordinates fields}: being $B$ endowed with a differentiable structure, fibered coordinates $(x^\mu,y^i)$ around $b\in B$ do induce fundamental vector and co--vector fields $\left(\frac{\der}{\der x^\mu},\frac{\der}{\der y^i}\right)\in T_bB$ and $\left(\d x^\mu,\d y^i\right)\in T^*_bB$, which span sections in $\Gamma(TB)$ and $\Gamma(T^*B)$ respectively and, through the obvious abbreviation $\der_\mu:=\frac{\der}{\der x^\mu},\,\der_i:=\frac{\der}{\der y^i}$, the following relations are satisfied
+$$\d x^\mu(\der_\nu)=\delta^\mu_\nu\quad\text{and}\quad\d y^i(\der_j)=\delta^i_j$$
+General sections $\sigma:\M^n\to B$ instead read locally as smooth maps on the form
+$$x\mapsto\left(x^\mu,\sigma^i(x)\right)$$
+and two local expression of $\sigma$ glue together (define the same global section) \emph{iff}
+\begin{equation}\label{sections}
+    {\sigma'}^i(x'(x))=Y^i(x,\sigma(x))
+\end{equation}
+Recalling (\ref{gen_trans_maps}), we set up notations for so--called \emph{jacobians} (and \emph{anti--jacobians})---which encode variation along the fibered coordinates---as follow
+$$\J^\mu_\nu:=\frac{\der{x'}^\mu}{\der x^\nu}(x),\quad\J^i_\mu:=\frac{\der Y^i}{\der x^\mu}(x,y),\quad\J^i_j:=\frac{\der Y^i}{\der y^j}(x,y)$$
+$$\antij^\mu_\nu:=\frac{\der x^\mu}{\der{x'}^\nu}(x',y'),\quad\antij^\mu_i:=\frac{\der x^\mu}{\der Y^i}(x',y'),\quad\antij^i_j:=\frac{\der y^i}{\der Y^j}(y')$$
+
+As it has been already observed, $T_b(U\times V)=T_{x^\mu} U\times T_{y^i} V$ at a local level, while globally $T_bB\ncong T_\p\M\times T_\f F$ (unless $B$ is trivial): such kind of splitting endows the tangent bundle of the total space $TB\to B$ with some natural notion of \emph{vertical} and \emph{horizontal} fields, corresponding respectively to the tangent directions to the standard fiber and the base space. A vector field $\Xi\in\Gamma(TB)$ is called \emph{projectable} if it writes as
+$$\Xi=\xi^\mu(x)\der_\mu+\xi^i(x,y)\der_i$$
+and we will only consider such vector fields in $B$.
+\begin{defi}[Vertical subspace]\label{vertSubspace}
+    Let $\pi:B\to\M^n$ be a fiber bundle and fix $b\in B$. Then we call \emph{vertical} a vector $v\in T_bB$ such that $\d_b\pi(v)=0_{T_{\pi(b)}\M}$ and so
+    $$\V_b:=\ker(\d_b\pi)$$
+    is called the \emph{vertical subspace} of $T_bB$. Clearly, $\V B=\sqcup_b\{b\}\times V_b$ with
+    $$\begin{matrix}
+        \tau:\V B\to B\\
+        \quad(b,v)\mapsto e
+    \end{matrix}$$
+    defines a subbundle of $TB$ given by $(\V B,B,\tau,\R^r)$.
+\end{defi}
+\,\newline
+Vertical vectors $v\in\V_b$ locally reads as $v=v^i\der_i$ and induce vertical vector fields $\Xi\in\Gamma(\V B)$ in the form $\Xi=\xi^i(x,y)\der_i$; this way, a vertical subbundle over $\M^n$ can be construct as
+$(\V B,\M^n,\pi\circ\tau,F\times\R^r)$ whose sections $\Xi:\M^n\to \V B$ reads in fibered coordinates as 
+$$\Xi(x^\mu)=\left(x^\mu,y^i(x),\xi^i(x,y(x))\right)
+$$
+
+\begin{defi}[Connection]
+    A connection on $B\to\M^n$ is a smooth assignment 
+    $$b\in B\mapsto\H_b\subseteq T_bB$$
+    of vector subspaces satisfying the horizontal condition $T_bB=\V_b\oplus\H_b$. In a modern jargon, it is a horizontal rank--n smooth distribution in $B$.
+\end{defi}
+\,\newline
+Notice that, tough vecrtical subspaces are intrinsic on a fiber bundle, horizontal ones do depend on the choice of the connection.\,\, Immediate consequence of the definition is a theorem (for which we refer to \cite{gockeler}) of existence and uniqueness of the \emph{horizontal lift}; essentially, this allows the following construction: get a vector field $\xi\in T_\p\M$ and lift the base point to the total space to $b\in\pi^{-1}(\p)\subseteq B$, then there exists a unique $\Xi\in T_bB$ which is the \emph{horizontal lift of} $\xi$, meaning that $\d_b\Xi=\xi$ and $\Xi\in\H_b$. Thus, knowing the horizontal lift at any point of any vector on $\M$ is equivalent to know the connection $\H$; for this aim, one is led to define the horizontal lift map 
+$$\omega_b:T_\p\M^n\to T_bB$$
+so that $\{\omega_b\}_{b\in B}$ identifies the connection $\H$, since its image satisfies
+$$\H_b=\omega_b\left(T_\p\M^n\right),\quad\text{for}\quad b\in\pi^{-1}(\p)$$
+
+\begin{defi}[Horizontal lift]\label{hor_lift}
+    Let $B\xrightarrow{\pi}\M^n$ be a fiber bundle and $\H:B\to TB$ a connection on $B$. The \emph{horizontal lift} defining the connection is so a map $b\mapsto\omega_b:$
+    $$\omega:B\to T^*\M^n\otimes TB\quad\text{such that}\quad\d\pi\circ\omega=\id_{T\M}$$
+    meaning that $\d_b\pi\circ\omega_b=\id_{T_\p\M},\,$ for $\,b\in\pi^{-1}(\p)$.
+\end{defi}
+\,\newline
+Just as vertical vector fields were natural before, here \emph{horizontal 1--forms} arise, defined as a field of co--vectors vanishing on vertical vectors:\, in a fibered chart around $b\in\pi^{-1}(\p)$ of coordinates $(x^\mu,y^i)$, they are in the form $\omega=\omega_\mu(x,y)\,\d x^\mu$ since, for $v\in\V_{(x,y)}$ it holds
+$$\omega(v)=\omega_\mu(x,y)\,\d x^\mu(v^i\der_i)=\underbrace{\omega_\mu(x,y)\,v^i}_{\approx\,\omega^i_\mu(x,y)}\,\d x^\mu(\der_i)=0$$
+Thereafter, one gets the following local description of the connection through the horizontal lift---for some set of local smooth functions $\omega^i_\mu\in\Cinf(B)$
+\begin{equation}\label{general_connection}
+    \omega=\d x^\mu\otimes\left(\der_\mu-\omega^i_\mu(x,y)\der_i\right)
+\end{equation}
+
+\begin{remark}
+    Actually $\omega\in\Gamma(\pi^*T\M\otimes TB)$ is a section of the product with the pull--back bundle
+$\pi^*\left(T\M\right)\otimes TB\to B$ which provides a local description of the connection $b\mapsto\Im(\omega_b)=\H_b$.
+\end{remark} 
+
+%\begin{teo}
+    %There should be a characterizing theorem of one--to--one correspondence among connections $\H$ and hor. lift valued--1--forms $\omega$.
+%\end{teo}
+%\begin{proof}
+    %See \cite{gockeler}?
+%\end{proof}
+ \,\newline
+But how does a connection transform? Consider two fibered charts on $B$ of coordinates $(x^\mu,y^i),\,({x'}^\mu,{y'}^i)$: transition maps (\ref{gen_trans_maps}) were called in that wise since they induce the following \emph{transformation laws for fundamental coordinate fields}\footnote{
+    {It easily follows from a direct computation of partial derivatives of a scalar function in the new coordinates $f(x',y')=f\left({x'}^\mu(x),Y^i(x,y)\right)$ through the chain rule:
+    $$\frac{\der f}{\der x^\mu}(x',y')=\frac{\der f}{\der{x'}^\nu}\frac{\der{x'}^\nu}{\der x^\mu}+\frac{\der f}{\der{y'}^i}\frac{\der{y'}^i}{\der x^\mu}=\J^\nu_\mu\frac{\der f}{\der{x'}^\nu}+\J^i_\mu\frac{\der f}{\der{y'}^i}$$
+    $$\frac{\der f}{\der y^i}(x',y')=\frac{\der f}{\der{x'}^\mu}\cancel{\frac{\der{x'}^\mu}{\der y^i}}+\frac{\der f}{\der{y'}^j}\frac{\der{y'}^j}{\der y^i}=\J^j_i\frac{\der f}{\der{y'}^j}$$}}
+    
+$$\begin{cases}
+    \der_\mu=\J^\nu_\mu\,{\der_\nu}'+\J^i_\mu\,{\der_i}'\\
+    \der_i=\J^j_i\,{\der_j}'
+\end{cases}\quad\text{and}\qquad\begin{cases}
+    \d x^\mu=\antij^\mu_\nu\,\d{x'}^\nu\\
+    \d y^i=\antij^i_\mu\,\d{x'}^\mu+\antij^i_j\,\d{y'}^j
+\end{cases}$$
+Being $\omega$ a section in a bundle over $B$, it is invariant with respect to different local trivialisations;\, by this means one computes 
+\begin{align*}
+    \omega= &\,\,\d x^\mu\otimes\left(\der_\mu-\omega^i_\mu(x,y)\der_i\right)=\d{x'}^\mu\otimes\left({\der_\mu}'-\omega^i_\mu(x',y'){\der_i}'\right)\\
+    =&\,\,\antij^\mu_\nu\d{x'}^\nu\otimes\left(\J^\nu_\mu\,{\der_\nu}'+\J^i_\mu\,{\der_i}'-\omega^i_\mu(x,y)\J^j_i\,{\der_j}'\right)\\
+    = &\,\,\antij^\mu_\nu\d{x'}^\nu\otimes\left[\J^\nu_\mu\,{\der_\nu}'-\antij^\mu_\nu\left(\omega^i_\mu(x,y)\J^i_j-\J^j_\mu\right){\der_j}'\right]\\
+    =&\,\,\overbrace{\J^\nu_\mu\antij^\mu_\nu}^{=\delta^\mu_\nu}\,\antij^\mu_\nu\d{x'}^\nu\otimes\left[\J^\nu_\mu\,{\der_\nu}'-\left(\omega^i_\mu(x,y)\J^i_j-\J^j_\mu\right){\der_j}'\right]\\
+    =&\,\,\overbrace{\J^\nu_\mu\antij^\mu_\nu}^{\delta^\mu_\nu}\d{x'}^\nu\otimes\bigg[\underbrace{\antij^\mu_\nu\J^\nu_\mu}_{=\delta^\nu_\mu}\,{\der_\nu}'-\antij^\mu_\nu\left(\omega^i_\mu(x,y)\J^i_j-\J^j_\mu\right){\der_j}'\bigg]\\
+    =&\,\,\d{x'}^\mu\otimes\left[{\der_\mu}'-\antij^\mu_\nu\left(\omega^j_\mu(x,y)\J^j_i-\J^i_\mu\right){\der_i}' \right]
+\end{align*}
+and we got the so--called \emph{transformation rules for connections}
+\begin{equation}\label{conn_transf}
+\omega^i_\mu(x',y')=\antij^\mu_\nu\left(\omega^j_\mu(x,y)\,\J^j_i-\J^i_\mu\right)
+\end{equation}
+while for the difference of two connections $\omega-\widetilde{\omega}=\d x^\mu\otimes\left(\widetilde{\omega}^i_\mu-\omega^i_\mu\right)\der_i$ it holds
+
+\begin{equation}\label{conn_tensor}
+    \left(\omega-\widetilde{\omega}\right)^i_\mu(x',y')=\antij^\mu_\nu\left(\widetilde{\omega}^j_\mu(x,y)-\omega^j_\mu(x,y)\right)\J^j_i
+\end{equation}
+Connections and their difference so appear as two very different objects, since they obey to very different transformation laws.
+
+\newpage
+In the following, we will figure out that connections are \emph{affine} objects (for the inquisitive ones, see forthcoming Remark \ref{connections_affine}) and they can be regarded as sections of a bundle $\Con(B)$ which, in some special and fundamental cases, reduces to $\Con(\M)$, meaning that coefficients of the connection do only depend on points $x\in\M^n$.\, As a matter of fact, any connection on a fiber bundle $B$ does induce \emph{covariant differentiation} on sections of $\Gamma(B)$ as they behave as tensors and, nevertheless, \emph{parallel transport} and \emph{holonomies}.
+
+\subsubsection{On covariant differentiation, parallel transport and holonomies}
+
+In a fiber bundle $B^{n+r}\xrightarrow{\pi}\M^n$ there are actually two ways to lift vectors $\xi\in T_\p\M^n$ to the total space:\, one is certainly through the horizontal lift of a connection $\H_\cdot$, already discussed; the other is through the tangent map of a section 
+$$\begin{matrix}
+    \d_\p\sigma:T_\p\M\to T_{\sigma(\p)}B\\
+    \qquad\quad\xi\mapsto(\d_\p\sigma)(\xi)
+\end{matrix}$$
+that we recall it is defined by its action on smooth functions $f\in\Cinf(B)$ as the derivation
+$$\d_\p\sigma(\xi)[\,f\,]:=\left\langle\xi,\grad f\circ\sigma\right\rangle_{T_\p\M}=:\xi(f\circ\sigma)$$
+In a local chart of coordinates $(x^\mu,y^i)$ around $b\in\pi^{-1}(\p)$ a section reads as $\sigma(x)=\left(x,\sigma^i(x)\right)$ and we can express such a tangent map matricially as
+$$\J_\p\sigma=\begin{bmatrix}
+    \Id_n\\
+    \hline
+    \der_\mu\sigma^i
+\end{bmatrix}=\begin{bmatrix}
+    1&0&\hdots&0\\
+    0&1&\hdots&0\\
+    \vdots&\vdots&\ddots&\vdots\\
+    0&0&\hdots&1\\
+    \hline
+    \frac{\der\sigma^1}{\der x^1}&\hdots&\hdots&\frac{\der\sigma^1}{\der x^n}\\
+    \vdots&\,&\,&\vdots\\
+    \frac{\der\sigma^r}{\der x^1}&\hdots&\hdots&\frac{\der\sigma^r}{\der x^n}
+\end{bmatrix}\in\R^{(n+r)\times n}$$
+so that, being $\xi=\xi^\mu\der_\mu\in T_{x^\mu}\M^n\cong\R^n$, we get by matrix--multiplication
+$$\d_\p\sigma(\xi)=\J_\p\sigma\cdot\xi=\xi^\mu\left(\der_\mu+\der_\mu\sigma\,\der_i\right)$$ 
+as a local description of $\d_{x^\mu}\sigma(\xi)$, which is now tangent on $B$, even though it is not necessarily horizontal, while instead $\omega_{\sigma(x)}(\xi)=\xi^\mu\left(\der_\mu-\omega^i_\mu(x,\sigma^i(x))\der_i\right)\in\H_{\sigma(x)}$ is.
+
+
+\begin{defi}[Covariant derivative]
+    Let $B\to\M^n$ be a fiber bundle over a smooth manifold and let $\omega$ be a connection on $B$. Pick $\xi\in\Gamma(T\M)$ and $\sigma\in\Gamma(B)$, then
+    $$\nabla_\xi\sigma:=\d\sigma(\xi)-\omega(\xi)$$
+    is the \emph{covariant derivative} of the connection $\omega$, which acts pointwise
+    $$(\nabla_\xi\sigma)(\p)=\d_\p\sigma(\xi)-\omega_{\sigma(\p)}(\xi)\,,\quad\text{for any}\quad\p\in\M$$
+    as a section of $TB$.
+\end{defi}
+\,\newline
+It is clear that the covariant derivative of a section captures the vertical part of its tangent map, since by definition it is
+$\d_\p\sigma=\nabla_\xi\sigma+\omega_{\sigma(\p)}(\xi)$, for some $\xi\in\Sec{T\M}$.
+Indeed, it holds that $\nabla_\xi\sigma:\M^n\to\V B$ satisfies $\nabla_\xi\sigma\circ(\tau\circ\pi)=\id_\M$, i.e. $\nabla_\xi:\Gamma(B)\to\Gamma(\V B)$, as one can easily see in the following computation
+\begin{align*}
+    \d_{\sigma(\p)}\pi(\nabla_\xi\sigma)=&\\
+    =&\,\,\d_{\sigma(\p)}\pi\left(\d_\p\sigma(\xi)-\omega_{\sigma(\p)}(\xi)\right)\\
+    =&\,\,\d_{\sigma(\p)}\pi(\d_\p\sigma(\xi))-\d_{\sigma(\p)}\pi\left(\omega_{\sigma(\p)}(\xi)\right)\\
+    =&\,\,\d(\pi\circ\sigma)[\,\xi\,]-\id_{T_\p\M}(\xi)=0
+\end{align*}
+where we simply used the definition of section and horizontal lift.\, The covariant derivative $\nabla$ of the connection $\omega$, so, locally acts on sections as
+
+\begin{equation}\label{gen_cov_der}
+    \nabla_\xi\sigma=\xi^\mu\left(\der_\mu\sigma^i(x)+\omega^i_\mu\left(x,\sigma^i(x)\right)\right)\der_i
+\end{equation}
+and this is the very most general description of covariant derivatives one can achieve. There is a only issue left, which is that so far $\nabla$ transforms sections in a bundle in sections of a different bundle, since it is
+$$\nabla_\xi:\Gamma(B)\to\Gamma(TB)$$
+or, in other words, it is a covariant differential operators among different sections: \emph{swap maps} (see \emph{see \emph{Section 16.5 \cite{fatib}}}) allow us to reduce it to our familiar $\nabla_\xi\in\Sec{\End(B)}$ .
+
+\begin{remark}
+    It is quite important to notice that, in this general framework, covariant $\nabla$ is not defined as a better--behaving derivative, but \emph{she} can be directly computed through \emph{(\ref{gen_cov_der})}: it applies to any object which can be seen as a section of a bundle in which a connection is there. \, For example, we will see that tensor fields are sections of bundles \emph{associated} to the \emph{frame bundle} $L\M$, so that a connection on $L\M$ will induce a connection on all the tensor bundles $T^h_k\M$ and covariant derivative of tensor fields is so defined. 
+\end{remark}
+
+We can achieve a good description of \emph{parallel transport}, \emph{holonomies} and \emph{curvature} of a connection, also in this general framework, as follow.
+
+\begin{defi}[Horizontal lift of a curve]
+    Let $B\xrightarrow{\pi}\M^n$ be a fiber bundle over a smooth manifold with connection $\H$. A curve $\gamma:[0,1]\xrightarrow{\Cinf}\M^n$ on the base space can be lifted to a curve on the total space $\widetilde{\gamma}:[0,1]\xrightarrow{\Cinf}B$ \emph{iff} $\pi\circ\widetilde{\gamma}=\gamma$. A lifted curve is called \emph{horizontal lift} when its tangent vector---denoted by $\dot{\widetilde{\gamma}}(s)$---lies in the horizontal subspace $\H_{\widetilde{\gamma}(s)}$.  
+\end{defi}
+\,\newline
+A local analysis of what is happening here is needed: in local fibered coordinates $(x^\mu,y^i)$ a curve on $B$ reads as $\widetilde{\gamma}(s)=(x^\mu(s),y^i(s))$ and it is a lift of some $\gamma:[0,1]\to\M^n$ \emph{iff} $x^\mu(s)=\gamma^\mu(s)$; notice that the vertical part $y^i(s)$ is completely unconstrained. The tangent vector $\dot{\widetilde{\gamma}}(s)=(\gamma^\mu(s),{\dot{\widetilde{\gamma}}}^i(s))\in T_{\dot{\widetilde{\gamma}}(s)}B$ locally reads as
+$${\dot{\widetilde{\gamma}}}^i(s)=\dot{\gamma}^\mu(s)\der_\mu+\dot{y}^i(s)\der_i$$
+and so the horizontal lift of $\gamma$ is given by
+$$\omega_{\widetilde{\gamma}(s)}\left({\dot{\widetilde{\gamma}}}(s)\right)={\dot{\widetilde{\gamma}}}^\mu(s)\left(\der_\mu-\omega^i_\mu\left(\gamma(s),{\dot{\widetilde{\gamma}}}^i(s)\right)\der_i\right)$$
+from which one gets a well--posed Cauchy problem for $\,y:\R\to F$ on the form
+$$\begin{cases}
+    \dot{y}^i(s)=-\dot{\gamma}^\mu(s)\,\omega^i_\mu\left(\gamma(s),{\dot{\widetilde{\gamma}}}^i(s)\right)\\
+    y(0)=y_0
+\end{cases}$$
+which solutions do exist and they are unique, once the initial conditions are fixed; this proves that \emph{the} horizontal lift to $B$ of a curve on $\M$ exists and it is unique.
+\begin{defi}[Parallel transport and holonomy]\label{holonomies_def}
+    On a fiber bundle $B\xrightarrow{\pi}\M$ of connection $\H$ consider a curve $\gamma$ on $\M$ who starts at $\p$ and ends at $\p'$. Consider then a point $e$ in the fiber of the starting point and define $\widetilde{\gamma}_b$ to be the horizontal lift of $\gamma$ based at that $b\in\pi^{-1}(\p)$. Then, the map
+    $$\begin{matrix}
+        \mathcal{P}_\H[\gamma]:\pi^{-1}(\p)\to\pi^{-1}(\p')\\
+        \qquad\quad b\mapsto{\widetilde{\gamma}}_b(1)
+    \end{matrix}$$
+    is called \emph{parallel transport} along the curve $\gamma$ with respect to the connection $\H$. The parallel transport along a \emph{loop} on $\M$---i.e. when $\p=\p'$---is called \emph{holonomy} and we will write
+    $$\mathcal{H}_\H[\gamma]:\pi^{-1}(\p)\to\pi^{-1}(\p)$$
+\end{defi}
+
+It is not so hard to see that the parallel transport is nothing but a diffeomorphism among different fibers of $B$, but however, it is quite interesting to treat this map in bundles with more structures, e.g. when the fiber is modelled over a Lie group $\G$. In such a case $\mathcal{P}_\H[\gamma]$ would be an isomorphism farther, and $\mathcal{H}_\H[\gamma]$ can be regarded as an element of $\G$ itself: let us postpone this discussion when we will introduce so--called \emph{principal bundles} in Section 1.3.
+
+\begin{defi}[Curvature of a connection]\label{curvature_gen_def}
+    Let $B\xrightarrow{\pi}\M$ be a fiber bundle over a smooth manifold and let $\omega\in\Sec{\pi^*T\M\otimes TB}$ be a connection of covariant derivative $\nabla$.\, %$$:\Gamma(T\M)\times\Gamma(E)\to\Gamma(E)$
+    Fix two vector fields $\xi,\zeta\in\Gamma(T\M)$, then 
+    $$\F(\xi,\zeta):=\nabla_\xi\nabla_\zeta-\nabla_\zeta\nabla_\xi-\nabla_{[\xi,\zeta]}$$
+    is called \emph{curvature} of the connection $\omega$.
+\end{defi}
+\,\newline
+Notice that, since $[\der_\mu,\der_\nu]=0$, by using the notation $\nabla_{\der_\mu}=:\nabla_\mu$, one can define 
+$$F_{\mu\nu}:=\F(\der_\mu,\der_\nu)=\nabla_\mu\nabla_\nu-\nabla_\nu\nabla_\mu=:[\nabla_\mu,\nabla_\nu]$$
+and try to get a local description of $\F(\xi,\zeta)$. Unfortunately, in this very general case, that is quite hard to do, since no further structure on $B$ come in help to simplify computations. We will see in the next Sections 1.2 and 1.3 how to treat curvature $\F$ of connections locally, in the fundamental \emph{linear} and \emph{principal} cases, where it can be regarded as an operator among sections in $\Gamma(B)$.
+
+
+\subsection{Jet bundles}\label{jet}
+
+Jet bundles are finite dimensional manifolds which account for derivatives of sections up to some (finite) order $k$---see \cite{jetBundles}. Then, trivially, a differential equation for sections of a fiber bundle $B\to\M$ can be translated into an algebraic relation (meaning without differential geometric objects) in the bundle which identifies a submanifold $D\subseteq\J^kB$.\, Given fibered coordinates $(x^\mu,y^i)$ for $B$, then $\J^kB$ is defined as the fiber bundle whose atlas is made of fiber charts of coordinates $\left(x^\mu,y^i,y^i_{\mu_1},\hdots y^i_{\mu_1\hdots\mu_k}\right)$, where we set up notation $y^i_{\mu_1\hdots\mu_k}:=\frac{\der^k y^i}{\der x^{\mu_1}\hdots\der x^{\mu_k}}$ for derivatives. %They also allow to prolong vector fields $\Xi\in\Gamma(TB)$ as $j^k\Xi:B\to\J^kTB$
+
+\subsubsection{Total derivative of functions}
+The total derivatives of a function $f(x^\mu,y^i,y^i_\mu,y^i_{\mu\nu},\hdots,y^i_{\mu_1\hdots\mu_k})$ on $\J^kB$ are
+$$\d_\mu f(x^\lambda,y^j)=\der_\mu f+\der_i f\,y^i_\mu$$
+$$\d_\mu f(x^\lambda,y^j,y^j_\lambda)=\der_\mu f+\der_i f\,y^i_\mu+\der_i^\nu f\,y^i_{\mu\nu}$$
+$$\vdots$$
+%$$\d_\mu f(x^\lambda,y^j,y^j_{\lambda_1},\hdots,y^j_{\lambda_1\hdots\lambda_k})=\der_\mu f+\der_i f\,y^i_{\mu_1}+\der_i^{\mu_2} f\,y^i_{\mu\nu}$$
+where $\der_i^\nu:=\frac{\der}{\der y^i_\nu}$ up to $\der_i^{\nu_1\hdots\nu_{k-1}}:=\frac{\der}{\der y^i_{\nu_1\hdots\nu_{k-1}}}.$
+
+\subsubsection{Lie derivatives on general bundles}
+Lie derivative measures how much objects change when dragged along the flow of a vector field and this, in general, is a construction that only involves geometrical features of a fiber bundle, thus it generalizes to our general framework. For that:
+
+\begin{defi}[Lie derivative]
+    Let $B\xrightarrow{\pi}\M$ be a fiber bundle and let $\sigma\in\Sec{B}$ be a section and $\Xi\in\Sec{TB}$ a projectable vector field. Then, the \emph{Lie derivative} of sections along $\Xi$ is
+    $$\pounds_\Xi\sigma=\d\sigma(\xi)-\Xi\circ\sigma$$
+    being so $\pounds_\Xi:\Gamma(B)\to\Gamma(TB)$.
+\end{defi}
+\,\newline
+On a fixed fibered chart of coordinates $(x^\mu,y^i)$ around $b\in\pi^{-1}(\p)$, we have
+$$\sigma(x)=(x^\mu,y^i(x))\quad\text{and}\quad\Xi=\xi^\mu(x)\der_\mu+\xi^i(x,y)\der_i$$
+for some $\xi=\xi^\mu\der_\mu$ vector field on $\M$, and one can directly computes
+
+%\begin{align*}
+    %\pounds_\Xi\sigma&=\xi^\mu(x)\left(\der_\mu+y^i_\mu(x)\der_i\right)-\xi^\mu(x)\der_\mu-\xi^i\left(x,y(x)\right)\der_i\\
+    %&=\left(\xi^\mu(x)\,y^i_\mu(x)-\xi^i\left(x,y(x)\right)\right)\der_i
+%\end{align*}
+
+\begin{equation}\label{lie_der}
+    \begin{split}
+        \pounds_\Xi\sigma&=\left(\xi^\mu(x)\,y^i_\mu(x)-\xi^i\left(x,y(x)\right)\right)\der_i\\
+        &=\left(\left(\pounds_\Xi y^i\right)\circ j^1\sigma\right)\der_i
+    \end{split}
+\end{equation}
+where $\pounds_\Xi y^i:=\left(y^i_\mu\,\xi^\mu(x)-\xi^i(x,y)\right)\der_i$. By its local expression, it is clear that $\pounds_\Xi\sigma$ is vertical in $T_{\sigma(\p)}B$, as one can also compute globally
+\begin{align*}
+\d_\p\pi\left(\pounds_\Xi\sigma\right)&=\d_\p\pi\circ\left(\d_{\sigma(\p)}\sigma\right)(\xi)-\d_\p\pi\circ\Xi\circ\xi\\
+    &=\xi-\xi=0
+\end{align*}
+being both $\sigma$ and $\Xi$ sections in a bundle.\, The flow of $\Xi$ writes as an automorphism of $B$ such that $\Phi_s(x^\mu,y^i)=({x'}^\mu_s(x),Y^i_s(x,y))$, for $s\in\R$, inducing differential equations for integral curves satisfying
+$$\begin{cases}
+    {\frac{\d}{\d s}{x'}^\mu_s(x)}_{|_{s=0}}=\xi^\mu(x)\\
+    {\frac{\d}{\d s}Y^i_s(x,y)}_{|_{s=0}}=\xi^i(x,y)
+\end{cases}$$
+Thus, section $\sigma$ is dragged along the flow of $\Xi$ as $\sigma_s:=\Phi_s\circ\sigma:\M\to B$ as follow
+$$\sigma_s(x)=\left({x'}^\mu_s,Y^i_s(x,y(x)\right)$$
+so that
+${\frac{\d}{\d s}\sigma_s}_{|_{s=0}}=-\pounds_\Xi\sigma$ and also $\d_\mu\pounds_\Xi y^i=\pounds_{j^1\Xi}\,
+y^i_\mu$, with jet prolongation 
+
+$$j^1\Xi=\xi^\mu(x)\der_\mu+\xi^i(x,y)\der_i+\d_\mu\xi^i(x,y)\der_i^\mu\in\J^1\,T_bB$$
+In particular
+$$\begin{cases}
+    {\frac{\d}{\d s}{y}^i_s(x)}_{|_{s=0}}=-\pounds_\Xi y^i\\
+    {\frac{\d}{\d s}{y^i_\mu}_s(x)}_{|_{s=0}}=-\d_\mu\pounds_\Xi y^i
+\end{cases}$$
+
+
+\newpage
+\section{Vector bundles and linear connections}
+Vector bundles, as said before, arise naturally when the fiber has a linear structure: they are fiber bundles on the form $(E,\pi,\M^n,F^r)$ with standard fiber being a $r$--dimensional $\K$--vector space. Such a structure on the standard fiber constraints transition maps to act linearly, so that cocycles $\g_{\alpha\beta}:U_{\alpha\beta}\to\GL_r$ here have to be composed with a linear representation $\varrho:\GL_r\to\End_{\K}(F)$---being $\GL_r$ a (Lie) subgroup of $\Diffeo(F)$
+$$\varrho\circ\g_{\alpha\beta}:U_{\alpha\beta}\to\End_\K(F)$$
+Along a fibered local chart of $E$, transition functions read as
+$$\begin{cases}
+    {x'}^\mu={x'}^\mu(x)\\
+    {y^i}'=a^i_j(x)y^j
+\end{cases}\quad\text{for cocycles}\quad a^\alpha_\beta:U_{\alpha\beta}\to\GL_r(F)$$
+Such classes of fiber bundles were historically the first object of interest for mathematicians ---and then for physicists---because here \emph{connections} can be described very simply, as they can be written as a sort of bilinear operator on sections.
+
+\begin{remark}
+    Let $\M^n$ be a smooth manifold and consider $E^{n+r}\to\M$ vector bundle; then, $\Gamma(E)$ is a $\Cinf(\M)$--module.
+    Indeed, it is easy to verify that all the axioms of being a module are satisfied with respect to the binary operations
+    $$\begin{matrix}
+    +:\Gamma(E)\times\Gamma(E)\to\Gamma(E)\\   \qquad(\sigma,\tau)\mapsto\sigma+\tau
+    \end{matrix}\qquad\begin{matrix}
+    \,:\Cinf(\M)\times\Gamma(E)\to\Gamma(E)\\
+    \quad(f,\sigma)\mapsto f\sigma
+    \end{matrix}$$
+    point--wisely defined by 
+    $$(\sigma+\tau)(p):=\sigma(p)+\tau(p)$$
+    $$(f\sigma)(p):=f(p)\sigma(p)$$
+    $$\text{for each}\quad p\in\M.$$
+\end{remark}
+
+\subsection{Koszul connections and their curvature}
+
+In literature, linear connections go under the name of \emph{Koszul connection}, and they are defined by the following
+
+\begin{defi}[Linear connection]
+    Let $\M^n$ be a smooth manifold and $E^{n+r}$ be a $\K$--vector bundle over it. Then a \emph{linear connections} on $\M^n$ will be a map $$\D:\Gamma(T\M)\times\Gamma(E)\to\Gamma(E)$$
+    which is $\Cinf(\M)$--linear in the first component and $\K$--linear in the second, satisfying the Leibnitz rule. More precisely:
+    \begin{enumerate}[i$)$]
+        \item $$\D_{f\,v+g\,w}\sigma=f\,\D_v\sigma+g\,\D_w\sigma$$
+        
+        \item $$\D_v(\lambda\sigma+\mu\tau)=\lambda\D_v\sigma+\mu\D_v\tau$$
+        
+        \item $$\D_v(f\sigma)=v(f)\sigma+f\D_v\sigma$$
+    \end{enumerate}
+    for each \quad$\lambda,\mu\in\K$,\quad$v,w\in\Gamma(T\M)$,\quad$f,g\in\Cinf(\M)$,\quad$\sigma,\tau\in\Gamma(E)$.
+\end{defi}
+\,\newline
+On a fixed chart $U\subseteq\M^n$ of coordinates $x^\mu$, \emph{coordinate vector fields} $\{\der_\mu\}_\mu$ such that $\Gamma(T\M)=\spann\{\der_1,\hdots,\der_n\}$ are defined while, for sections in $\Gamma(E_{|_U})$, one has $\{\e_J\}_J$ to form a basis for sections of $E^{n+r}$ over $U$ so that $\sigma=\sigma^J\e_J$, for some function $\sigma^I\in\Cinf(U)$.\,\, Then one defines $ A^I_{\mu J}\in\Cinf(U)$ by
+$$\D_\mu\e_J= A^I_{\mu J}\e_I$$
+In order to reach a coordinate--description of the \emph{covariant derivative} associate with the connection $\D$ we are going to compute it directly along a vector field $v\in\Cinf(U,T\M)$, by using axioms $i), ii), iii)$ of Definition 1.2.1
+
+\begin{align*}
+    \D_v\sigma = &\,\,\D_{v^\mu\der_\mu}\sigma\\
+        = &\,\,v^\mu\,\D_\mu\left(\sigma^J\e_J\right)\\
+        = &\,\,v^\mu\left(\der_\mu\sigma^J\,\e_J+\sigma^J A^I_{\mu J}\e_I\right)\\
+        = &\,\,v^\mu\left(\der_\mu\sigma^I+ A^I_{\mu J}\sigma^J\right)\e_I
+\end{align*}
+\,\newline
+In other words, according to (\ref{gen_cov_der}), for a fixed vector field, we expressed the covariant derivative of the connection $\D$ as a new section $\D_\mu\sigma\in\Cinf(U,E)$ having components with respect to the basis $\{\e_J\}_J$ given by
+\begin{equation}\label{lin_cov_der}
+    (\D_\mu\sigma)^I=\der_\mu\sigma^I+ A^I_{\mu J}\sigma^J
+\end{equation}
+In this linear framework, connection components $A^I_{\mu J}$ are intended to define so--called \emph{$($co--$)$vector potential}, and they are still functions that locally express the connection with respect to a basis. 
+
+The index $\mu=1,\hdots,n$ is associated with $T\M^n$ and it takes into account the direction along which one is covariant differentiating, while indices $I,J=1,\hdots,r$ are referred to as \emph{internal indices}.
+
+\begin{remark}
+    Consider a basis $\{e_j\}_j$ for a vector space $V$ and its dual space $V^{*}=\spann\{e^j\}$ such that $e^i(e_j)=\delta^i_j$, then it is well known that a convenient basis for $\End(V)$ turns out to be $\{e^i_j\}_{i,j}$ defined by $e^i_je_k=\delta^i_ke_j$; indeed, the following isomorphism
+    $$\begin{matrix}
+        V\otimes V^{*}\to\End(V)\\
+        e_i\otimes e^j\mapsto e_i^j
+    \end{matrix}$$
+    turns out to be canonical. In the same way, given a vector bundle $E\to\M^n$ with $E_\p$ for some $\p\in\M$, one can define its dual as the vector bundle $E^*\to\M^n$ whose fiber at $\p$ is the dual vector space $E_\p^*$. So that $E_\p\otimes E_\p^*$ is canonically isomorphic to $\End(E_\p)$, which turns out to be a fiber of the so--called \emph{endomorphism bundle} $\End(E)$. In this way one can define a section $\T\in\Gamma(\End(E))\,:\,\p\mapsto\T(\p)$\,\, through the point--wise assignment
+    $$(\T\sigma)(\p)=\T(\p)\sigma(\p)\,,\quad \p\in\M^n$$
+    where $\T(\p)$ maps $E_\p$ to $E_\p$ as a map from $E$ to itself. It can be also shown that $\T:\Gamma(E)\to\Gamma(E)$ is $\Cinf(\M)$--linear, \emph{i.e.} $\T(f\sigma)=f\,\T(\sigma)$, and that all such maps correspond to section of $\End(E)$\footnote{See \cite{baez}, Part II. Chapter 2, "Gauge Transformations".}.
+
+    
+    
+    %$($see \emph{pag. 221 \cite{baez})}.
+\end{remark}
+
+\begin{prop}
+    Let $\M^n$ be a smooth manifold and $E^{n+r}\to\M$ a vector bundle with connection $\D$. Consider a local chart $U\subseteq\M$ of coordinates $x^\mu$ such that $\Cinf(U,T\M)={\spann_{\mu=1,\hdots,n}\{\der_\mu\}}$ and $\Cinf(U,E)={\spann_{J=1,\hdots,r}\{\e_J\}}$. Then, the vector potential $\A$ is an $\End(E)$--valued $1$--form on $U$, that is
+    $$ A^I_{\mu J}\,\e_I\otimes\e^J\otimes\d x^\mu=:\A\in\Gamma\left(\End(E_{|_U})\otimes T^*U\right)$$
+\end{prop}
+
+\begin{proof}
+    Clearly, by the above Remark 1.2.2, it holds
+    $$\mathop{\spann}_{I,J=1,\hdots,r}\left\{\e_I\otimes\e^J\right\}=\Cinf\left(U,\End(E)\right)$$
+    Consider now a vector field $v\in\Cinf(U,T\M)$, so that $\d x^\mu(v)=v^\mu$ and it holds
+    $$\A[v]= A^I_{\mu J}v^\mu\,\e_I\otimes\e^J\in\Cinf(U,\End(E))$$
+    Moreover, let $\sigma=\sigma^J\e_J$ be a section of $E^{n+r}\to\M^n$, then
+    $$\left(\A[v]\right)[\sigma]= A^I_{\mu J}v^\mu\sigma^J\,\e_I\otimes\e^J\otimes\e_J= A^I_{\mu J}v^\mu\sigma^J\,\e_I\in\Cinf(U,E)$$
+   i.e.
+    $$\A:U\xrightarrow{\Cinf}T^*U\otimes\End(E_{|_U})$$
+    which proves that $\A$ eats a vector field and a section of $E$ over $U$ and spits out a new section of $E$ over $U$ in a $\Cinf(U)$ way.
+\end{proof}
+
+\begin{cor}
+    In the same setting of \emph{Proposition 1.2.1}, the covariant derivative of $\sigma\in\Gamma(E)$ along $v\in\Gamma(T\M)$ is \,\,$(\D_v\sigma)^I\,\e_I=\D_v\sigma\in\Gamma(E)$, where
+    $$(\D_v\sigma)^I=v(\sigma^I)+(\A(v)\sigma)^I$$
+    Moreover, by suppressing the internal indices one has $A_\mu= A^I_{\mu J}\,\e_I\otimes\e^J$ being the components of the co--vector field
+    \,\,$\A=A_{\mu}\d x^\mu\in\Gamma(T^*\M)=:\Lambda^1(T\M)$.
+        %\begin{bmatrix}
+            %A_1(x)\\
+            %\vdots\\
+            %A_n(x)
+        %\end{bmatrix}
+\end{cor}
+
+\begin{note}
+    Recall $\Omega^k(\M^n):=\Gamma(\overbrace{T^*\M\wedge\hdots\wedge T^*\M}^{k\text{--times}})$, where $\Lambda^k(T\M)\cong\Lambda^k(\R^n)$ are the skew--symmetric $k$--forms, containing $\frac{1}{k!}\,\omega_{i_1\hdots i_k}\,\d x^{i_1}\wedge\hdots\wedge\d x^{i_k}\in\Lambda^k(T\M)$ such that
+    $$\omega_{i_1\hdots i_J\hdots i_K\hdots i_k}=-\omega_{i_1\hdots i_K\hdots i_J\hdots i_k}$$
+     %for $\frac{1}{2}\d x^{\mu_1}\wedge\d x^{\mu_2}:=\d x^{\mu_1}\otimes\d x^{\mu_2}$.\quad Notice that $\Omega^1(\M^n)=\Lambda^1(\R^n).$
+As a matter of fact, it holds $T^*\M\otimes\hdots\otimes T^*\M=(T^*\M\wedge\hdots\wedge T^*\M)\oplus(T^*\M\odot\hdots\odot T^*\M)=:\Lambda^k(T\M)\oplus\Sym^k(T\M)$, being $\wedge$ and $\odot$ the skew--symmetric and symmetric product of differential forms, respectively---\emph{CFR. \cite{lee_smooth}}.
+\end{note}
+
+We notice now that commutators $[\,\cdot,\cdot]$ are well--defined on the algebra of operators $\Gamma(E)\to\Gamma(E)$.\, Combining Definition \ref{curvature_gen_def} with the linear structure of $E\to\M\,\,$ yields
+
+\begin{defi}[Curvature of a linear connection]
+    Let $E^{n+r}\to\M^n$ be a vector bundle over a smooth manifold and let $\D$ be a connection over $\M$. Consider two vector field $v,w\in\Gamma(T\M)$ and then the \emph{curvature} of the connection $\D$ is defined as an operator
+    $$\F:\Gamma(T\M)\times\Gamma(T\M)\times\Gamma(E)\to\Gamma(E)$$
+    $$\F(v,w)=[\D_v,\D_w]-\D_{[v,w]}:\Gamma(E)\to\Gamma(E)$$
+\end{defi}
+
+\begin{prop}\label{lin_curvature}
+    Let $\M^n$ be a smooth manifold and $E^{n+r}\to\M$ be a vector bundle. Consider $\D$ a connection on $\M$ and $\F$ its curvature. Then, $\F(v,w)$ is antisymmetric and $\Cinf(\M)$--linear from $\Gamma(E)$ to itself:
+    $$\F(fv,w)\sigma=\F(v,fw)\sigma=\F(v,w)[f\sigma]=f\,\F(v,w)\sigma$$
+\end{prop}
+\begin{proof}
+    The curvature operator is manifestly antisymmetric by definition, indeed $\F(v,w)=-\F(w,v)$.\, Let us now recall the Lie bracket makes $\Gamma(T\M)$ an algebra, in which $[v,fw]=f[v,w]-v(f)\,w$ for $f\in\Cinf(\M)$. So it follows
+    \begin{align*}
+        \F(v,fw)=&\\
+        =&\,\,\D_v\D_{fw}-\D_{fw}\D_v-\D_{f[v,w]-v(f)}\\
+        =&\,\,\D_v\,f\D_w-f\D_w\,\D_v-f\D_{[v,w]}-v(f)\D_w\\
+        =&\,\,f\D_v\,\D_w+\cancel{v(f)\D_w}-f\D_w\,\D_v-f\D_{[v,w]}-\cancel{v(f)\D_w}\\
+        =&\,\,f\,\F(v,w)
+    \end{align*}
+    where, in the third line we used that $v_j(f)\D_{v_k}=\D_{v_j}\,f\D_{v_k}-f\D_{v_j}\,\D_{v_k}$. Now it is
+    $$\F(fv,w)=-\F(w,fv)=-f\,\F(w,v)=f\,\F(v,w)$$
+    by antisymmetry. Finally, let $\sigma\in\Gamma(E)$ and, by using axioms of $\D$, compute
+    \begin{align*}
+        \F(v,w)[f\sigma]=&\\
+        =&\,\,\D_v\D_w(f\sigma)-\D_w\D_v(f\sigma)-\D_{[v,w]}(f\sigma)\\
+        =&\,\,\D_v\left(w(f)\sigma+f\D_w\sigma\right)-\D_w\left(v(f)\sigma+f\D_v\sigma\right)+\\
+        -&\,\,[v,w](f)\,\sigma-f\D_{[v,w]}\sigma\\
+        =&\,\,v(w(f))\sigma+w(f)\D_v\sigma+f\D_v\D_w\sigma+v(f)\D_w\sigma-w(v(f))\sigma\,\,+\\
+        -&\,\,\,\,v(f)\D_w\sigma-f\D_w\D_v\sigma-w(f)\D_v\sigma-f\D_{[v,w]}\sigma-[v,w](f)\,\sigma\\
+        =&\,\,f[\D_v,\D_w]\sigma-f\D_{[v,w]}\sigma\\
+        =&\,\,f\,\F(v,w)\sigma
+    \end{align*}
+    Notice that, by Remark 1.2.2, $\F(v,w)$ is a section of $\End(E)$.
+\end{proof}
+\,\newline
+As we mentioned in Section \ref{gen_fib}, we are here finally able to properly study curvature $\F(v,w)$, locally at a given chart $(U,x^\mu)$ on $\M^n$. By recalling $F_{\mu\nu}:=\F(\der_\mu,\der_\nu)=[\D_\mu,\D_\nu]$,%\in\Cinf({U,\End(E)})$ 
+\, the above Proposition here implies a good local description of \,$\F(v,w)=v^\mu w^\nu\,F_{\mu\nu}$\,. Let now $\{\e_I\}_{I=1,\hdots,r}$ be a basis for $\Cinf(U,E^{n+r})$ and compute
+\begin{align*}
+    F_{\mu\nu}\e_I&=\\
+    &=\,\,\D_\mu\D_\nu\e_I-\D_\nu\D_\mu\e_I=\D_\mu\left( A_{\nu I}^J\,\e_J\right)-\D_\nu\left( A_{\mu I}^J\,\e_J\right)\\
+    &=\,\,\der_\mu A^J_{\nu I}\,\e_J+ A^J_{\nu I} A_{\mu J}^K\,\e_K-\der_\nu A_{\mu I}^J\,\e_J- A^J_{\mu I}\, A^K_{\nu J}\,\e_K\\
+    &=\,\,\left(\der_\mu A^J_{\nu I}+ A^K_{\nu I} A^J_{\mu K}-\der_\nu A^J_{\mu I}- A^K_{\mu I} A_{\nu K}^J\right)\e_J\\
+    &=:\,\,F_{\mu\nu I}^J\,\e_J
+\end{align*}
+If we now remember that sections of $\End(E)$ on $U$ are spanned by $\{\e_J\otimes\e^I\}_{I,J=1\hdots,r}$, then we have just described the curvature of $\D$ in coordinates as
+$$F_{\mu\nu}=F^J_{\mu\nu I}\,\e_J\otimes\e^I\in\Gamma\left(\End(E_{|_U})\right)$$
+By suppressing internal indices $I,J,K$ of $\Gamma(E)$ in the above, one gets a clean description of the curvature in terms of the co--vector potential given by
+$$F_{\mu\nu}=\der_\mu A_\nu-\der_\nu A_\mu+[ A_\mu, A_\nu]$$
+The reader familiar with physics may have noticed resemblance to the covariant formulation of \emph{electromagnetism}; we will look into it further.\, Thus, we have expressed the curvature $\F$ as an $\End(E)$--valued skew--symmetric $2$--form 
+$$\F=\frac{1}{2}\,F_{\mu\nu}\,\d x^\mu\wedge\d x^\nu\in\Gamma\left(\End(E)\right)\otimes\Lambda^2(T\M)$$
+
+We are about to prove the fundamental property of the curvature of a connection to be \emph{intrinsic}.
+
+\begin{defi}[Exterior covariant derivative]
+    Let $\M^n$ be a smooth manifold and $E\to\M$ a vector bundle over it with a connection $\D$. Then the \emph{exterior covariant derivative} associated with the connection is the $E$--valued $1$--form $\d_\D\in\Gamma(E\otimes T^*\M)$ such that on $v\in\Gamma(T\M)$ recovers $\d f(v)=v(f)$ through $\left(\d_\D \sigma\right)[v]=\D_v\sigma$.
+\end{defi}
+
+\begin{remark}
+Notice that, in a local chart $(U,x^1,\hdots,x^n)$, the exterior covariant derivative reads as
+$$\begin{matrix}
+    \d_\D:\Sec{E\ristr{U}}\to\Sec{E\ristr{U}}\otimes T^*\M\\
+    \qquad\quad \sigma\mapsto\D_\mu\sigma\otimes\d x^\mu
+\end{matrix}$$
+so that
+$$(\d_\D\sigma)[v]=\D_\mu\sigma\otimes\d x^\mu[v^\mu\der_\mu]=v^\mu\D_\mu\sigma\,\d x^\mu[\der_\mu]=\D_{v^\mu\der_\mu}\sigma=\D_v\sigma$$
+and it is clearly independent of the choice of coordinate.    
+\end{remark}
+
+\begin{teo}\label{curvature_is_intr}
+    Let $E\to\M^n$ be a vector bundle and $\D$ be a connection over a manifold $\M$. Then, the curvature $2$--form is intrinsic.
+\end{teo}
+\begin{proof}
+    We are going to prove this statement showing that, for any $E$--valued $k$--form $\eta\in\End(E\ristr{U})\otimes\Lambda^k(TU)$ on a local coordinate chart $(U,x^\mu)$, it holds
+    $$\d_\D^2 \eta=\F\wedge\eta$$
+    which is sufficient to get the thesis, by Remark 1.2.3.\,\, Consider $\sigma\otimes\omega$ to be an $E$--valued form while $\tau$ just a form, then from $(\sigma\otimes\omega)\wedge\tau=\sigma\otimes(\omega\wedge\tau)$ it follows
+    $$\d_\D(\sigma\otimes\omega)=\d_\D\sigma\wedge\omega+\sigma\otimes\d\omega$$
+    where $\d:\Omega^k(\M)\to\Omega^{k+1}(\M)$ is the (non--covariant) exterior derivative. Now, consider $\eta=\sigma_{\mathcal{I}}\otimes\d x^{\mathcal{I}}$ where $\mathcal{I}$ runs as a multi--index, then
+    $$\d_\D\eta=\d_\D\left(\sigma_{\mathcal{I}}\otimes\d x^{\mathcal{I}}\right)=\d_\D\sigma_{\mathcal{I}}\wedge\d x^{\mathcal{I}}+\sigma_{\mathcal{I}}\otimes\overbrace{\d(\d x^{\mathcal{I}})}^{\d^2\left(x^{\mathcal{I}}\right)=0}=$$
+    $$=\left(\D_\mu\sigma_{\mathcal{I}}\otimes\d x^\mu\right)\wedge\d x^{\mathcal{I}}=\D_\mu\sigma_{\mathcal{I}}\otimes\d x^\mu\wedge\d x^{\mathcal{I}}$$
+    Define now, for $\T\in\Sec{\End(E)},\,\sigma\in\Gamma(E),\,\omega,\tau$ forms, the natural operation
+    $$(\T\otimes\omega)\wedge(\sigma\otimes\tau)=\T(\sigma)\otimes(\omega\wedge\tau)$$
+    Thus
+    $$\d_\D^2\eta=\d_\D\left(\D_\mu\sigma_{\mathcal{I}}\otimes\d x^\mu\wedge\d x^{\mathcal{I}}\right)=\d_\D(\D_\mu\sigma_{\mathcal{I}})\wedge\d x^\mu\wedge\d x^{\mathcal{I}}$$
+    $$+\,\cancel{\D_\mu\sigma_{\mathcal{I}}\otimes\d x^\mu \otimes\d\left(\d x^{\mathcal{I}}\right)}=\D_\nu\D_\mu\sigma_{\mathcal{I}}\otimes(\d x^\nu\wedge\d x^\mu)\wedge\d x^{\mathcal{I}}=$$
+    $$=\frac{1}{2}\Biggl([\D_\nu,\D_\mu]+\{\D_\nu,\D_\mu\}\Biggl)\,\d x^\nu\wedge\d x^\mu\,\sigma_{\mathcal{I}}\otimes\d x^{\mathcal{I}}=\F\wedge\eta$$
+    where the anti--commutator part vanishes since 
+    \begin{align*}
+      \{\D_\nu,\D_\mu\}\,\d x^\nu\wedge\d x^\mu&=(\D_\nu\D_\mu+\D_\mu\D_\nu)\,\d x^\nu\wedge\d x^\mu\\
+      &=\D_\nu\D_\mu\,\d x^\nu\wedge\d x^\mu-\D_\mu\D_\nu\,\d x^\mu\wedge\d x^\nu\\
+      &=0  
+    \end{align*}
+Moreover, we proved also that exterior covariant derivative on $E$--valued forms for a connection $\D$ satisfies $\d^2_\D\neq0$ in general, whereas $\d^2=0$.
+\end{proof}
+
+\subsection{Tensor bundles and Levi--Civita connection}\label{tensor_theory}
+
+One recovers the theory of tensorial objects on Riemannian manifolds as a special case of a bundle theory where the vector bundle inducing internal indices is of tensorial type.
+$$T^h_k\M:=\overbrace{T\M\otimes\hdots\otimes T\M}^{h-times}\otimes\overbrace{T^*\M\otimes\hdots\otimes T^*\M}^{k-times}\xrightarrow{\pi}\M^n$$
+is an $(h+k)$--dimensional vector bundle over $\M$, whose fiber at $\p$ is given by
+\begin{align*}
+    \pi^{-1}(\p)=& \left(T_\p\M\right)^{\otimes h}\otimes\left(T^*_\p\M\right)^{\otimes k}\\
+    =&\mathop{\spann}_{1\leq i_1,j_1,\hdots,i_h,j_k\leq n}\Biggl\{\frac{\der}{\der x^{i_1}}\otimes\hdots\otimes\frac{\der}{\der x^{i_h}}\otimes\d x^{j_1}\otimes\hdots\otimes\d x^{j_k}\Biggl\}
+\end{align*}
+%=T_p\M\otimes\hdots\otimes T_P\M\otimes T_p^*\M\otimes\hdots\otimes T_p^*\M=$$
+Sections here are $(h,k)$--tensor fields of $\Sec{T^h_k\,\M^n}$. Locally at a chart around $\p\in\M^n$ of coordinates $x^\mu$, fundamental vector and co--vector fields behave as
+$$\mathop{\spann}_{\mu=1,\hdots,n}\left\{\der_\mu\right\}=\Sec{T^1_0\M^n}\,,\quad\mathop{\spann}_{\mu=1,\hdots,n}\left\{\d x^\mu\right\}=\Sec{T^0_1\M^n}$$
+Moving towards another chart of coordinates $y^\alpha$, transition maps here induce the \emph{covariant} and \emph{contravariant} transformation rules on fundamental fields
+$$\begin{cases}
+    \d y^\alpha=\frac{\der y^\alpha}{\der x^\mu}\d x^\mu=:\J^\alpha_\mu\d x^\mu\\
+    \frac{\der}{\der y^\alpha}=\frac{\der x^\nu}{\der y^\alpha}\frac{\der}{\der x^\nu}=:\antij_\alpha^\nu\frac{\der}{\der x^\nu}
+\end{cases}$$
+which allow---by imposing covariance of an arbitrary $\T\in\Sec{T^h_k\M^n}$ with respect to both charts
+$$T^{\mu_1\hdots\mu_h}_{\nu_1\hdots\nu_k}(x)\frac{\der}{\der x^{\mu_1}}\otimes\hdots\otimes\frac{\der}{\der x^{\mu_h}}\otimes\d x^{\nu_1}\otimes\hdots\otimes\d x^{\nu_k}=$$
+$$=T^{\alpha_1\hdots\alpha_h}_{\beta_1\hdots\beta_k}(y)\frac{\der}{\der y^{\alpha_1}}\otimes\hdots\otimes\frac{\der}{\der y^{\alpha_h}}\otimes\d y^{\beta_1}\otimes\hdots\otimes\d y^{\beta_k}$$
+to get the so--called \emph{tensor--transformation rules}
+$$\begin{cases}
+    T^{\mu_1\hdots\mu_h}_{\nu_1\hdots\nu_k}(y)=\J_{\nu_1}^{\beta_1}\hdots\J_{\nu_k}^{\beta_k}\,T^{\alpha_1\hdots\alpha_h}_{\beta_1\hdots\beta_k}(x)\,\antij^{\mu_1}_{\alpha_1}\hdots\antij^{\mu_h}_{\alpha_h}\\
+    T^{\alpha_1\hdots\alpha_h}_{\beta_1\hdots\beta_k}(x)=\antij_{\beta_1}^{\nu_1}\hdots\antij^{\beta_k}_{\nu_k}\,T^{\mu_1\hdots\mu_h}_{\nu_1\hdots\nu_k}(y)\,\J^{\alpha_1}_{\mu_1}\hdots\J^{\alpha_h}_{\mu_h}
+\end{cases}$$
+
+But how can we properly differentiate a tensor? It is worth observing here that partial derivatives are bad operator for this aim, since they transform well only on $(0,0)$--tensor fields $f\in\Cinf(\M)$, whose transformation rules among different trivialisations are $f(x')=f(x)$ and by differentiating with respect to $x^\mu$ we get $\der_\alpha'f'=\antij^\mu_\alpha\,\der_\mu f$ well--transforming as a $(0,1)$--tensor field---which is precisely the reason why the differential of a scalar function $\d f=\der_\mu f\,\d x^\mu$ is a $1$--form.
+
+Things do not go that smooth for a $(1,0)$--vector field $X=X^\mu(x)\der_\mu$, whose components transform as $X^\mu(x')=X^\nu(x)\,\J^\mu_\nu(x)$ and differentiation with respect to $x^\lambda$ yields
+$$\der_\rho'{X'}^\mu=\J^\mu_\nu\,\der_\lambda X^\nu\,\antij^\lambda_\rho+\der_\lambda\J^\mu_\nu\,X^\nu\,\antij^\lambda_\rho$$
+which depends on the Hessian of the change of coordinates---for which we set notation $\der_\lambda\J^\mu_\nu=:{\J^\mu_\nu}_\lambda$---and it does not transform as a tensor.\, On the other hand, we can express Hessians implementing connections' transformation laws (\ref{conn_transf}) getting
+$${\J^\sigma_{\nu}}_\mu=\J^\sigma_\alpha\,\omega^\alpha_{\mu\nu}-\J^\rho_\mu\,{\omega'}^\sigma_{\rho\lambda}\J^\lambda_\nu$$
+for some connection $\omega\in\Con(\M^n)$.\, If we now plug--in it into the above, we get
+$$\der_\rho'{X'}^\mu+{\omega'}^\mu_{\rho\sigma}=\J^\mu_\sigma\left(\der_\lambda X^\sigma+\omega^\sigma_{\nu\lambda}\right)\antij^\rho_\rho$$
+which are transformation rules for a $(1,1)$--tensor field. Indeed, we recognize $\der_\nu X^\alpha+\omega^\alpha_{\mu\nu}X^\mu=(\D_\nu X)^\alpha$ to be the components of the covariant derivative of a vector field $X\in\Gamma(T^1_0\M)$ with respect to $\omega$ (see (\ref{lin_cov_der})), defining here 
+$$(\D_\nu X)^\alpha\,\d x^\nu\otimes\der_\alpha=\D X\in\Sec{T^1_1\M}$$
+
+
+\begin{remark}[Affinity of connections]\label{connections_affine}
+    Compare transformation rules for tensors with the ones for connections in \emph{(\ref{conn_transf})} and for difference of connections in \emph{(\ref{conn_tensor}):} this brings out that connections do not transform as tensors, while the difference of two connections does.\, We rearrange this fact by saying that connections are \emph{affine}, meaning that they always write as an "origin"--connection plus a tensor.
+\end{remark}
+
+\begin{defi}[Riemannian manifold]
+    A smooth manifold $\M^n$ equipped with a positive--definite symmetric $(0,2)$--tensor field
+$$g\in\Gamma(T^*\M\odot T^*\M)%=\Sec{T^0_2\M}
+$$
+so--called \emph{metric tensor}---forms a \emph{(}strictly\emph{)} Riemannian manifold $(\M,g)$. 
+\end{defi}
+
+
+\begin{note}[On the signature of a metric]
+We refer also to smooth manifolds $(\M^{s,t},g)$ such that $s+t=n$, where $(s,t)=:\eta=\diag(-1,\hdots,-1,1,\hdots,1)$ is the \emph{signature} of the metric--field $g\in\Sec{T^0_2\M}$, as Riemannian manifolds too and we set the notation $\M^\eta$ for them. A \emph{Lorentzian manifold} is so a Riemannian manifold with $\eta=(1,n-1).$
+\end{note}
+
+There is a special connection here defined in the tangent bundle of any $\M^\eta$ related with the metric tensor, the \emph{Levi--Civita connection}, which is uniquely determined by $g$, being the torsion--free and $g$--compatible linear connection
+$$\begin{matrix}
+    \nabla:\Gamma(T\M)\times\Gamma(T\M)\to\Gamma(T\M)\\
+    \quad(X,Y)\mapsto\nabla_XY
+\end{matrix}$$
+Notice that it turns out to be $\R$--bilinear, $\Cinf(\M)$--linear in the first entry and satisfies Leibniz $\nabla_X(f\,Y)=X(f)Y+f\,\nabla_XY$ in the second. In a local chart $(U,x^\mu)$, the components of the potential co--vector $\{g\}=\{g\}_\mu\,\d x^\mu\in\Sec{T^*U}$ here coincides with the Chrystoffel symbols $\{g\}^\lambda_{\mu\nu}\in\Cinf(U)$ defined by
+$$\nabla_\mu\der_\nu:=\{g\}^\lambda_{\mu\nu}\der_\lambda$$
+where the internal indices coincide with the tangential ones $\mu=1,\hdots,n$. The components of $\nabla_\mu X$ in $U$---arguing as in (\ref{lin_cov_der})---are
+$$(\nabla_\mu X)^\nu=\der_\mu X^\nu+\{g\}^\nu_{\mu\lambda}X^\lambda$$
+Zero torsion locally implies the symmetry of the Chrystoffels, $\{g\}^\lambda_{\mu\nu}-\{g\}_{\nu\mu}^\lambda=0$, while the $g$--compatibility ($\nabla_Xg=0$ for each $X\in\Gamma(T\M)$) reads globally and locally respectively as
+$$X\left(g(Y,Z)\right)=\cancel{(\nabla g)(X,Y,Z)}+g\left(\nabla_XY,Z\right)+g\left(Y,\nabla_XZ\right)$$
+$$\der_\lambda g_{\mu\nu}=\{g\}_{\mu\lambda}^\rho g_{\rho\nu}+\{g\}_{\lambda\nu}^\rho g_{\mu\rho}$$
+from which it follows the fundamental characterisation of the Chrystoffels as
+
+\begin{equation}\label{chrystoffels}
+\{g\}^\lambda_{\mu\nu}=\frac{1}{2}g^{\lambda\rho}\left(\der_\mu g_{\rho\nu}+\der_\nu g_{\mu\rho}-\der_\rho g_{\mu\nu}\right)    
+\end{equation}
+
+For the sake of generality, we are showing that one can compute the operator $\nabla$ of the Levi--Civita connection $\{g\}$ also through (\ref{gen_cov_der}): indeed, a section of $T\M\to\M$ reads locally as $\sigma(x^\mu)=(x^\mu,X^\mu(x))$ and so we get---for $\xi=\xi^\mu\der_\mu\in\Gamma(T\M)$ 
+$$\nabla_\xi\sigma=\xi^\mu\left(\der_\mu X^\nu+\{g\}^\nu_{\lambda\mu}X^\lambda\right)\nicefrac{\der}{\der\xi^\nu}\in\Sec{\V T\M}$$
+where we can \emph{swap} $(x^\mu,X^\mu,\xi^\mu)\leftrightarrow(x^\mu,\xi^\mu,X^\mu)$ in $\V T\M$ to get $\nabla_\xi\sigma\in\Sec{T\M}$, being the swap map global---see \cite{fatib}.\\
+\,\newline
+
+Of course Levi--Civita connection extends naturally from vector fields to arbitrarily higher--order tensor fields as $\nabla:\Gamma(T\M)\times\Sec{T^h_k\M}\to\Sec{T^h_k\M}$ without rename it, and it maps a $(h,k)$--tensor field in a $(h,k+1)$--tensor field, in a $\Cinf(\M)$--linear way:
+$$\nabla_\mu\T(v_1,\hdots,v_h,\omega_1,\hdots,\omega_k)=\nabla\T(v_1,\hdots,v_h, v, \omega_1,\hdots,\omega_k)$$
+which locally reads as $\nabla\T=\nabla_\mu\T\otimes\d x^\mu$\, and, arguing again as in (\ref{lin_cov_der}) by also requiring that $\nabla$ commutes with the trace and distributes with respect to $\otimes$, it holds\footnote{Actually, such properties are not specials of $\nabla$, but they are required for any Koszul connection $\D$, because they imply for covariant derivatives of $1$--forms $\omega$---for which $\tr(\omega\otimes X)=\omega(X)$---the fundamental
+\begin{align*}
+    0&=\D_i(\delta^j_k)=\D_i\left(\tr(\d x^k\otimes\der_j)\right)=\,\,\tr\left(\D_i(\d x^k\otimes\der_j)\right)=\tr\left(\D_i\d x^k\otimes\der_j+\d x^k\otimes\D_i\der_j\right)\\
+    &=\left(\D_i\d x^k\right)[\der_j]+\d x^k\left(A_{ij}^l\der_l\right)\quad\Leftrightarrow\quad \D_i\d x^k=-A^k_{ij}\d x^j
+\end{align*}
+}
+
+\begin{equation}\label{tensor_cov_der}
+\begin{split}
+    \nabla_\mu\T=\der_\mu\T^{\mu_1\hdots\mu_h}_{\nu_1\hdots\nu_k}+\{g\}^{\mu_1}_{\rho\,\mu}T^{\rho\hdots\mu_h}_{\nu_1\hdots\nu_k}+\hdots+\{g\}^{\mu_h}_{\rho\,\mu}T^{\mu_1\hdots\rho}_{\nu_1\hdots\nu_k}+\\
+    -\{g\}^\rho_{\nu_1\mu}T^{\mu_1\hdots\mu_h}_{\rho\hdots\nu_k}-\hdots-\{g\}^\rho_{\nu_k\mu}T^{\mu_1\hdots\mu_h}_{\nu_k\hdots\rho}
+\end{split}
+\end{equation}
+
+Let us now consider two fixed $X,Y\in\Gamma(T\M)$, then the curvature of $\nabla$ is given by
+$$\F(X,Y)=[\nabla_X,\nabla_Y]-\nabla_{[X,Y]}:\Gamma(T\M)\to\Gamma(T\M)$$
+which locally results---arguing as in Proposition \ref{lin_curvature}
+$$\F(\der_\mu,\der_\nu)\der_\lambda=:R_{\mu\nu\lambda}^\rho\der_\rho$$
+$${R^\rho}_{\mu\nu\lambda}=\der_\mu\{g\}_{\nu\lambda}^\rho-\der_\nu\{g\}_{\mu\lambda}^\rho+\{g\}_{\nu\lambda}^\rho\{g\}^\rho_{\mu\sigma}-\{g\}^\rho_{\mu\lambda}\{g\}^\rho_{\nu\sigma}$$
+$$R_{\mu\nu\lambda\rho}=g_{\mu\sigma}{R^\sigma}_{\nu\lambda\rho}=g\left(\der_\mu,\F(\der_\nu,\der_\lambda)\der_\rho\right)$$
+So that, the curvature of the Levi--Civita connection is represented by the so--called \emph{Riemann tensor}, which can be expressed globally as follow 
+$$\Riem_g(X,Y,Z,W)=g\left(X,\F(Y,Z)W\right)$$
+which manifestly obeys to these symmetries
+$$\begin{cases}
+     
+    R_{\alpha[\beta\mu\nu]}=R_{\alpha\beta\mu\nu}+R_{\beta\mu\alpha\nu}+R_{\nu\alpha\beta\mu}=0&(1^{\text{st}}\,\,\text{Bianchi)}\\
+    R_{(\alpha\beta)\mu\nu}=0=R_{\alpha\beta(\mu\nu)}\\ 
+    R_{\alpha\beta\mu\nu}-R_{\mu\nu\alpha\beta}=0
+\end{cases}$$
+The \emph{Ricci tensor} and the \emph{Ricci scalar} of $\nabla$ will be the non--trivial traces
+\begin{align*}
+\Ric_g(X,Y)&:=\Riem_g(X,Y,X,Y)\\
+\Scal_g&:=\Ric_g(X,X)
+\end{align*}
+
+\subsubsection{About connections on manifolds}\label{connections_on_manifolds}
+It is worth concluding this section with a characterisation of \emph{connections on manifolds}, in view of their forthcoming identification with principal connections. For that, we give such a characterisation by following an analogy with transformation rules for Levi--Civita connection, that we are inferring from the metric ones:
+$$g_{\mu\nu}(x')=\antij^\rho_\mu(x')g_{\rho\sigma}(x)\antij^\sigma_\nu(x')$$
+for some change of coordinates from $x^\mu$ to ${x'}^\mu$. Hence, by differentiating we get
+
+
+\begin{align*}
+    \der'_\lambda g_{\mu\nu}(x')&=\der'_\lambda\antij^\rho_\mu(x')g_{\rho\sigma}\antij^\sigma_\nu(x')+\antij^\rho_\mu(x')g_{\rho\sigma}\der'_\lambda\antij^\sigma_\nu(x')+\antij^\rho_\mu(x')\der_\gamma g_{\rho\sigma}\antij^\sigma_\nu(x')\antij^\gamma_\lambda(x')\\
+    &={\antij^\rho_\mu}_\lambda g_{\rho\sigma}\antij^\sigma_\nu+{\antij^\rho_\mu}g_{\rho\sigma}{\antij^\sigma_\nu}_\lambda+\antij^\rho_\mu\der_\gamma g_{\rho\sigma}\antij^\gamma_\lambda
+\end{align*}
+and plug--in it into (\ref{chrystoffels}) yields the following transformation rules for Chrystoffels
+$${\{g\}'}^\alpha_{\beta\mu}=\J^\alpha_\gamma\left(\{g\}^\gamma_{\rho\sigma}\antij^\rho_\mu\antij^\sigma_\nu+\antij^\gamma_{\mu\nu}\right)$$
+Since Levi--Civita connection works as a prototype of connection on manifolds (because Chrystoffel symbols do only depend on points of $\M^n$), we can eventually \emph{define} a connection  $\omega\in\Con(\M^n)$ by requiring it must transform like $\{g\}^\alpha_{\beta\mu}$, i.e. its coefficients must satisfy\footnote{Notice that, for the umpteenth time, we just defined an object by regarding it in a fiber bundle and giving its transformation rules over it.}
+\begin{equation}\label{mfd_connection}
+    {\omega'}^\alpha_{\beta\mu}=\J^\alpha_\gamma\left(\omega^\gamma_{\rho\sigma}\antij^\rho_\mu\antij^\sigma_\nu+\antij^\gamma_{\mu\nu}\right)
+\end{equation}
+
+We will see that a principal connection on the frame bundle of a manifold behaves precisely as (\ref{mfd_connection}) and this facts will have huge implications in the choice of dynamical variables for Holst model in LQG.
+
+
+\newpage
+\section{Principal and associated fiber bundles}
+In this section we are going to deepen in general fiber bundles which allows an underlying group structure, with nothing more assumption on the group than being a manifold. In this framework, then, connections come with more structure and allow to deeply understand parallel transports and holonomies.
+
+%$$\vdots$$
+%$$\text{-- if some justice in the world is there around --}$$
+%$$\gl(n,\K)=\End(\K^n)$$
+%$$\vdots$$
+%$$\mathfrak{g}\subseteq\End(P\times_\G F)$$
+%$$\vdots$$
+%\,\newline
+%Principal bundles are immensely important because they allow to understand any fiber bundle with fiber $F$ on which a Lie group $\G$ acts. In physics, $\G$ is made of symmetries and it acts on a vector space $F$, fiber of some vector bundle, whose sections defined the physical variables of the theory. %Also in mathematics can be constructed theories in which $\G$ is a cohomology group with respect some base of a fiber bundle (see $K$--theory).
+
+\begin{defi}[$\G$--action]
+    Let $(\G,\cdot)$ be a Lie group with neutral element $\e$ and $\M^n$ a smooth manifold. A \emph{left--action} of $\G$ on $\M$ is a $($smooth$)$ map $\vartriangleright:\,\G\times\M\to\M$ satisfying 
+    \begin{enumerate}[$i)$]
+        \item $\e\vartriangleright p=p \quad\text{for each}\quad p\in\M^n$
+        \item $\g_2\vartriangleright(\g_1\vartriangleright p)=(\g_2\cdot \g_1)\vartriangleright p \quad\text{for each}\quad p\in\M^n,\,\g_1,\g_2\in\G $
+    \end{enumerate}
+    Analogously, a \emph{right--action} of $\G$ on $\M$ will be $\vartriangleleft:\M\times\G\to\M$ such that 
+    \begin{enumerate}[$i)$]
+        \item $p\vartriangleleft\e=p\quad\text{for each}\quad p\in\M^n$
+        \item $(p\vartriangleleft\g_1)\vartriangleleft\g_2=p\vartriangleleft(\g_1\cdot\g_2)\quad\text{for each}\quad p\in\M^n,\,\g_1,\g_2\in\G $
+    \end{enumerate}
+\end{defi}
+
+Notice that, if one starts with a left--action $\vartriangleright$ (respectively right--action $\vartriangleleft$) then one can define a right (respectively left) action through the inverse elements in $(\G,\cdot)$, as follow
+$$\begin{matrix}
+    \vartriangleleft:\M\times\G\to\M\\
+    \qquad\qquad(p,\g)\mapsto\g^{-1}\vartriangleright p
+\end{matrix}$$
+(respectively $\g\vartriangleright p=p\vartriangleleft\g^{-1}$).
+\begin{example}\label{representation}
+    Consider the case in which $\M^n=V$ is a $\K$--vector space and consider an $n$--dimensional \emph{representation} $\varrho:\G\to\End_\K(V)$, then, $\vartriangleright\,:\G\times V\to V$ defined by $\g\vartriangleright v=\varrho(\g)[\,v\,]$ is a left--action on $V$.
+\end{example}
+
+
+\begin{defi}[Equivariant map]
+    A map $f:\M\to\text{\normalfont{N}}$ \emph{(}possibly $f=\id_\M$\emph{)} among smooth manifolds is said to be $\rho$--equivariant if, given a Lie groups homomorphism $\rho:\G\to\H$ provided with left actions $\vartriangleright$ and $\blacktriangleright$ respectively on $\G$ and $\H$, it holds $$f(\g\vartriangleright p)=\rho(\g)\blacktriangleright f( p)\,,\quad\text{for any}\quad p\in\M$$
+    It can be said the analogue for right actions $\vartriangleleft$ and $\blacktriangleleft$.
+\end{defi}
+\begin{defi}[Orbits, stabilizator and free actions]
+    Consider $\M$ a smooth manifold and $\G$ a Lie group acting on it \emph{e.g.} through $\vartriangleright:\G\times\M\to\M$ and fix a point $p\in\M$. Then, we define the \emph{orbits} of $\G$ and the \emph{stabilizator} subgroup at $p$ as $\G_p:=\big\{q\in\M\,\big|\,\exists\g\in\G\,:\,q=\g\vartriangleright p\big\}$ and $\normalfont{\text{stab}}_p:=\{\g\in\G\,|\,\g\vartriangleright p=p\}$.\, The action is \emph{free} if $\normalfont{\text{stab}}_p=\{\id_\G\}$ at any $p$ and \emph{transitive} if for each $p,q\in\M$ there exists $\g\in\G$ such that $q=\g\vartriangleright p$.
+\end{defi}
+\,\\
+Notice that, for a free action holds $\g_1\vartriangleright p=\g_2\vartriangleright p\,\Leftrightarrow\,\g_1=\g_2$ and also orbits at any point are diffeomorphic to $\G$ and, if the action is also transitive, 
+$p\sim q\in\G_p$ defines an equivalence relation on $\M$. The quotient space $\nicefrac{\M}{\sim}=:\nicefrac{\M}{\G}$ is called \emph{orbit space}.\, In particular, when the quotient space $\nicefrac{\M}{\G}$ is a manifold, the quotient projection map $\pi:\M\to\nicefrac{\M}{\G}$ defines a fiber bundle of fibers $\left(\nicefrac{\M}{\G}\right)_p=\pi^{-1}([p])\cong\G$.
+
+\begin{defi}[Principal fiber bundle]
+    A fiber bundle $P\to\M^n$ over a smooth manifold is called a \emph{principal $\G$--bundle} if
+    \begin{enumerate}
+        \item $P$ is equipped with a right--action $\vartriangleleft:P\times\G\to P$ as a smooth manifold
+        \item The action $\vartriangleleft$ is free and transitive
+        \item There exists a bundle isomorphism among $P\to\M^n$ and $P\to\nicefrac{P}{\G}$
+    \end{enumerate}
+\end{defi}
+
+\begin{note}
+    When a principal bundle $P\to\M^n$ is given, one always has an underlying \emph{canonical} $\G$--right--action on the total space $P$, which can be expressed as an automorphism $\vartriangleleft_\G:P\to P$, as one shall see in the forthcoming \emph{Remark \ref{canonical_right_action}}. This way, one denotes a principal $\G$--bundle $P\to\M$ through the notation
+    $$P\xrightarrow[]{\vartriangleleft_\G}P\xrightarrow{\pi}\M^n$$
+\end{note}
+
+%{\begin{defi}
+    %A principal bundle $P\xrightarrow[]{\vartriangleright_\G}P\xrightarrow{\pi}\M^n$ is said to be \emph{trivial} if there exists a map $\normalfont{u}:P\to\M\times\G$, so--called principal bundle map, such that
+    
+%\end{defi}}
+\,\newline
+Local trivialisations are given in the form $\t:\pi^{-1}(U)\to U\times\G\,:\,p\mapsto(x,\g)$, for $p\in\pi^{-1}(x)$ and they induce transition maps among fibered coordinates 
+
+\begin{equation}\label{princ_trans_maps}
+    \begin{matrix}
+    \t_{\alpha\beta}:U_{\alpha\beta}\times\G\to U_{\alpha\beta}\times\G\\
+    \qquad\qquad\quad(x,\g)\mapsto\underbrace{\left(x,\phi_{\alpha\beta}(x)\cdot\g\right)}_{=(x',\g')}
+\end{matrix}
+\end{equation}
+where $\cdot$ is the operation of $\G$, being the cocycles $\G$--valued, $\phi_{\alpha\beta}:U_{\alpha\beta}\to\G$. 
+
+\begin{defi}[Principal fibered maps]
+    Consider two principal fiber bundles $$P\xrightarrow{\vartriangleleft_\G}P\xrightarrow{\pi}\M\quad\text{and}\quad P'\xrightarrow{\blacktriangleleft_\G}P'\xrightarrow{\pi'}\M'$$ and let $(\Phi,\varphi)$ a fibered morphism among them $($i.e. $\varphi\circ\pi=\pi'\circ\Phi)$. We say that $\Phi\in\Aut(P)$ is a principal bundles morphism if it is also $\id$--equivariant, \emph{i.e.} if $\Phi\,\circ\vartriangleleft_\G=\blacktriangleleft_\G\circ\,\Phi$.
+\end{defi}
+\,\newline
+Notice that, a principal bundles morphism $(\Phi,\varphi)$ reads locally as the \emph{active form} of the transition functions above, i.e.
+$$\begin{cases}
+    {x'}^\mu=\varphi^\mu(x)\\
+    \g'=\phi_{\alpha\beta}(x)\cdot\g
+\end{cases}$$
+
+\begin{remark}[Canonical right--action on $P$]\label{canonical_right_action}
+    Pick a point $p\in P$ in a principal bundle $P\xrightarrow{\vartriangleleft_\G}P\xrightarrow{\pi}\M^n$ and express it locally through a trivialisation $$\t_\alpha:\pi^{-1}(U_\alpha)\to U_\alpha\times\G$$ as
+    $$p=\t^{-1}_\alpha(x,\h)\quad\text{for}\quad x\in U_\alpha,\,\h\in\G$$
+    Then, the $(\G,\cdot)$--right--action $p\vartriangleleft\g$ locally reads as $\t^{-1}_\alpha(x,\h)\vartriangleleft\g=\t^{-1}_\alpha\left(x,\h\cdot\g\right)$ and it turns out to be independent of trivialisations, \emph{i.e.}:
+    \begin{align*}
+        p\vartriangleleft\g=&\,\,\t^{-1}_\beta(x,\h')\vartriangleleft\g=\t^{-1}_\alpha(x,\phi_{\alpha\beta}(x)\cdot\h)\vartriangleleft\g\\
+        =&\,\,\t^{-1}_\alpha\left(x,\phi_{\alpha\beta}(x)\cdot\h\cdot\g\right)=\t^{-1}_\beta(x,\h'\cdot\g)
+    \end{align*}
+    In this sense it is \emph{canonical.} $($Notice that a left--action $\g\vartriangleright p=\t^{-1}(x,\g\cdot\h)$ would depend on the trivialisation$)$. Moreover, the canonical right--action $\vartriangleleft\g$ is
+    \begin{itemize}
+        \item \emph{vertical:}\quad $\pi(p\vartriangleleft\g)=\pi(p)$,\quad for each $\g\in\G$
+        \item \emph{transitive:}\quad $p\vartriangleleft(\underbrace{{\g'}^{-1}}_{=:\overline{\g'}}\cdot\g)=p'$,\quad for each $p,p'\in P$
+        \item \emph{free:}\quad if there exists $p\in P$ such that $p\vartriangleleft\g=p$ then $\g=e\in\G$. Transitivity also implies such a $\g$ to be unique.
+    \end{itemize}
+\end{remark}
+
+The most fundamental example of a principal bundle in differential geometry, with huge applications in mathematical physics is surely the \textbf{frame--bundle}: \\
+let $\M^n$ be a smooth manifold and fix a point $\p\in\M$, then one define
+$$L_\p\M^n:=\left\{{(e_1,\hdots,e_n)}_\p=:\e_\p\,\Biggl|\,\mathop{\spann}_{\alpha=1,\hdots,n}\{e_\alpha\}=T_\p\M^n\right\}\cong\GL_n$$
+where the isomorphism with the ($n^2$--dimensional) general linear (Lie) group relies on the fact that, if one fixes the coordinate basis $\{\der_\mu\}_{\mu}$ of $T_\p\M^n\cong\R^n$ with respect which one expresses $e_\alpha=e_\alpha^\mu\der_\mu$, then one gets a maximal--rank matrix $(e^\mu_\alpha)\in\R^{n\times n}$.
+$$\Rightarrow\quad L\M^n:=\bigsqcup_{\p\in\M}\{\p\}\times L_\p\M^n\quad\text{is the frame bundle}.$$
+One easily constructs trivialisations of 
+$$\begin{matrix}
+    \qquad L\M\to\M\\
+    \quad(\p,\e_\p)\mapsto\p
+\end{matrix}$$
+endowing it with a differentiable atlas of local fibered coordinates given by transition maps on the form $\t(x^\mu,e^\mu_\alpha)=(x^\mu,\J^\mu_\nu(x)\,e^\nu_\alpha)\in U\times\GL_n$, for cocycles $J^\mu_\nu:U\to\GL_n$.
+
+\begin{note}
+    When $(\M^\eta,g)$ is a Riemannian manifold we use notation for its frame bundle $L(\M^\eta,g)$.
+\end{note}
+
+\begin{prop}
+    The frame bundle $L\M^n\to\M^n$ is a principal $\GL_n$--bundle.
+\end{prop}
+\begin{proof}
+    See \cite{princ1}.%Cite a ref. for $\GL_n$ being Lie and exhibit transition maps among fibered charts for $L\M$.
+\end{proof}
+
+
+An important feature of principal bundles is that one can achieve a very useful characterization of triviality which involves (global) sections
+
+\begin{teo}
+    Let $P\xrightarrow{\vartriangleleft_\G}P\xrightarrow[]{\pi}\M^n$ be a principal $\G$--bundle. Then, the following are equivalent:
+    \begin{enumerate}
+        \item $(P,\pi)$ is trivial
+        \item There exists a smooth section $\sigma:\M\to P$
+    \end{enumerate}
+\end{teo}
+\begin{proof}
+    (\emph{1}$\,\Rightarrow\,$\emph{2})\quad Since $P\cong\M^n\times\G$ as a principal bundle, it is straightforward to construct the section $\sigma:\M\to\M\times\G$ by $\sigma(\p):=(\p,e)\,$, for each $\p\in\M^n$.\\
+    (\emph{1}$\,\Leftarrow\,$\emph{2})\quad Assume we have a section $\sigma:\M\to P$. Since the right--action of $\G$ on $P$ is transitive and free on each fiber, every point $p\in\pi^{-1}(\p)\subseteq P$ writes as 
+    $$p=\sigma(\p)\g_0\,,\quad\text{for a unique}\quad\g_0\in\G$$
+    Consequently, we are able to construct a (global) trivialisation
+    $$p\in P\mapsto(\p,\g_0)\in\M\times\G$$
+    which turns out to be a principal--fibered isomorphism.
+\end{proof}
+
+\begin{example}
+    The frame bundle on the sphere $L\S^2\to\S^2$ is a principal $\GL_2(\R)$--bundle which is non--trivial, since there are not non--vanishing smooth vector fields, in virtue of the hedgehog theorem and so there are no global sections $\sigma:\S^2\to L\S^2$. \quad Also the \emph{Hopf bundle}\footnote{See (1.6.79) of \cite{fatib}.}  $\S^3\to\S^2$ is a principal $\U(1)$--bundle which is non--trivial.
+\end{example}
+ A final remark is here needed
+\begin{remark}[On moving frames of a frame bundle]\label{moving_frames}
+    Local sections of a principal bundle are one--to--one with local trivialisations: indeed, being the action $\vartriangleleft$ free, for each $\sigma:U\to\pi^{-1}(U)$ there exists a unique $\g\in\G$ such that $p=\sigma(\p)\vartriangleleft\g$, for $p\in\pi^{-1}(\p)$ and that uniquely identifies $\t_\sigma:\pi^{-1}(U)\to U\times\G$, where $\sigma(\p)=\t_\sigma^{-1}(\p,e)$. \, On a frame bundle $L\M^n$, local sections are described in the form
+    $$\begin{matrix}
+        e_I:U\to\pi^{-1}(U)\\
+        \qquad x^\mu\mapsto e^\mu_I(x)\der_\mu
+    \end{matrix}$$
+    and they are called \emph{moving frames}. Thus, each moving frame induce a local trivialisation of $L\M$ of fibered coordinates $(x^\mu,e^\mu_I)\in U\times\GL_n$.
+\end{remark}
+
+\subsection{Principal connections and their curvature}\label{section_princ_conn}
+
+Though a principal $\G$--bundle $P\to\M^n$ does not carry a linear structure, it can still be endowed with a connection, which will turn out to have the property of being represented just by a $\mathfrak{g}$--valued $1$--form, where $\mathfrak{g}:=(T_e\G,\llbracket\cdot,\cdot\rrbracket)$ is the Lie algebra of $\G$. In some way, such a \emph{principal connection} has simpler features than the linear ones, because of globality of its sections---if triviality is provided.
+
+Recall each $\Xi\in\mathfrak{g}$ induces a vector field on $\G$ through the exponential map, so that $t\mapsto\exp(t\,\Xi)$ defines a curve on $\G$; moreover, a vector field on $P\xrightarrow{\vartriangleleft_\G}P\to\M$ can be expressed as (for $p\in P,\,f\in\Cinf(P)$)
+$$p\mapsto X_p^\Xi f:={\frac{\d}{\d t}}_{|_{t=0}}f\left(p\vartriangleleft\exp(t\,\Xi)\right)$$
+It will be useful to define the map $\Xi\mapsto X^\Xi$ as a Lie algebra homomorphism $\imath:\mathfrak{g}\to TP$, meaning that---said $[\cdot,\cdot]$ the Lie bracket induced by vector fields on $P$---it satisfies
+$$\imath\left(\llbracket \Xi,\Theta\rrbracket\right)=[\imath(\Xi),\imath(\Theta)]$$
+This way, it easily checks that vector fields on the form $p\mapsto X^\Xi_p$ lie in the \emph{vertical subspace} $\V_p$ of $T_pP$ (they are \emph{vertical}), according to Definition \ref{vertSubspace}, and so that, the following is nothing but a special case of Definition 1.1.4, where equivariance with respect to the Lie group is also required.
+
+%\begin{defi}[Vertical subspace]
+    %Let $P\xrightarrow{\vartriangleleft_\G}P\xrightarrow{\pi}\M$ be a principal fiber bundle and fix $p\in P$. Then
+    %$$\V_p:=\ker(\d_p\pi)=\{\Xi\in T_pP\,|\,\d_p\pi(\Xi)=0\}$$
+    %is called \emph{vertical subspace} of $T_pP$.
+%\end{defi}
+%Roughly, vertical vectors are meant to be "tangent" (or pallalel) to the fibers. The name vertical is indeed well--deserved by such a subspace, because laying in the kernel of the push--forward (or tangent) map means somehow that the field cannot have an \emph{horizontal} component (see figure?). This suggests that tangent spaces of principal bundles can be split into two complementary subspaces. 
+
+\begin{defi}[Principal connection]
+    Let $P\xrightarrow{\vartriangleleft_\G}P\xrightarrow{\pi}\M$ be a principal fiber bundle. A $($smooth$)$ assignment $p\mapsto\H_p$ satisfying
+    \begin{enumerate}
+        \item $T_pP=\H_p\oplus \V_p$, where vector fields $X\in\Sec{TP}$ uniquely decomposes as
+        $$X=\underbrace{\hor(X)}_{\in\Sec{\H P}}+\underbrace{\vert(X)}_{\in\Sec{\V P}}$$
+        \item \emph{(Compatibility with the action)}\quad $\d_p(\cdot\vartriangleleft\g)[\,\H_p\,]=\H_{p\vartriangleleft\g}$
+    \end{enumerate}
+    is called a \emph{principal connection} on $P$.
+\end{defi}
+
+\,\newline
+Arguing as in the general case (\ref{general_connection}), for fixed $p\in P$, condition \emph{1.} yields us the  so--called (linear and surjective) \emph{horizontal lift} map $\omega_p:T_{\pi(p)}\M\to\H_p$ defined by $\omega_p(\xi)$ being the unique vector in $\H_p\subseteq T_pP$ such that $\d_p\pi(\omega_p(\xi))=\xi$, which allows to write the principal connection as the assignment $p\mapsto\omega_p(T_{\pi(p)}\M)$.\, Given fibered coordinates $(x^\mu,\h^a)$ from the atlas of $P$, setting $\frac{\der}{\der\tiny\h^a}=:\der_a$, the horizontal lift writes as $\omega_p(\xi)=\xi^\mu\left(\der_\mu-\omega^a_\mu(x,\h)\der_a\right)$ so the principal connection is locally
+$$\omega=\d x^\mu\otimes\left(\der_\mu-\omega^a_\mu(x,\h)\der_a\right)$$
+for some set of local smooth functions $\omega^a_\mu\in\Cinf(P)$. But if we now fix a basis $\{\T_i\}_i$ in the Lie algebra $\mathfrak{g}$ then we can define vector fields $\rho_i(p)=R_i^a(\g)\der_a$, where $R^a_i(\g)$ is the matrix representing $\d(\cdot\vartriangleleft\g)$ in the basis $\T_i$, satisfying
+\begin{itemize}
+    \item point--wise locally right--invariant, i.e. 
+    $$\d_p(\cdot\vartriangleleft\g)[\rho_i(p)]=\rho_i(p\vartriangleleft\g)$$
+    \item vertical on $P$, i.e.
+    $$\d_p\pi(\rho_i(p))=0$$
+\end{itemize}
+This way \emph{2.} implies that coefficients of a principal connection have to satisfy
+$$\omega^a_\mu(x,\h\cdot\g)=\omega^i_\mu(x,\h)R^a_i(\g)$$
+and so, if we know $\omega^i_\mu$ at a point in a fiber---e.g. at $(x,e:=\id_\G)$---then we know it in the whole fiber by \emph{extending it through equivariance}. For this reason, set $\omega^i_\mu(x,e)=:\omega^i_\mu(x)$ and get $\omega^a_\mu(x,\h)=\omega^i_\mu(x)R^a_i(\h)$, a principal connection $\H_p$ is described by local functions $\omega^i_\mu(x)$ constant along the fibers or, in other words, they are functions only of points in the base manifold $\M^n$. A more accurate local description is so given by
+\begin{equation}\label{prinConn}
+    \omega=\d x^\mu\otimes\left(\der_\mu-\omega^i_\mu(x)\rho_i(p)\right)
+\end{equation}
+and being $\imath_p$ an isomorphism among $\mathfrak{g}\cong\V_p\ni\rho_i(p)$, then a principal connection is completely described by its horizontal lift as a section of the pull--back bundle of $T\M$ tensor the Lie algebra of the fiber over $P$, i.e. 
+$$\omega:P\xrightarrow{\Cinf}\pi^*(T\M)\otimes\mathfrak{g}$$
+or, as a $\mathfrak{g}$--valued 1--form on $P$,\, $\omega\in\Sec{\pi^*T\M\otimes\mathfrak{g}}$.
+
+\begin{remark}[Principal property of $\omega^i\in\Omega^1(P)$]\label{forward}
+    A principal connection is not actually a field on $P$ but it is in the base manifold \,$\M$, so, principal connections $\omega$ can be used as "dynamical fields" in a field theory. Even more important, all the local computations we did in \emph{Section 1.2} for linear connections and their curvature applies, since coefficients $\omega^i_\mu$ will coincide somehow with the ones of an associated linear connection in $\M$.
+
+\end{remark}
+
+As we did for connections on manifolds $\Con(\M)$, we can still define a fiber bundle $\Con(P)$, where transition maps among different trivialisations are induced by transformation laws for principal connections 
+\begin{equation}\label{prinConn_laws}
+    {\omega'}^i_\mu=\antij^\mu_\nu\left(\omega^j_\mu(x)\J^j_i\,\rho_j-\J^i_\mu\right)
+\end{equation}
+whose sections are principal connections $\omega\in\Sec{\pi^*T\M\otimes\mathfrak{g}}$.
+
+\begin{prop}\label{conn_in_conn}
+    Let $P\xrightarrow{\pi}\M$ be a principal $\G$--bundle, then there exists a representation of the gauge--group $\G$ on connections $\Con(P)$.
+\end{prop}
+\begin{proof}
+We shall show that principal automorphisms of $\Aut(P)$ act as representations of $\G$ mapping connections in connections in $TP$: consider for that a principal connection $p\mapsto\H_p$ and $\Phi\in\Aut(P)$ and recall
+    $$\{0\}\to\V_p\to T_pP\xrightarrow{\d_p\pi}T_{\pi(p)}\M\to\{0\}$$
+    $$\omega_p:T_{\pi(p)}\M\to\H_p\quad\text{is surjective}\quad\Rightarrow\quad\d_p\pi(\H_p)=T_{\pi(p)}\M$$
+    Then, by defining $\H'_{\Phi(p)}:=(\d_p\Phi)[\H_p]$ we check it still satisfies the axioms of being a principal connection: by keeping in mind Definition 1.3.6 and 1.3.5, it holds
+    \begin{align*}
+      \d_{\Phi(p)}\pi\left(\H'_{\Phi(p)}\right)=&\\
+      =&\,\,\d_{\phi(p)}\pi\left(\d_p\Phi(\H_p)\right)=\d_p(\pi\circ\Phi)[\H_p]\\
+      =&\,\,\d_p(\varphi\circ\pi)[\H_p]=\d_{\pi(p)}\varphi\left(\d_p\pi(\H_p)\right)\\
+      =&\,\,\d_{\pi(p)}\varphi\left(T_{\pi(p)}\M\right)=T_{\varphi(x)}\M
+    \end{align*}
+    for $p\in\pi^{-1}(x)$, so the above proves that $\H'$ is horizontal, while for the equivariance instead:
+    \begin{align*}
+        \d_{\Phi(p)}(\vartriangleleft\g)\left[\H'_{\phi(p)}\right]=&\\
+        =&\,\,\d_{\Phi(p)}(\vartriangleleft\g)\left[\d_p\Phi(\H_p)\right]=\d_p(\vartriangleleft\g\circ\Phi)[\H_p]\\
+        =&\,\,\d_p(\Phi\circ\vartriangleleft\g)[\H_p]=\d_{p\vartriangleleft\g}\Phi\left(\d_p(\vartriangleleft\g)[\H_p]\right)\\
+        =&\,\,\d_{p\vartriangleleft\g}\Phi\left(\H_{p\vartriangleleft\g}\right)=\d_{p\vartriangleleft\g}\left(\H'_{\Phi(p\vartriangleleft\g)}\right)\\
+        =&\,\,\d_{p\vartriangleleft\g}\H'_{\Phi(p)\vartriangleleft\g}
+    \end{align*}
+    Thus, principal connections are mapped in principal connection through push--forwards along principal fibered morphisms, i.e. $\Phi_*\H=\H'$. The proof is accomplished provided that $\Phi_\g(p):=p\vartriangleleft\g$ defines a map in $\Aut(P)$ and also that
+    $$\begin{matrix}
+        \G\to\Aut(P)\\
+        \g\mapsto\Phi_\g
+    \end{matrix}$$
+    is a smooth representation on $P$.
+\end{proof}
+
+
+% $\mathfrak{g}$--valued 1--form $\omega\in\Sec{T^*P}\otimes\mathfrak{g}$ such that
+%\begin{equation}
+ %   p\mapsto\omega_p\in T_p^*P\otimes\mathfrak{g}\,\,:\begin{matrix}
+    %\omega_p:T_pP\to\mathfrak{g}\cong T_e\G\\
+    %\qquad\qquad X_p\mapsto\imath_p^{-1}(\vert(X_p))
+%\end{matrix}
+%\end{equation}
+%Such a construction is completely characterizing, by virtue of
+%\begin{prop}
+    %Let $P\to\M^n$ be a principal $\G$--bundle and let $\H_\cdot$ be a principal connection. Then, there exists a unique $\omega$: $\mathfrak{g}$--valued 1--form on P such that $\ker(\omega_p)=\H_p$. Viceversa, let $\omega\in\Gamma(T^*P)\otimes\mathfrak{g}$ as in \emph{(1.2)}, then there exists a unique principal connection $p\mapsto\H_p$ such that $\H_p=\ker(\omega_p)$.
+%\end{prop}
+%\begin{proof}
+   % See \cite{princ1}
+%\end{proof}
+
+\begin{example}[Connection on the frame bundle]\label{ex_1.3.3}
+     By virtue of \emph{Proposition 1.3.1}, $L\M^n\to\M^n$ is a principal $\GL_n$--bundle with canonical right--action acting on a frame \,$\e_x=(e_I)_{I=1,\hdots,n}\in L_x\M^n$---for a $(\alpha^J_I)_{I,J}\in\GL_n$---components--wise as
+    $$e_I\mapsto e_J\alpha^J_I$$
+    and transition maps are given in the form---for cocycles $J_\alpha^\beta:U_{\alpha\beta}\to\GL_n$
+    $$\begin{matrix}      \t_{\alpha\beta}:U_{\alpha\beta}\times\overbrace{L_xU_{\alpha\beta}}^{\cong\GL_n}\to U_{\alpha\beta}\times\overbrace{L_xU_{\alpha\beta}}^{\cong\GL_n}\\
+    \qquad\qquad(x^\mu,e_I^\mu)\mapsto\left(x^\mu,\J^\mu_\nu(x)\,e^\nu_I\right)
+    \end{matrix}$$
+    By setting $\frac{\der}{\der e_I^\mu}=:\der^I_\mu$, we can choose a basis of right--invariant vertical vector fields on $L\M^n$ on the form $\rho^\beta_\alpha=e^\beta_I\der^I_\alpha\in\mathfrak{gl}_n$ and a general principal connection here is
+    $$\omega=\d x^\mu\otimes\left(\der_\mu-\omega^\alpha_{\beta\mu}(x)\rho^\beta_\alpha\right)$$
+    as we proved in \emph{(\ref{prinConn})}. Let us check how it transforms when we move towards other coordinates $\t_{\alpha\beta}(x^\mu,e^\mu_I)$; the coordinate vector fields satisfy
+    $$\begin{cases}
+        \der_\mu=\J^\nu_\mu\der'_\nu+\J^\gamma_{\nu\mu}e^\nu_I{\der'}^I_\gamma\\
+        \der^I_\nu=\J^\mu_\nu\,{\der'}^I_\mu
+    \end{cases}\quad\Rightarrow\quad\begin{cases}
+        \der_\mu=\J^\nu_\mu\der'_\nu+\J^\gamma_{\nu\mu}\antij^\nu_\lambda\,{\rho'}^\lambda_\gamma\\
+        \rho^\mu_\nu=e^\mu_I\der^I_\nu=\antij^\mu_\lambda{\rho'}^\lambda_\gamma\J^\gamma_\nu
+    \end{cases}$$
+    Then, we can directly compute
+    \begin{align*}
+        \omega=&\,\,\d x^\mu\otimes\left(\der_\mu-\omega^\alpha_{\beta\mu}(x)\rho^\beta_\alpha\right)\\
+        =&\,\,\d{x'}^\lambda\otimes\left(\der'_\lambda-\J^\gamma_\alpha\left(\omega^\alpha_{\beta\mu}(x)\antij^\beta_\sigma\antij^\mu_\lambda+\antij^\alpha_{\sigma\lambda}\right){\rho'}^\sigma_\gamma\right)
+    \end{align*}
+   \emph{ i.e.} $\,\,\omega^\gamma_{\sigma_\lambda}(x')=\J^\gamma_\alpha\left(\omega^\alpha_{\beta\mu}(x)\antij^\beta_\sigma\antij^\mu_\lambda+\antij^\alpha_{\sigma\lambda}\right)$ does transform as \emph{(\ref{mfd_connection})} and so it can be identified with a connection on the base manifold. 
+\end{example}
+
+That is a very nice property of frame bundles with spectacular applications in physics that we already forwarded in Remark \ref{forward}, being $\Con(L\M)\cong\Con(\M)$ as bundles.
+
+
+\subsection{Associated fiber bundles}
+
+In this section we are going to construct associated bundles, which will be the main model for configurations as their sections in relativistic theories.
+
+\begin{defi}[Associated fiber bundle]
+    Let $\M^n,\,F$ be smooth manifolds, $P\xrightarrow[]{\vartriangleleft_\G}P\xrightarrow{\pi}\M^n$ be a principal bundle over $\M$ and $\vartriangleright\,:\G\times F\to F$ be a left--action on $F$. Furthermore, define the equivalence relation on $P\times F$ given by
+    $$(p,f)\sim_\G\left(p\vartriangleleft\g,\,\g^{-1}\vartriangleright f\right)\quad\text{for some}\quad\g\in\G$$
+    Then, the quotient space $\nicefrac{P\times F}{\sim_\G}=:P\times_\G F$ together with the projection map
+    $$\begin{matrix}
+        \pi_\G:P\times_\G F\to\M\\
+        \qquad\quad[p,f]\mapsto\pi(p)
+    \end{matrix}$$
+    defines a fiber bundle $(P\times_\G F,\pi_\G,\M,F)$ called the \emph{associated bundle} to $(P,\pi)$.
+\end{defi}
+\,\newline
+One is actually required to check the well posed definition of $\pi_\G$; indeed, choosing a different representative $[p',f']$ yields
+$$\pi_\G([p',f'])=\pi_\G\left(\left[p\vartriangleleft\g,\,\g^{-1}\vartriangleright f\right]\right)=\pi(p\vartriangleleft\g)=\pi(p)=\pi_\G([p,f])$$
+Furthermore, said $\phi_{\alpha\beta}:U_{\alpha\beta}\to\G$ cocycles for transition maps $\t_{\alpha\beta}$ in $P$, then local trivialisations for $P\times_\G F$ appear in the form
+$$\begin{matrix}
+    \widehat{\t}_{\alpha}:\pi^{-1}_\G(U_\alpha)\to U_{\alpha}\times F\\
+    \qquad\qquad[p,f]\mapsto\left(x,\g^{-1}\vartriangleright f\right)
+\end{matrix}\quad\text{for}\quad p\in\pi^{-1}(x)$$
+and they induce fibered coordinates $(x^\mu,f^i)$ around $\widehat{\t}_\alpha([p,f])$ that give rise to charts of a maximal atlas for $P\times_\G F$ (see \cite{princ1}), where transition maps are
+
+$$\begin{matrix}
+    \widehat{\t}_{\alpha\beta}:U_{\alpha\beta}\times F\to U_{\alpha\beta}\times F\\
+    \qquad\qquad\qquad(x^\mu,f^i)\mapsto\underbrace{\left(x^\mu,\phi_{\beta\alpha}(x)\vartriangleright f\right)}_{=:({x'}^\mu,{f'}^i)}
+    
+\end{matrix}$$
+
+
+
+\begin{example}\label{ex_ass}
+    \begin{itemize}
+        \item $P=L\M^n$ of right--action $\vartriangleleft:\,\,L\M\times\GL(n,\R)\to L\M$
+        $$\mathbf{e}\vartriangleleft\g:=\left(\g_1^\nu e_\nu,\hdots,\g_n^\nu e_\nu\right)\,,\quad\nu=1,\hdots,n.$$
+        Let $F=\R^n$ with a left--action $\vartriangleright:\GL(n,\R)\times F\to F$ defined in components by
+        $$(\g\vartriangleright f)^i:=\g^i_j\,f^j\,,\quad i,j=1,\hdots,n.$$
+        The associated vector bundle here is
+        $$L\M\times_{\GL(n,\R)}\R^n\xrightarrow{\pi_{\GL_n}}\M^n$$
+        and it can be proved the following map being a bundle isomorphism
+        $$\begin{matrix}
+            L\M\times_{\GL(n,\R)}\R^n\to T\M^n\\
+            \qquad[\mathbf{e},x]\mapsto x^\mu e_\mu
+        \end{matrix}$$
+        
+        \item As in the previous, consider the frame bundle of a smooth manifold $\M^n$ and let $F=\left({\R^n}\right)^{\otimes h}\otimes{\left({\R^n}^*\right)}^{\otimes k}$ be equipped with a left action $\vartriangleright$ defined in components by
+        $$(\g\vartriangleright f)^{i_1\hdots i_h}_{j_1\hdots j_k}:={\g}^{i_1}_{{i_1}'}\hdots{\g}^{i_h}_{{i_h}'}\,{\g^{-1}}^{{j_1}'}_{j_1}\hdots{\g^{-1}}^{{j_k}'}_{j_k}\,f^{{i_1}'\hdots{i_h'}}_{{j_1}'\hdots{j_k}'}$$
+        Then, it can be proved there exists a bundle isomorphism among the associated vector bundle to $L\M^n$ with fiber $F$ and the $(h,k)$--tensor bundle, $i.e.$
+        $$L\M^n\times_{\GL_n}F\cong T^h_k\M^n \quad\text{as fiber bundles.}$$
+        For instance, $T^0_2\M^n\cong L\M^n\times_{\GL_n}\left({\R^n}^*\otimes{\R^n}^*\right)$ through the action
+        $$(\J\vartriangleright g)_{\alpha\beta}=\antij^\mu_\alpha\antij^\nu_\beta\,g_{\mu\nu}\,,\quad\text{for}\quad\J\in\GL_n,\,g\in{\R^n}^*\otimes{\R^n}^*$$
+        
+        \item A useful generalisation of the above is the so--called \emph{$(h,k)$--tensor $\boldsymbol{\omega}$--density bundle}, in which one simply modifies the $\GL_n$--left--action on the fiber as 
+        $$(\g\vartriangleright f)^{i_1\hdots i_h}_{j_1\hdots j_k}:=\det(\g)^{-\boldsymbol{\omega}}\,{\g}^{i_1}_{{i_1}'}\hdots{\g}^{i_h}_{{i_h}'}\,{\g^{-1}}^{{j_1}'}_{j_1}\hdots{\g^{-1}}^{{j_k}'}_{j_k}\,f^{{i_1}'\hdots{i_h'}}_{{j_1}'\hdots{j_k}'}$$
+        $$\text{for some}\quad\boldsymbol{\omega}\in\Z\quad\text{called \emph{weight}}.$$
+        Observe the $0$--density tensor bundle to be exactly the $(h,k)$--tensor bundle $T^h_k\M^n\to\M^n$. Such \emph{densitized tensor fields} result very useful when one deals with field theories: for instance, in general relativity, the action of the theory in an $($even curved$)$ spacetime $(\M^{1,3},g)$ is
+        \begin{align*}
+            \int_{\M^{1,3}}\Scal_g\,\d\mu_g&=\,\,\int_{\R^4}\sqrt{-\det(g)}\,\Scal_g\,\d^4x\\
+            &=:\,\int_{\R^4}\sqrt{g}\,\Scal_g\,\d^4x
+        \end{align*}
+    and the integrand here is a $1$--\emph{weighted density}. Indeed, if one goes to see how $\det(g)$ transforms with respect to $\GL_4(\R)$ transformations, then one sees 
+    $$\det(g_{\mu\nu}\,\g^\mu_\alpha\g^\nu_\beta)=\det(g_{\mu\nu})\det(\g^\mu_\beta)^2\,,\quad\text{for any}\quad\g\in\GL_4(\R)$$
+
+\item It is very worth here introducing the so--called \emph{Levi--Civita tensor density} on $\M^n$, defined as
+$$\epsilon^{\mu_1\hdots\mu_n}:=\sgn(\tau)$$
+for any permutation $\tau\in\Pi_n$ which brings $\{\mu_1,\hdots,\mu_n\}$ in $\{1,\hdots,n\}$. They are useful in characterisation of the determinant of any "matricially representable" tensors, because of the identity \emph{(e.g.} for a \emph{(1,1)}--tensor $\T=T^\alpha_\beta\der_\alpha\otimes\d x^\beta)$ 
+\begin{align*}
+    \det(\T)&=\,\,\epsilon_{\alpha_1\hdots\alpha_n}T_1^{\alpha_1}\hdots T^{\alpha_n}_n\\
+    &=\,\,\frac{1}{n!}\epsilon_{\alpha_1\hdots\alpha_n}T^{\alpha_1}_{\beta_1}\hdots T^{\alpha_n}_{\beta_n}\epsilon^{\beta_1\hdots\beta_n}
+\end{align*}
+which makes $\det(\cdot)$ a scalar density of weight $\boldsymbol{\omega}=-1$ for $(2,0)$--tensors, and weight $\boldsymbol{\omega}=+1$ for $(0,2)$--tensors.
+
+
+\item Let $P\xrightarrow{\pi}\M^n$ be a principal $\G$--bundle and let $\omega\in\Sec{\pi^*T\M\otimes\mathfrak{g}}$ be a principal connection; we shall show here that $\omega$ can be regarded as a section of so--called \emph{connection bundle} $\Con(P)\to\M^n$ which is associated to $P$ as follow\footnote{It is a quite complicated construction for which we refer to Section 17.2 of \cite{fatib}. Roughly speaking, as Jacobians $\J^\mu_\nu\in\GL_n$, so Hessians $\J^\mu_{\nu\rho_1}\in\GL_n^2$ up to $\J^\mu_{\nu\rho_1\hdots\rho_k}\GL_n^k$ and a higher--order frame bundle $L^k\M$ can be constructed as principal $\GL_n^k$--bundle. Also, Lie groups $\G$ can be prolonged through jets to $\J^s\G$ and define $W^{(s,k)}_n\G:=\J^s\G\rtimes\GL_n^k$ while prolongation $\J^sP$ defines $W^{(s,k)}P:=\J^sP\times_\M L^k\M$.\, Thus, we have $W^{(1,1)}P=\J^1P\times_\M L\M$.}
+
+$$\Con(P):=W^{(1,1)}P\times_\lambda(\pi^*T\M\otimes\mathfrak{g})$$
+$$\begin{matrix}
+    \lambda:W^{(1,1)}\G\times\left(\pi^*T\M\otimes\mathfrak{g}\right)\to\pi^*T\M\otimes\mathfrak{g}\\
+    \left(\g^i,\g^i_a,\J^b_a,\omega_a^B\right)\mapsto{\omega'}^A_a
+\end{matrix}$$
+$${\omega'}^A_a=\Ad^A_B(\g)\left(\omega^B_b+\overline{R}^A_i(\g)\,\g^i_b\right)\antij^b_a$$
+
+
+\item Connections on manifolds, instead, are sections of some affine space $\mathbb{A}$ modelled on the vector space $T^1_2(\R^n)$ and through the left action
+$$\begin{matrix}
+    \GL_n^2\times\mathbb{A}\to\mathbb{A}\\
+    \left(\J^\alpha_\beta,\J^\alpha_{\beta\gamma},\Gamma^\alpha_{\beta\mu}\right)\mapsto{\Gamma'}^\alpha_{\beta\mu}
+\end{matrix}$$
+$${\Gamma'}^\alpha_{\beta\mu}=\J^\alpha_\rho\left(\Gamma^\rho_{\sigma\nu}\antij^\sigma_\beta\antij^\nu_\mu+\antij^\rho_{\beta\mu}\right)$$
+they turn out to be in one--to--one correspondence with sections of \,$\Con(\M)\cong L^2\M\times_{\GL_n^2}\mathbb{A}$.
+    \end{itemize}
+\end{example}
+
+%(The following has to be extend. Talk about the importance of covariance with respect $\G$--transformation of tensors carries by the underlying principal structure.)\\
+%\,\newline
+We just expressed some of the most important vector (and affine) bundles known as associated bundles of some underlying principal one. This carries more structure on them and it is so important in mathematical physics, because of some other useful properties of sections of these bundles; indeed, it holds the following
+
+\begin{prop}
+    Let $\M^n,\,F$ be smooth manifolds and consider a principal bundle $(P,\pi,\M^n,\G)$ with associated fiber bundle $(P\times_\G F,\pi_\G,\M^n,F)$. Then, sections $\sigma:\M\to P\times_\G F$ are in one--to--one correspondence to $F$--valued functions $\phi:P\to F$ on the underlying principal bundle. 
+\end{prop}
+\begin{proof}[Idea of the proof]
+   The key idea here is, given $\phi:P\to F$, to construct a map
+   $$\begin{matrix}
+       \sigma_\phi:\M\to P\times_\G F\\
+       \qquad\quad x\mapsto{[p,\phi(p)]}
+   \end{matrix}\,,\qquad\text{for}\quad p\in\pi^{-1}(x)$$
+   which provides a one--to--one correspondence $\sigma_\phi\leftrightarrow\phi$.
+\end{proof}
+
+Connections are, in a sense, always induced by principal connections: indeed, in physical applications, all the bundles we shall consider in field theories will be somehow \emph{associated} to a principal one---as we could have get a glimpse from Examples \ref{ex_1.3.3}---so this turns out to be a 'safe way' to characterise them, and this is possible because of the forthcoming
+
+\begin{teo}[Existence of the \emph{associated connection}]
+    Let $P\xrightarrow{\vartriangleleft_\G}P\xrightarrow{\pi}\M^n$ be a principal bundle of connection $\H$ and let $P\times_\G F$ be an associated bundle with it, then there exists a connection $\widehat{\H}$ on $P\times_\G F$. 
+\end{teo}
+\begin{proof}
+    By hypothesis we have the two actions
+    $$\begin{matrix}
+        \vartriangleleft:P\times\G\to P\\
+    \qquad\quad(p,\g)\mapsto p\vartriangleleft\g\end{matrix}\qquad\begin{matrix}
+        \vartriangleright:\G\times F\to F\\
+        \qquad\qquad (\g,f)\mapsto\g^{-1}\vartriangleright f
+    \end{matrix}$$
+    defining the associated fiber bundle 
+    $$\begin{matrix}
+        P\times_\G F:=\nicefrac{P\times F}{\sim}\xrightarrow{\pi_\G}\M^n\\
+        \qquad\qquad\qquad[p,f]\mapsto\pi(p)
+    \end{matrix}$$
+    $$\text{where}\quad(p,f)\sim\left(p\vartriangleleft\g,\,\g^{-1}\vartriangleright f\right)\quad\text{in}\quad P\times F$$
+    and the connection $\H$ on $P$ satisfying $T_pP=\V_p\oplus\H_p$ and equivariance
+    $$\d_p(\vartriangleleft\g)\,\H_p=\H_{p\vartriangleleft\g}\quad\text{for each}\quad p\in P$$
+    Now we proceed by construction: consider the map
+    $$\begin{matrix}
+        \Phi_f:P\to P\times_\G F\\
+        \quad p\mapsto[p,f]
+    \end{matrix}$$
+whose tangential lift is given by a map $\,\,\d_p\Phi_f:T_pP\to T_{[p,f]}P\times_\G F$, and set
+$$\widehat{\H}_{[p,f]}:=\d_p\Phi_f(\H_p)$$
+Now: $[p,f]\mapsto\widehat{\H}_{[p,f]}$ is a smooth assignment on $T_{[p,f]}P\times_\G F$, as it inherits by $p\mapsto\H_p$. Furthermore, by taking another representative of the class $[p',f']\in[p,f]$ we get
+\begin{align*}
+    \widehat{\H}_{\left[p\vartriangleleft\g,\,\g^{-1}\vartriangleright f\right]}&=\left(\d_{p\vartriangleleft\g}\Phi_{\g^{-1}\vartriangleright f}\right)(\H_{p\vartriangleleft\g})=\d_{p\vartriangleleft\g}\Phi_{\g^{-1}\vartriangleright f}(\d_p(\vartriangleleft\g)\,\H_p)\\
+    &=\d_p\left(\Phi_{\g^{-1}\vartriangleright f}\circ(\vartriangleleft\g)\right)\,\H_p=\d_p\Phi_f(\H_p)
+\end{align*}
+where in the second line we used the chain rule for tangent maps and the last equality is reached since $\Phi_{\g^{-1}\vartriangleright f}\circ(\vartriangleleft\g)=\Phi_f\,\Rightarrow\,\d\left(\Phi_{\g^{-1}\vartriangleright f}\circ(\vartriangleleft\g)\right)=\d\Phi_f$ through
+$$\begin{matrix}
+    P\xrightarrow{\vartriangleleft\g}P\xrightarrow{\Phi_{\g^{-1}\vartriangleright f}}P\times_\G F\\
+    \qquad\quad p\mapsto p\vartriangleleft\g\mapsto\underbrace{[p\vartriangleleft\g,\,\g^{-1}\vartriangleright f]}_{=[p,f]}
+\end{matrix}$$
+Finally, the linearity of the tangent map $\d(\cdot)$ also leaves us only to check that $$\widehat{\H}_{[p,f]}\cap\V_{[p,f]}=\{0\}$$
+So let $v$ be a vector on such an intersection subspace: then from $v\in\V_{[p,f]}$ we infer
+$$0=(\d_{[p,f]}\pi_\G)(v)=\d_{[p,f]}\pi_\G(\d_p\Phi_f(u))=\d(\pi_\G\circ\Phi_f)[\,u\,]=\d_p\pi(u)$$
+$$\text{for some}\quad u\in T_pP$$
+while $v\in\widehat{\H}_{[p,f]}$ is saying that there exists $u\in\H_p$ such that $\d_p\Phi_f(u)=v$. This way, since $\pi_\G\circ\Phi_f=\pi$ we actually proved that $u$ is both vertical and horizontal in $T_pP=\V_p\oplus\H_p$, so it has to be $u=0$ and it follows (by linearity)
+$$v=\d_p\Phi_f(0)=0$$
+which concludes the proof.
+\end{proof}
+
+%\begin{example}
+ %   \begin{itemize}
+  %      \item Let us see how a principal connection on the frame bundle $L\M^n$ induces a $\GL_n$--connection on $T\M^n$ as associated vector bundle:
+   % \end{itemize}
+%\end{example}
+
+%Anyway, the general characterisation above is quite weak when one wants actually compute associated connections. For this reason, we present a way to define connections compatible with the $\G$--structure inherited by the underlying principal connection, represented by an $\omega\in\Gamma(T^*P)\otimes\mathfrak{g}$ as in (1.3). By noticing that the endomorphism bundle of an associated one satisfies $$\End(P\times_\G F)\supseteq\mathfrak{g}$$
+%(see \cite{princ1}), one defines 
+
+%\begin{defi}[$\G$--connection]
+%    Let $P\xrightarrow{\vartriangleleft_\G}P\xrightarrow[]{\pi}\M^n$ be a principal bundle and let $P\times_\G F$ be associated to $(P,\pi)$ whose fiber $F$ is a vector space. Consider \emph{D} a linear connection on $P\times_\G F$ such that it decomposes as $\emph{D}=\D^0+\A$, where $\D^0$ is the standard flat connection, for some co--vector potential $\A$, according to \emph{Theorem 1.?}. Then, $\emph{D}$ is called $\G$--connection if components of $\A$ are $\mathfrak{g}$--valued 1--forms.
+%\end{defi}
+%\,\newline Being a linear connection means that D writes down as a map
+%$$\begin{matrix}
+    %\text{D}:\Gamma(T\M)\times\Sec{P\times_\G F}\to\Sec{P\times_\G F}\\
+    %(X,\sigma)\mapsto{\text{D}}_X\,\sigma
+%\end{matrix}$$
+%which is $\R$--bilinear, $\Cinf(\M)$--linear in the first and Leibnitz--satisfying in the second entry; moreover, compatibility with the $\G$--structure is required by asking ---locally at a chart $(U,x^\mu)$ around a point in $\M^n$ ---for the components of the co--vector potential $\A=A_\mu\d x^\mu\in\Gamma(T^*U)$ to obey to $A_\mu\in\mathfrak{g}$, i.e.
+%$$\A\in\Gamma(T^*U)\otimes\mathfrak{g}$$
+%\,\newline
+%By virtue of Proposition 1.3.3, one then constructs this $\G$--left--action
+%$$\begin{matrix}
+%\blacktriangleright:\G\times\Sec{P\times_\G F}\to\Sec{P\times_\G F}\\
+%\qquad\quad(\g,\sigma_\phi)\mapsto\g\blacktriangleright\sigma_\phi
+
+%\end{matrix}\begin{matrix}
+ %\g\blacktriangleright\sigma_\phi:P\to F\\
+ %\qquad\qquad\qquad p\mapsto\g^{-1}\vartriangleright\phi(p)
+%\end{matrix}$$
+%where $\vartriangleright$ defines $P\times_\G F$ as in Definition 1.3.7. This way, it can be proved (CFR. §II.2 \cite{baez}, exercises 85, 86) that given a $\G$--connection D on $P\times_\G F$, then
+%$$\text{D}'_X\sigma:=\g\blacktriangleright\text{D}_X(\g^{-1}\blacktriangleright\sigma)$$
+%still is a $\G$--connection whose co--vector potential components are given by
+%$${A_\mu}'=\g\cdot A_\mu\cdot\g^{-1}+\g\cdot\der_\mu\cdot\g^{-1}\in\mathfrak{g}\,,\quad\text{for suitable G--left actions}\,\,\,\g\cdot$$
+
+\begin{prop}\label{gauge_action_Aut(P)}
+    An automorphism $\Phi\in\Aut(P)$ canonically acts on $P\times_\G F$ and it induces $\Aut(P\times_\G F)$ one--to--one. Particularly, it defines a special subgroup $$\Aut(P)\subseteq\Aut(P\times_\G F)$$
+    containing so called \emph{generalised gauge--transformations}.
+\end{prop}
+\begin{proof}[Idea of the proof]
+For $\Phi\in\Aut(P)$, it is all about to show that
+    $$\begin{matrix}
+        (\cdot)_\G:\Aut(P)\to\Aut(P\times_\G F)\\
+        \Phi\mapsto\Phi_\G
+    \end{matrix}$$
+    $$\begin{matrix}
+        \Phi_\G:P\times_\G F\to P\times_\G F\\
+        \qquad[p,f]\mapsto[\Phi(p),f]
+    \end{matrix}$$
+    is a group homomorphism.
+\end{proof}
+
+\begin{defi}[Gauge transformations]\label{gauge_transf_def}
+    Let $P\xrightarrow{\vartriangleleft_\G}P\xrightarrow{\pi}\M$ be a principal bundle and $\Aut(P)$ be the group of generalised gauge--transformations, then we define the sub--group made of \emph{vertical} automorphisms, \emph{i.e.} such that $\pi\left(\Phi(p)\vartriangleleft\g\right)=\varphi\left(\pi(p\vartriangleleft\g))\right)$ for any $p\in P$, as $\mathscr{G}:=\Aut_\V(P)$ and we say it contains the \emph{(pure) gauge--transformations} of $P\to\M$.
+\end{defi}
+They basically do not vary the point on which they are applied i.e. they only move points within the same fiber. 
+
+\subsubsection{On curvature of principal connections}
+
+Let $P\xrightarrow{\vartriangleleft_\G}P\xrightarrow{\pi}\M^n$ be a principal bundle of principal connection $\omega\in\Sec{\pi^*T\M\otimes\mathfrak{g}}$, which then satisfies (\ref{prinConn}). A--priori, principal bundles do not admit a linear structure allowing to easily compute the curvature tensor $F_{\mu\nu}$ which controls the non--commutation of the covariant derivative of $\omega$. However, as we mentioned in Remark \ref{forward}, we can do pretty much the same for a principal connection by considering the associated bundle $P\times_\ad\mathfrak{g}$ with respect to so--called \emph{adjoint action}
+$$\begin{matrix}
+    \ad:\G\times\mathfrak{g}\to\mathfrak{g}\\
+    \qquad\qquad\quad (\g,\T_A)\mapsto\ad(\g)_A^B\T_B
+\end{matrix}$$
+where $\ad(\g)_A^B$ is the matrix representing $\ad_\g\in\End(\mathfrak{g})$ in the basis $\{\T_A\}_A$. It has to be noticed that such an adjoint map is induced on the algebra by the canonical adjoint map on the group $\Ad_\g(\h)=\g\cdot\h\cdot\overline{\g}=:R_{\overline{\g}}\circ L_\g$ via tangent map, i.e. it is $\ad_\g:=\T_{\id_\G}\Ad_\g$ and it holds $\ad(\g)_A^B=\overline{R}^B_c(\g)L_A^c(\g)=\overline{L}^B_d(\g)$.\, Moreover, for a fixed $\xi\in\mathfrak{g}$ one also has $\ad[\xi]\in\End(\mathfrak{g})$ acting as $\zeta\mapsto[\xi,\zeta]=\xi^B\zeta^C\,{\c^A}_{BC}\,T_A$, for so--called $\ad$--invariant structure constants ${\c^A}_{BC}$ and so 
+$$F_{\mu\nu}^A=\d_\mu\omega^A_\nu-\d_\nu\omega_\mu^A+\left[\omega^B_\mu,\omega^C_\nu\right]=\d_\mu\omega^A_\nu-\d_\nu\omega_\mu^A+{\c^A}_{BC}\,\omega^B_\mu\omega^C_\nu$$
+defines the curvature of the principal connection $\omega$ as the (gauge--invariant) $\mathfrak{g}$--valued 2--form $\F=\F^A\otimes\rho_A$%$\F^i\in\Sec{\pi^*\left(T^0_2\M\right)\otimes\mathfrak{g}}$
+\,\,given by
+
+\begin{equation}\label{princ_curv}
+    \F^A=\frac{1}{2}F^A_{\mu\nu}\,\d x^\mu\wedge\d x^\nu
+\end{equation}
+Notice that, being defined via tangent maps, matrices $\ad(\g)^A_B$ work as Jacobians, and we can adapt (\ref{prinConn_laws}) to---for $\G$--valued cocycles $\varphi$ with an abuse of notation
+\begin{equation}\label{princ_conn_transf_ad}
+    {\omega'}^A_\mu=\antij^\nu_\mu\left(\ad^A_B(\varphi)\omega^B_\nu-\overline{R}^A_a(\varphi)\,\varphi^a_\nu\right)
+\end{equation}
+
+\subsection{Holonomies and gauge--connections}\label{holonomies}
+As already mentioned in Section \ref{gen_fib}, holonomies $\mathcal{H}_\omega[\gamma]\in\Aut(\pi^{-1}(x_0))$ are related to parallel transport $\mathcal{P}_\omega[\gamma]\in\Diffeo\left(\pi^{-1}(x_0),\pi^{-1}(x_1)\right)$: usually in literature, parallel transport is introduced on the tangent bundle; we rather consider it as a special case of parallel transport for a general \emph{gauge connection} $[\omega]$ on a general principal bundle $P\xrightarrow{\pi}\M$. This is a more general viewpoint, which produces a better intuition, which is intrinsically independent of the metric (namely, in a sense, background--free). It is widely used in studying gauge theories on a lattice from which most of the techniques used in LQG are borrowed. The language of holonomies is based on almost a century of differential geometry---see \cite{kobayashi1}, \cite{kobayashi2}.\\ %\cite{gockeler}).\\
+
+We shall start from what is a path
+
+\begin{defi}[Smooth, oriented path]
+    A \emph{smooth oriented path from $x_0$ to $x_1$} in $\M^n$ is an equivalence class of smooth, simple \emph{(}one--to--one\emph{)} and parametrized curves $\gamma:[0,1]\to\M$ for the relation given by reparametrisation, such that $\gamma(0)=x_0$ and $\gamma(1)=x_1$. The set of smooth, oriented path among the \emph{initial node} $x_0$ and the \emph{final node} $x_1$ is denoted by $\Sec{x_0,x_1}$.
+\end{defi}
+\,\newline
+When $\gamma_0\in\Sec{x_0,x_1}$ and $\gamma_1\in\Sec{x_1,x_2}$ we can well--define a binary operation called \emph{concatenation} of paths
+$$\begin{matrix}
+    \gamma_0*\gamma_1:[0,1]\to\M\\
+    \qquad\qquad\qquad\qquad\qquad\qquad\qquad s\mapsto\begin{cases}
+        \gamma_0(2s) &\text{if}\,\,s\in[0,\frac{1}{2}]\\
+        \gamma_1(2s-1) &\text{if}\,\,s\in[\frac{1}{2},1]
+    \end{cases}
+\end{matrix}$$
+but $\gamma_0*\gamma_1\notin\Sec{x_0,x_2}$, since it is not necessarily smooth on the internal node $x_1\in\M$; for this reason we have to introduce the set $\P(x_0,x_2)\supseteq\Gamma(x_0,x_2)$ of \emph{piecewise smooth paths}, meaning that $\gamma\in\P(x_0,x_N)$ is in the form---for $j=1,\hdots,N$
+$$\gamma=\gamma_1*\hdots*\gamma_N\,,\quad\text{for some}\quad\gamma_j\in\Gamma(x_{j-1},x_j)$$
+Moreover, $\gamma^{-1}(s):=\gamma(1-s)$ still defines a curve in $\P(x_0,x_N)$ which follows the same trajectory of $\gamma$ but with reverse orientation. Such two operations $\cdot*\cdot$ and $(\cdot)^{-1}$ on $\P(x_0,x_N)$ seem to collapse to a group structure on \textbf{loops} in $\P(x_0,x_0)=:\Gamma(x_0)$ but, unfortunately, the trivial loop $\c:\equiv x_0$ does not behave as neutral element, since $\gamma*\gamma^{-1}\neq\c$, hence we have not any group structure on loops yet.\\
+
+
+Given a principal bundle $P\xrightarrow{\pi}\M$ and a local trivialisation $\t:\pi^{-1}(U)\to U\times\G$ of coordinates $(x^\mu,\g^a)$ around $p\in P$, we know a connection $\omega\in\Sec{\pi^*T\M\otimes\mathfrak{g}}$ reads as
+$$\omega=\d x^\mu\otimes\left(\der_\mu-\omega^i_\mu(x)\rho_i(x,\g)\right)$$
+with $\rho_i(p):=R^a_i(\g)\der_a\in\mathfrak{g}$ right--invariants, where $\g$ can be possibly chosen as the identity $\g=e$.\, \emph{The} horizontal lift of a path $\gamma\in\P(x_0,x_N)$ with respect to $\omega$ based at some $p_0=\t^{-1}(x_0,\g_0)$ turns out to be the curve 
+$$\begin{matrix}
+    \widehat{\gamma}:[0,1]\to P\\
+    \qquad\qquad\qquad s\mapsto\left(x^\mu(s),\g^a(s)\right)
+\end{matrix}$$
+satisfying the Cauchy problem
+$$\begin{cases}
+    \dot{\g}^a(s)+\dot{x}^\mu(s)\omega^i_\mu(x(s))R^a_i(\g(s))=0\\
+    \g^a(0)=\g_0
+\end{cases}$$
+Arguing as in Remark \ref{forward}, on which we extended coefficients $\omega^i_\mu$ from a point $(x,\g)$ in the fiber to the whole fiber through equivariance, we can do the same for horizontal lift of paths: if we know a horizontal lift $\widehat{\gamma}$ of a path $\gamma\in\P(x_0,x_1)$ in $\M$, then we know them all, precisely one for each point in the initial fiber. Indeed, in view of equivariance, if we fix $\g\in\G$ and consider $\widehat{\gamma}_p$ based at $p\in\pi^{-1}(x_0)$, then
+$$\begin{matrix}
+    \widehat{\gamma}_{p\vartriangleleft\g}:[0,1]\to P\\
+    \qquad\qquad\qquad s\mapsto\widehat{\gamma}_p(s)\vartriangleleft\g
+\end{matrix}$$
+is again a horizontal lift of $\gamma$ based now at $p\vartriangleleft\g\in\pi^{-1}(x_0)$ in the same fiber. Moreover, horizontal lift map $\gamma\mapsto\widehat{\gamma}$ behaves well with respect to concatenation and inversion
+$$\widehat{\gamma_0*\gamma_1}=\widehat{\gamma}_0*\widehat{\gamma}_1$$
+$$\widehat{\gamma^{-1}}=\widehat{\gamma}^{-1}$$
+and it defines the parallel transport $\mathcal{P}_\omega[\gamma](p)=\widehat{\gamma}_p(1)\in\pi^{-1}(x_1)$ which is a diffeo among (possibly different) fibers---due to Cauchy theorem---since the image of $\mathcal{P}_\omega[\gamma]$ depends smoothly on the initial condition $p\in\pi^{-1}(x_0)$. Eventually $$\mathcal{P}_\omega[\gamma_0*\gamma_1]=\mathcal{P}_\omega[\gamma_1]\circ\mathcal{P}_\omega[\omega_2]$$ $$\mathcal{P}_\omega[\gamma^{-1}]=\mathcal{P}_\omega[\gamma]^{-1}$$
+it resembles a group homomorphism---if we had some group structure.
+
+\begin{remark}\label{holonomy_group_element}
+    The only way to represent parallel transport as a group element is by choosing a trivialisation containing both the starting and the ending point, unless it is a holonomy $\mathcal{H}_\omega[\gamma]\in\Diffeo\left(\pi^{-1}(x_0)\right)$. That is, essentially because by going along a loop and being the action of the structure group transitive vertical and free, $p\vartriangleleft\g$ remains in the same fiber of $p\in\pi^{-1}(x_0)$ and we can so express the holonomy as
+    $$\begin{matrix}
+        \mathcal{H}_\omega[\gamma]:\pi^{-1}(x_0)\to\pi^{-1}(x_0)\\
+        \qquad\qquad\quad p\mapsto p\vartriangleleft\overline{\h}_\gamma
+    \end{matrix}$$
+    for some $\h_\gamma\in\G$, in a complete geometric way\footnote{Geometrically here means independently on the choice of trivialisations: indeed, the correspondence $\mathcal{H}_\omega[\gamma]\leftrightarrow\h_\gamma=\h_\gamma(p_0)$ only depends on the base point $p_0\in\pi^{-1}(x_0)$ such that $\widehat{\gamma}(0)=p_0$, i.e. $\mathcal{H}_\omega[\gamma]=\mathcal{H}_\omega[\gamma;p_0].$}.
+\end{remark}
+Therefore, we are interesting in defining a group structure on loops compatible with holonomies and it can be done by quotient loops in $\Gamma(x_0)$ up to holonomies: indeed, if one considers an arcwise connected manifold $\M$ and a path $\lambda\in\P(x_1,x_0)$, then the map---as usual $\overline{\lambda}:=\lambda^{-1}$ for group elements
+$$\begin{matrix}
+    \Phi_\lambda:\Gamma(x_0)\to\Gamma(x_1)\\
+    \qquad\qquad \gamma\mapsto\lambda*\gamma*\overline{\lambda}
+\end{matrix}$$
+is not one--to--one, although $\Phi_{\overline{\lambda}}:\Gamma(x_1)\to\Gamma(x_0)$ does. It is worth stressing here that $\lambda*\overline{\lambda}$ cannot be cancel as a neutral element in $\Gamma(x_0)$, so we do not have any group structure. For that, the subset $\sim\subseteq\Gamma(x_0)\times\Gamma(x_0)$ such that $\alpha\sim\beta$ \emph{iff} $\mathcal{H}_\omega[\alpha;p_0]=\mathcal{H}_\omega[\beta;p_0]$ for each connection $\omega$ and base point $p_0$ is an equivalence relation and defines the set of so--called (holonomic loops) \textbf{hoops} $\H(x_0):=\nicefrac{\Gamma(x_0)}{\sim}$ based at $p_0\in\pi^{-1}(x_0)$. Observe that $*$ passes to the quotient being invariant on classes and it well--defines a group structure on hoops since here
+$$\gamma*\c\sim\c*\gamma\quad\text{and}\quad\overline{\gamma}*\gamma\sim\gamma*\overline{\gamma}\sim\c$$
+\begin{align*}
+    \mathcal{H}_\omega[\overline{\gamma}*\gamma;p_0]&=\mathcal{H}_\omega[\gamma^{-1};p_0]\cdot\mathcal{H}_\omega[\gamma;p_0]\\
+    &=\mathcal{H}_\omega[\gamma;p_0]^{-1}\cdot\mathcal{H}_\omega[\gamma;p_0]\\
+    &=\id_\G=\mathcal{H}_\omega[\c;p_0]
+\end{align*}
+This way, we can describe holonomies as group homomorphisms depending on base points
+$$\begin{matrix}
+    \mathcal{H}_{\omega;p_0}:\H(x_0)\to\G\\
+    \qquad\qquad\qquad \gamma\mapsto\mathcal{H}_\omega[\gamma,p_0]
+\end{matrix}$$
+even though it can be actually showed that hoops based at different points live in isomorphic groups, at least in a connected component;\, for that, it is sufficient to observe that $\Phi_\lambda:\Gamma(x_0)\to\Gamma(x_1)$ is invariant on classes of $\sim$ and passes to the quotient as a group isomorphism $[\Phi_\lambda]:\H(x_0)\to\H(x_1)$, for any initial and final nodes we take (see \cite{LN5}). So that, the hoops group is independent to the base point ($\H\cong\H(x_0)$) while the map $\mathcal{H}_{\omega,p_0}\in\Hom(\H,\G)$ does not, even though it encapsulated how holonomies act on the whole fiber, since\footnote{It can be defined an adjoint (left) action of $\G$ on $\Hom(\H,\G)$ by
+$$\begin{matrix}
+    \Ad:\G\times\Hom(\H,\G)\to\Hom(\H,\G)\\
+    \qquad\qquad\qquad (\g,\phi)\mapsto
+        \Ad_\g\phi:\gamma\mapsto\g\cdot\phi(\gamma)\cdot\overline{\g}
+        
+\end{matrix}$$
+and quotient it out getting $[\phi]\in\Hom(\H,\G)/\Ad$. Observe there is a canonical one--to--one correspondence among $[\phi]\leftrightarrow\varphi\in\Hom(\H,\nicefrac{\G}{\Ad})$ given by $\varphi(\gamma)=[\phi(\gamma)]$ for $\phi\in[\phi]$, so that $\Hom(\H,\G)/\Ad\cong\Hom(\H,\nicefrac{\G}{\Ad})$.
+} by equivariance
+$$\mathcal{H}_{\omega,p_0\vartriangleleft\g}=\Ad_{\overline{\g}}\,\mathcal{H}_{\omega,p_0}$$
+This way, $\mathcal{H}_\omega\in\Hom(\H(x_0),\G)$ acts as $\gamma\mapsto\mathcal{H}_\omega[\gamma;p_0]$ and then it induces a class $[\mathcal{H}_\omega]\in\Hom(\H,\nicefrac{\G}{\Ad})$ which is independent to the choice of base point $p_0\in\pi^{-1}(x_0)$, since it affects the holonomy as group element but not its conjugate class $[\mathcal{H}_\omega[\gamma;p_0]]\in\nicefrac{\G}{\Ad}$; what is more, the map $\mathcal{H}_\omega$ turns out to be well--defined.
+\begin{defi}[Holonomy map of a principal connection]
+    Let $P\xrightarrow{\pi}\M$ be a principal $\G$--bundle and $\omega\in\Sec{\pi^*T\M\otimes\mathfrak{g}}$ a principal connection, then the map
+    $$\omega\mapsto\mathcal{H}_\omega$$ 
+    is called \emph{holonomy map} of the connection $\omega$.
+\end{defi}
+
+At this stage, by recalling Definition \ref{gauge_transf_def} for the subgroup of gauge--maps $\Phi\in\mathscr{G}$ in $\Aut(P)$, Proposition \ref{conn_in_conn} combined with Proposition \ref{gauge_action_Aut(P)} allow us to map connections in connections through push--forward and also to make $\Aut(P)$ act on principal connections in $\Con(P)$ (see Example \ref{ex_ass}). Hence, the following
+$$\omega\sim\omega'\quad\Leftrightarrow\quad\text{there exists}\quad\Phi\in\mathscr{G}\,\,:\,\,\omega'=\Phi_*\omega$$
+defines an equivalence relation on $\Con(P)$ inducing a quotient space of \textbf{gauge--equivalent connections} $[\omega]\in\Con(P)/\sim\,=:\Con(\M,\G;\mathscr{G})$.\, The main fact is that two gauge--equivalent connections have substantially the same holonomy map---up to the adjoint action on $\Hom(\H,\G)$
+
+\begin{teo}[On representation of connections through holonomy maps]\label{holonomy_repr_conn}
+    There exists a one--to--one correspondence among gauge--classes of connections $[\omega]$ and holonomy maps $\mathcal{H}_{[\omega]}.$
+\end{teo}
+\begin{proof}
+    See Section II.8 of \cite{kobayashi1}.
+\end{proof}
+\,\newline
+A sketch of proof is the following: a gauge--transformation $\Phi\in\mathscr{G}$ being vertical does not change the fiber; thus, let $\omega\in[\omega]$ be a representative on $\Con(\M,\G;\mathscr{G})$, then for any hoops $\gamma\in\H(x_0)$ such that $p_0\in\pi^{-1}(x_0)$ it holds
+
+$$\mathcal{H}_{\omega;p_0}[\gamma]=\mathcal{H}_{\Phi_*\omega;\Phi(p_0)}[\gamma]=\mathcal{H}_{\Phi_*\omega;p_0\vartriangleleft\h}[\gamma]=\Ad_{\h^{-1}}\mathcal{H}_{\Phi_*\omega;p_0}[\gamma]$$
+where we used $\Phi\in\mathscr{G}$ acting as a representation of the gauge--group $\G$ as $\Phi(p_0)=p_0\vartriangleleft\h$, for some $\h\in\G$, and also (we used) the equivariance.\\
+
+This concludes what we wanted to present on holonomy theory for now and it will be extended by discretizing gauge--connections for LQG.
+
+\newpage
+\section{Classical field theory}
+
+Field theories deal with observers and how  the \emph{dynamics} described by one observer is mapped into the description of another, so that they altogether can provide an \emph{absolute} description of physical reality. Relativistic theories, farther, are field theories which deal with \emph{covariance principles} and how a dynamics satisfying such principles can be formulated. A theory which implements general covariance is called a natural theory. We shall also give an extension of such a principle, called gauge--natural covariance principle, which allows more general symmetries than in natural theories, which are used for gauge theories\footnote{But also for frame formalism and spinor fields, as we will see in forthcoming Section \ref{interlude}.}. 
+
+We devote this section to the variational formulation of a (relativistic) field theory, based on the fiber bundle formalism so far developed and we will also recover Cauchy--like results for the initial--values problem in this covariant framework.
+
+%Variational study of sections of the forthcoming configuration bundle as fundamental fields, i.e. variables of the Lagrangian, which is here defined on the (infinite dimensional functional) space of configurations, from which one infers the Euler--Lagrange equation describing the motion on that manifold. Let us present kind of an \emph{interlude} on field theories:
+
+\subsection{Variational setting}
+The so far most complete mathematical model to describe a dynamical theory on a generic manifold $\M^n$ (possibly Lorentzian or Riemannian) is certainly the one offered by a field theory, which can be regarded as a generalisation of Lagrangian mechanics up to an infinite number of degrees of freedom, captured by \emph{fields}. Dynamics is in fact encoded on a Lagrangian functional, whose canonical variables are sections of so--called \emph{configuration bundle} $(\Ci,\pi,\M,F)$ which locally read as
+$$\begin{matrix}
+    \sigma:\M\to\Ci\\
+    \qquad\qquad\quad x^\mu\mapsto(x^\mu,y^i(x))
+\end{matrix}$$
+on a given fibered chart.\, The bundle of configurations completely characterises a field theory, since it has inscribed the \emph{fundamental fields} as $y^i:\M\xrightarrow{\Cinf}F$
+together with the allowed transformations among observers 
+    $$\begin{matrix}
+        \t:U_{\alpha\beta}\times F\to U_{\alpha\beta}\times F\\
+        \qquad\left(x^\mu,y^i(x)\right)\mapsto(x^\mu,\g_{\alpha\beta}(x)\,y^i)
+    \end{matrix}$$
+as transition maps of $\Ci$ itself, where cocycles $\g_{\alpha\beta}$ are required to be valued on a finite--dimensional Lie subgroup $\G$ of $\Diffeo(F)$\footnote{We will see very soon that without this assumption one cannot even consider a relativistic theory.}.
+
+\begin{defi}[Lagrangian and action functionals]
+     Consider a configuration $\sigma:\M\to\mathscr{C}$ together with its k--th jet prolongation of a configuration $j^k\sigma:\M\to\J^k\mathscr{C}$ and let $\D^n\subseteq\M^n$ be a compact submanifold. Then, a k--th order \emph{Lagrangian} $\mathbf{L}\in\Omega^n(\J^k\Ci)$ is defined to be a horizontal $n$--form on $\J^k\mathscr{C}$, \emph{i.e.} $\mathbf{L}=\L[j^k\sigma]\,\d\boldsymbol{\sigma}$, %and it encodes the fibered coordinates $(x^\mu,y^i,y^i_{\mu_1},\hdots,y^i_{\mu_1\hdots\mu_k})$ that the Lagrangian density $\L$ depends on
+     while the \emph{action} on an m--region is defined as $\mathbf{S}_\D[\sigma]:=\int_\D (j^k\sigma)^*\mathbf{L}$.
+ \end{defi}
+\,\newline
+For our aims we will restrict our interest up to $2$--nd order Lagrangians on the form
+$$\mathbf{L}=\L(x^\mu,y^i,y^i_\mu,y^i_{\mu\nu})\d\boldsymbol{\sigma}\in\Omega^n(\J^2\Ci)$$
+which, being horizontal in $\Ci$, can be \emph{varied} with respect to some compactly supported vertical vector field $X:\Ci\to T_{\sigma(x)}\Ci$ %$\supp(X):=\overline{\left\{x\in\M^n\,|\,X^i(x,y)\der_i\neq0\right\}}$
+ which prolongs to $j^2X:\Ci\to\J^2T_{\sigma(x)}\Ci$ as 
+ $$j^2X=X^i(x,y)\der_i+\d_\mu X^i(x,y)\der_i^\mu+\d_{\mu\nu}X^i(x,y)\der_i^{\mu\nu}$$
+%\begin{align*}
+%j^2X&=\,\,X^i(x,y)\der_i+\d_\mu X^i(x,y)\frac{\der}{\der y^i_\mu}+\d_{\mu\nu}X^i(x,y)\frac{\der}{\der y^i_{\mu\nu}}\\
+%&=:\,X^i(x,y)\der_i+\d_\mu X^i(x,y)\der_i^\mu+\d_{\mu\nu}X^i(x,y)\der_i^{\mu\nu}
+%\end{align*}
+\,\newline
+If we now consider the \emph{flow} $\Phi_s:\Ci\to\Ci$ induced by $X$ and we prolong it in turn to $j^2\Phi_s:\Ci\to\J^2\Ci$ the flow of $j^2X$, then we end up with a $1$--parameter group of configurations $\sigma_s:\M\xrightarrow{\sigma}\Ci\xrightarrow{\Phi_s}\Ci$, global at least around $s=0\in\R$, that can be again prolonged to $j^2\sigma_s:\M\to\J^2\Ci$.
+
+\begin{defi}[Variation along a deformation and critical configurations]
+        In the setting above, the vertical field $X$ is called a \emph{deformation} and we define the \emph{variation along $X$} of the action functional as
+        $$\delta_X\,\mathbf{S}_\D[\sigma]:={\frac{\d}{\d s}}_{|_{s=0}}\mathbf{S}_\D[\sigma_s]=\int_\D{\frac{\d}{\d s}}_{|_{s=0}}\left(j^k\sigma_s\right)^*\mathbf{L}=:\int_\D\delta_X\,\mathbf{L}[\sigma]$$
+        A configuration $\sigma\in\Sec{\Ci}$ is called \emph{critical} when $\delta_X\,\mathbf{S}_\D[\sigma]=0$, for each compact supported deformation $X$ and region $\D^n\subseteq\M^n$.
+\end{defi}
+\,\newline
+Given a deformation $X=X^i(x,y)\der_i$ we will denote sometimes $\delta_X=\frac{\delta}{\delta X}$; moreover, one recovers the common notation in literature by setting 
+$$\begin{cases}
+    \delta y^i:=X^i\\
+    \delta y^i_\mu:=\d_\mu\delta y^i=\d_\mu x^i=:X^i_\mu\\
+    \delta y^i_{\mu\nu}:=\d_{\mu\nu}\delta y^i=\d_{\mu\nu}X^i=:X^i_{\mu\nu}\\
+    \quad\vdots\\
+    \delta y^i_{\mu_1\hdots\mu_k}:=\d_{\mu_1\hdots\mu_k}\delta y^i=\d_{\mu_1\hdots\mu_k}X^i=:X^i_{\mu_1\hdots\mu_k}
+\end{cases}$$
+so that $X=\delta y^i\,\der_i$. The Lagrangian functional can be actually seen as a function of the fields and its derivatives (which also depend on $x^\mu$), up to some finite order, and of course can be differentiate with respect its variables 
+$$\frac{\der\L}{\der y^i},\,\,\frac{\der\L}{\der y^i_{\mu_1}},\hdots,\frac{\der\L}{\der y^i_{\mu_1\hdots\mu_k}}$$
+Moreover, $\delta_X$ actually behaves locally as a \emph{derivation} on $\Ci$, being so linear and obeying to Leibnitz and chains rules. Indeed, e.g. for a $2$--nd order Lagrangian of density $\L=\L(y^i,y^i_\mu,y^i_{\mu\nu})$, by chain rule, it results
+\begin{equation}\label{Lagr_var}
+    \delta_X\mathbf{L}[\sigma]=\left(\frac{\der\L}{\der y^i}\delta y^i+\frac{\der\L}{\der y^i_\mu}\delta y^i_\mu+\frac{\der\L}{\der y^i_{\mu\nu}}\delta y^i_{\mu\nu}\right)\d\boldsymbol{\sigma}
+\end{equation}
+\,\newline
+Since in forthcoming applications we will never go beyond the second order, we state the fundamental
+
+\begin{teo}[Local Euler--Lagrange equations or least--action principle]\label{least_action}
+Let $\M^n$ be a connected, paracompact, possibly Lorentzian or Riemannian  manifold and let $\mathbf{L}\in\Omega^n(\J^2\Ci)$ be a $2$--nd order Lagrangian, then $\sigma\in\Sec{\Ci}$ is critical \emph{iff} 
+    $$\frac{\der\L}{\der y^i}-\d_\mu\frac{\der\L}{\der y^i_\mu}+\d_{\mu\nu}\frac{\der\L}{\der y^i_{\mu\nu}}=0$$
+\end{teo}
+\begin{proof}
+Pick a configuration $\sigma$ and observe for a $2$--nd order Lagrangian defined on the whole manifold $\M^n$ it holds $(j^k\sigma)^*\mathbf{L}=\L(y^i,y^i_\mu,y^i_{\mu\nu})\,\d\boldsymbol{\sigma}$, where $\d\boldsymbol{\sigma}$ is the volume form induced by the metric $g$. Assume now $\sigma$ being critical and let $X$ be a compact supported deformation; then hypothesis with combined (\ref{Lagr_var}) imply
+$$0=\delta_X\,\mathbf{S}[\sigma]=\int_{\M^n}\delta_X\,\mathbf{L}[\sigma]=\int_{\M^n}\left(\frac{\der\L}{\der y^i}\delta y^i+\frac{\der\L}{\der y^i_\mu}\d_\mu\delta y^i+\frac{\der\L}{\der y^i_{\mu\nu}}\d_{\mu\nu}\delta y^i\right)\d\boldsymbol{\sigma}$$
+Now, Leibnitz rule for the total derivatives yields
+$$\frac{\der\L}{\der y^i_\mu}\d_\mu\delta y^i=\d_\mu\left(\frac{\der\L}{\der y^i_\mu}\delta y^i\right)-\d_\mu\frac{\der\L}{\der y^i_\mu}\,\delta y^i$$
+$$\frac{\der\L}{\der y^i_{\mu\nu}}\,\d_{\mu\nu}\delta y^i=\d_\mu\left(\frac{\der\L}{\der y^i_{\mu\nu}}\,\d_\nu\delta y^i\right)-\d_\mu\frac{\der\L}{\der y^i_{\mu\nu}}\,\d_\nu\delta y^i$$
+$$\d_\nu\left(\d_\mu\frac{\der\L}{\der y^i_{\mu\nu}}\,\delta y^i\right)=\d_{\mu\nu}\left(\frac{\der\L}{\der y^i_{\mu\nu}}\right)+\d_\mu\frac{\der\L}{\der y^i_{\mu\nu}}\,\d_\nu\delta y^i$$
+and plugging them into our first computation gives
+\begin{align*}
+    0&=\,\,\delta_X\mathbf{S}[\sigma]\\
+    &=\,\,\int_{\M^n}\left(\frac{\der\L}{\der y^i}-\d_\mu\frac{\der\L}{\der y^i_\mu}+\d_{\mu\nu}\frac{\der\L}{\der y^i_{\mu\nu}}\right)\delta y^i\,\d\boldsymbol{\sigma}\,+\\
+    &-\,\,\int_{\M^n}\d_\mu\left[\left(\frac{\der\L}{\der y^i_\mu}-\d_\nu\frac{\der\L}{\der y^i_{\mu\nu}}\right)\delta y^i+\frac{\der\L}{\der y^i_{\mu\nu}}\,\d_\nu\delta y^i\right]\,\d\boldsymbol{\sigma}
+\end{align*}
+For the second integral, since each component of the deformation $X$ vanishes at the boundary $\der\M^n$ of a paracompact manifold, being $\supp(X)\subseteq\M^n$ compact, the Stokes theorem implies
+$$\int_{\M^n}\d_\mu\left[\left(\frac{\der\L}{\der y^i_\mu}-\d_\nu\frac{\der\L}{\der y^i_{\mu\nu}}\right)\delta y^i+\frac{\der\L}{\der y^i_{\mu\nu}}\,\d_\nu\delta y^i\right]\,\d\boldsymbol{\sigma}=$$
+$$=\int_{\der\M^n}\Biggl(\left(\frac{\der\L}{\der y^i_\mu}-\d_\nu\frac{\der\L}{\der y^i_{\mu\nu}}\right)\delta y^i+\frac{\der\L}{\der y^i_{\mu\nu}}\,\d_\nu\delta y^i\Biggl)\,\d\boldsymbol{\sigma}_\mu=0$$
+So, by the fundamental theorem of calculus of variation, we just got $\sigma$ is critical \emph{iff} its components $y^i\in\Cinf(\M^n)$ locally satisfy the so--called (local) \emph{Euler--Lagrange equations} (EL) or \emph{field equations}
+$$\frac{\der\L}{\der y^i}-\d_\mu\frac{\der\L}{\der y^i_\mu}+\d_{\mu\nu}\frac{\der\L}{\der y^i_{\mu\nu}}=0$$
+which are PDEs generically of order 4, and the theorem is proved. Such fields $y^i$ are considered \emph{dynamical}.
+\end{proof}
+%So that, by using the chain and Leibnitz rules for $\delta$ and the fact that it commutes with the derivation $\der_\mu$, it holds
+    %$$0=\delta\mathbf{S}=\int_\M \delta\L\,\d\mu_g=\int_\M \frac{\der\L}{\der\phi^i}\delta\phi^i+\frac{\der\L}{\der(\der_\mu\phi^i)}\delta(\der_\mu\phi^i)\,\d\mu_g=$$
+    %$$=\int_\M\Biggl(\frac{\der\L}{\der\phi^i}-\der_\mu\left(\frac{\der\L}{\der(\der_\mu\phi^i)}\right)\Biggl)\delta\phi^i+\der_\mu\Biggl(\frac{\der\L}{\der(\der_\mu\phi^i)}\delta\phi^i\Biggl)\,\d\mu_g$$
+    %Now, linearity of the integral on measurable functions and divergence theorem (notice that we are here using the Einstein convention on the sum $\sum_\mu$) allow us to write the second part of the equation as
+    %$$\int_\M\der_\mu\Biggl(\frac{\der\L}{\der(\der_\mu\phi^i)}\delta\phi^i\Biggl)\,\d\mu_g=\int_{\der\M}\left\langle{\frac{\der\L}{\der(\der_\mu\phi^i)}\delta\phi^i},\n\right\rangle=0$$
+    %which is vanishing because $\M^n$ is closed by hypothesis, and the theorem is proved.
+\,\newline
+ It has to be noticed that, for $1$--st order Lagrangians, EL--equations reduce to $\frac{\der\L}{\der y^i}-\d_\mu\frac{\der\L}{\der y^i_\mu}=0$, which are PDEs generically of order second order; moreover, Theorem \ref{least_action} actually holds true on any closed region $\D^n\subseteq\M^n$.
+%$$\vdots$$
+%$$\text{Global EL through}\quad\delta_X\,\mathbf{L}=\left(j^k\sigma\right)^*\left((j^kX)\lrcorner\,\d\mathbf{L}\right)$$
+%$$\vdots$$
+%As we are going to see, to define a field theory is important to discuss which are the fundamental fields (or variables) of the theory and the allowed transformation among observers in $\M$. Indeed, if one aims to get global (Euler--Lagrange) \emph{field equations} one has to choose a global defined Lagrangian; $e.g.$ if such transformations are symmetries the globality is assured thanks to \emph{covariance} (which implies the globality even though the contrary is not true). Then one finds field equations by the \emph{least action principle} (Theorem \ref{least_action}) and also, through the Poincaré--Cartan part, the field transformation rules define Lie derivatives of fields with one can write down covariant identity in which symmetries can be expressed and find the associated Noether currents. Let us so deepen in the afore--mentioned concepts.
+
+%$$\vdots$$
+%$$\text{se proprio devi metterlo, qui vanno le quasi--linear pdes}$$
+%$$\vdots$$
+\begin{example}\label{field_theories}
+    \begin{itemize}
+        \item \emph{(Klein--Gordon):}\, Let $\K=\C$ or $\R$ and consider the trivial configuration bundle given by  $\Ci=\R^{1,3}\times\K$, so that dynamical variables are scalar fields one the form $\varphi:\R^{1,3}\to\K$. Consider the \emph{Klein--Gordon Lagrangian} of density
+        $$\L(\varphi,   \der_\mu\varphi)=\frac{1}{2}\left(\der_\mu\varphi\,\der^\mu\varphi-m^2\varphi^2\right)$$
+        which is of first order, then one can here directly computed \emph{EL}--equations $\frac{\der\L}{\der \varphi}=\der_\mu\frac{\der\L}{\der(\der_\mu\varphi)}$ and get 
+        $$(\underbrace{\der^\mu\der_\mu}_{=:\square}+m^2)\varphi=0$$
+        
+        \item \emph{(Dirac):}\, The configuration bundle is $(\Ci,\pi,\R^{1,3},\C^4)$ and fundamental fields
+         $$\begin{matrix}
+            \psi:\R^{1,3}\to\C^4\\
+            \qquad x\mapsto\psi_\alpha(x)
+        \end{matrix}$$
+        give the first--order Lagrangian density
+        $$\L(\psi,\der_\mu\psi)=i\overline{\psi}\gamma^\mu\der_\mu\psi-m\overline{\psi}\psi$$
+        where $\gamma^\mu=\gamma^a e_a^\mu\in\Cl(1,3)$ are so--called \emph{Dirac matrices} and $\overline{\psi}:=\psi^\dagger\gamma^0$. Field equations $\frac{\der\L}{\der\psi}=\der_\mu\frac{\der\L}{\der(\der\psi)}$ give so--called \emph{Dirac equation}
+        $$\left(i\gamma^\mu\der_\mu-m\1\right)\psi=0$$
+
+        \item \emph{(Maxwell):}\, The configuration bundle is $(\Ci,\pi,\R^{1,3},T\R^{1,3})$
+         $$\begin{matrix}
+            \A:\R^{1,3}\to\R^4\\
+            x\mapsto\A^\mu(x)
+        \end{matrix}$$
+
+        $$\L(\A,\der_\mu\A)=-\frac{1}{4}\F_{\mu\nu}\,\F^{\mu\nu}$$
+        where $\F_{\mu\nu}=\der_\mu \A_\nu-\der_\nu\A_\mu=\der_{[\mu}\A_{\nu]}$ and $\mathbf{E},\mathbf{B}:\R^{1,3}\to\R^3$ such that
+        $$\begin{cases}
+            E^i=-\F^{0i}\\
+            {\epsilon^{ij}}_kB^k=-\F^{ij}
+        \end{cases}$$
+        \emph{EL}--equations here gives $\der_\mu\F^{\mu\nu}=0$ which is equivalent to a mass--less Klein--Gordon equation $\square\A^\nu=0$. 
+        \,\newline
+        
+        \item \emph{(Einstein):}\, The configuration bundle $(\Ci,\pi,\M^{1,3},F)$ is here denoted as $\Ci=\Lor(\M)$ and has $F\subseteq T^0_2\M$, where the Lorentzian metric
+
+        $$\begin{matrix}
+            g:\M^{1,3}\to T^*\M\odot T^*\M\\
+            x\mapsto g_{\mu\nu}(x)
+        \end{matrix}$$
+        works as a fundamental field for so--called \emph{Einstein--Hilbert Lagrangian} of density
+        $$\L(g,\der_\mu g,\der_{\mu\nu}g)=\frac{1}{2}\overbrace{\frac{c^4}{8\pi G}}^{=:\boldsymbol{\kappa}^{-1}}\Scal_g$$
+        which gives a second--order Lagrangian, since the scalar curvature contains first derivatives of the connection \emph{i.e.}, being Levi--Civita, second derivatives of metric. Clearly, this theory is nothing but \emph{GR} and one has here to explicitly compute variation of $\int_\M\mathscr{L}(g,\der_\mu g,\der_{\mu\nu}g)\,\d\mu_g$, in order to get field equations
+        $$R_{\mu\nu}-\frac{1}{2}g_{\mu\nu}\Scal_g=0$$
+        
+    \end{itemize}
+    \,\newline
+\end{example}
+
+It is worth noticing here the following
+
+\begin{remark}[On background--independence]\label{bare}
+    It is shining that Einstein theory is profoundly different from the other field theories just presented:\, the crucial fact is that Klein--Gordon or Dirac, as well as Maxwell, are \emph{set within} an ambient spacetime while \emph{GR} is a dynamical theory \emph{for} the framework itself. In jargon, such a trait, which is peculiar of any generally covariant theory for the metric, is called \emph{background--independence}.\, From a mathematical point of view, a field theory on a spacetime $(\M^\eta,g)$ is \emph{background--free} when the dynamics is given by a Lagrangian which does depend on $g$: this way, $\delta g^{\mu\nu}$ are independent variations in the computation of \emph{EL}--equations, while this is not the case for a background--dependent theory on which the metric does not vary\footnote{This is evident if one goes to see what we did for Klein--Gordon in $\R^{1,3}$: there, in fact, the flat Minkowski metric enters in the Lagrangian, being $\der^\mu=\eta^{\mu\nu}\der_{\nu}$, but we do not vary it as a fundamental field. This is actually a quite subtle point, that can be argued being subject of science philosophy, questioning whether an object is to be considered canonical or not (see \cite{giulini}).}. Eventually, the metric--field is not a--priori fixed in a generally covariant theory, being instead determined by the dynamics. In this sense, spacetime should be considered as a \emph{bare manifold} $\M^\eta$, on which $g$ of signature $\eta$ comes out a--posteriori from equations.
+\end{remark}
+
+
+
+
+%Introducing gauge invariance through bundles theory (Baez pag. 206 \cite{baez}). Cite also \emph{natural} and \emph{gauge--natural bundles} and ...? $\leftarrow$ nice but maybe non--needed.
+
+\,\newline
+
+\subsection{Natural and gauge--natural relativistic theories}\label{gauge_theories}
+
+Relativistic theories are field theories on which \emph{covariance principles} can be formulated.\, Covariance is just a word for invariance of physical laws and it generates like eight decades of dispute \cite{fatib}.\, As a matter of fact, on a configuration bundle $(\Ci,\pi,\M,F)$ for a field theory on which a (finite--dimensional) Lie subgroup $\G$ of $\Diffeo(F)$ is given, the group embedding $\imath:\G\hookrightarrow\Diffeo(F)$ is always there and so cocycles $\g:U\to\G$ do always reconstruct general cocycles through $\imath\circ\g$. Moreover, $\imath$ induces a left--action $\G\times F\to F$ which makes the configuration bundle associated to some underlying structure $\G$--bundle $P\to\M$ as $\Ci\cong P\times_\G F$. 
+
+The existence of such a subgroup $\G$ is clearly a crucial hypothesis here, hence we will only consider configuration bundles on this form, from now on. Moreover, for now, we will regard a \emph{spacetime} as a connected, paracompact, smooth manifold which allows a Lorentzian metric.
+
+\begin{defi}[Symmetry]
+    Let $(\Ci,\pi_\G,\M^n,F)$ be a configuration bundle for a field theory with structure bundle $P\xrightarrow{\pi}\M$ and consider a k--th order Lagrangian $\mathbf{L}\in\Omega^n(\J^k\Ci)$.\, A \emph{symmetry} is a transformation on $\Aut(\Ci)$ which leaves the \emph{EL} equations invariant, once prolonged to $\J^k\Ci$. %A \emph{conserved current} is a scalar field $\mathbf{j}\in\Cinf(\M^n)$ satisfying the continuity equation $\der_\mu\,j^\mu=0$.\footnote{On a spatial hypersurface $\D^{n-1}$ of a Lorentzian manifold $\M^{1,n-1}$ it holds for $\mathbf{j}$
+    
+    %$$0=\int_\D \partial_\mu\,j^\mu\,\d\boldsymbol{\sigma}=\int_\D \partial_0\,j^0 + \sum_{j=1}^{n-1}\partial_\mu\,j^\mu\,\d\boldsymbol{\sigma}=\partial_0\overbrace{\Biggl(\int_\D j^0\,\d\boldsymbol{\sigma}\Biggl)}^{=:\text{\normalfont{Q}}(t)}+\int_\D\Div(\mathbf{j})\,\d\boldsymbol{\sigma}$$
+    %Being $\der_0:=\frac{\der}{\der t}$ and $\int_{\der\D}\left\langle\mathbf{j},\n\right\rangle=0$ the divergence theorem concludes $\frac{\der}{\der t}\text{\normalfont{Q}}(t)=0$
+    %This is why one refers to $\text{\normalfont{Q}}(t):=\int_\D j^0(t,x^1,\hdots,x^{n-1})\,\d\boldsymbol{\sigma}$ as the \emph{conserved charge} associated with the conserved current $\mathbf{j}.$}
+\end{defi}
+
+%\begin{teo}[Noether]
+    %Let $(\M^n,g)$ a Riemmanian manifold and $\mathbf{L}\in\Omega^n(\J^k\Ci)$ a k--th order Lagrangian on $\M$. Then, there exists a 1--parameter Lie group of symmetries $\{\mathbf{j}_i\}_{i=1,\hdots,r}$ such that $\mathbf{j}_1,\hdots,\mathbf{j}_r$ are conserved currents. 
+%\end{teo}
+%\begin{proof}
+    %Cite
+    %Consider the two bundles $\SO(\M)\to\M$ and $\Ci\to\M$ in which the transformations among fibers are given by
+    %$${x^\mu}'=x^\mu+\delta x^\mu \quad\text{where}\quad\delta x^\mu=\frac{\der x^\mu}{\der\varepsilon^a}\varepsilon^a=:A^\mu_a(x)\,\varepsilon^a$$
+    %$$\phi(x)'=\phi(x)+\delta\phi(x)\quad\text{where}\quad\delta\phi(x)=\frac{\der\phi}{\der\varepsilon^a}\varepsilon^a=:F_a(\phi,\der_\mu\phi)\,\varepsilon^a$$
+    %$$a=1,\hdots,N$$
+%where $N=\dim\G$ being $\SO(\M^n)$ a $\G-$bundle over $\M^n$. Now, by Taylor expand $\phi(x')$ around $x\in\M$ and rename $\phi(x)'-\phi(x')=:\delta\phi_0$ one gets
+%$$\delta\phi(x)=\phi(x)'-\phi(x)\pm\phi(x')=\delta\phi_0+\phi(x')-\phi(x)=$$
+%$$=\delta\phi_0+\cancel{\phi(x)}+\der_\mu\phi(x)\delta x^\mu-\cancel{\phi(x)}$$
+%which reflects on the Lagrangian density $\L(\phi,\der_\mu\phi)$ as
+%$$\delta\L=\delta\L_0+\der_\mu\L\,\delta x^\mu$$
+%Now, by the least--action principle
+%$$0=\delta\mathbf{S}[\phi,\der_\mu\phi]=\int_\M\delta\mathbf{L}[\phi,\der_\mu\phi]=\int_\M\delta(\L\,\d\mu_g)=\int_\M\delta\L\,\d\mu_g+\L\,\overbrace{\delta\d\mu_g}^{\der_\mu\delta x^\mu\,\d\mu_g}=$$
+%$$=\int_\M\delta\L_0+\der_\mu\L\,\delta x^\mu+\der_\mu\delta x^\mu\,\d\mu_g=\int_\M\delta\L_0+\der_\mu\left(\L\,\delta x^\mu\right)\,\d\mu_g=$$
+%$$=\int_\M\frac{\der\L}{\der\phi}\delta\phi_0+\frac{\der\L}{\der(\der_\mu\phi)}\delta(\der_\mu\phi)+\der_\mu(\L\,\delta x^\mu)\,\d\mu_g=$$
+%$$=\int_\M\der_\mu\left(\frac{\der\L}{\der(\der_\mu\phi)}\right)(\delta\phi-\der_\mu\phi\,\delta x^\mu)+\frac{\der\L}{\der(\der_\mu\phi)}\der_\mu\,\delta\phi+\der_\mu(\L\,\delta x^\mu)\,\d\mu_g=$$
+%$$=\int_\M\der_\mu\left(\frac{\der\L}{\der(\der_\mu\phi)}(\delta\phi-\der_\mu\phi\,\delta x^\mu)+\L\,\delta x^\mu\right)\,\d\mu_g$$
+%This way we have constructed a conserved current, $i.e.$ $\der_\mu(-\J^\mu_a)=0$, with
+%$$\J_a^\mu:=\frac{\der\L}{\der(\der_\mu\phi)}\Biggl(A^\mu_a(x)\,\der_\mu\phi-F_a(\phi,\der_\mu\phi)\Biggl)-A^\mu_a(x)\,\L$$
+
+%\end{proof}
+
+
+
+%Natural objects are geometric objects defined on a manifold, which carry an action of its diffeomorphisms. As such, they are the most general framework in which one can even state the principle of general covariance. 
+
+%Here the relevant issue is being able to lift base diffeomorphisms to the configuration bundle. That is possible if (and only if) the configuration bundle is associated to some (possibly higher order) frame bundle. As a matter of fact, one can lift base diffeomorphisms to the frame bundle. Then the lift is induced to all associated bundles.\\
+\,\newline
+By resuming Definition \ref{gauge_transf_def} and Proposition \ref{gauge_action_Aut(P)}, an immediate consequence of the above definition is that $\mathscr{G}\subseteq\Aut(P)\hookrightarrow\Aut(\Ci)$, meaning that gauge transformations are symmetries of field theories;\, we call this the \emph{principle of gauge--covariance}. 
+
+General covariance is instead a more tricky and subtle principle to implement: it was one of the first \emph{axioms} that Einstein required to infer GR, which is nothing but the invariance of physical laws under spacetime diffeomorphisms and it can be here formulated by requiring the existence of an action of $\Diffeo(\M)$ on $\Aut(\Ci)$, as well as we had for symmetries in $\Aut(P)$.
+
+Surprisingly, the following holds true
+
+\begin{teo}[Characterisation of natural bundles]
+    There exists an action $\lambda:\Diffeo(\M)\to\Aut(\Ci)$ \emph{iff} the configuration bundle is on the form $\Ci\cong L^s\M\times_\lambda F$, for some frame bundle $\pi^s:L^s\M\to\M$.
+\end{teo}
+\begin{proof}
+    See \cite{natural_operations}
+\end{proof}
+\,\newline
+If $\Ci$ satisfies Theorem 1.4.2, then we call it a \emph{natural bundle}, while if $\Ci\cong P\times_\G F$ only, it is called \emph{gauge--natural bundle}. This way, we can specify the following
+
+%It happens, in some situations, that transformation of fields in $\Ci$ does not depend on cocycles $\phi_{\alpha\beta}:U_{\alpha\beta}\to\Diffeo(F)$, in the sense that ${y'}^i={y'}^i(x)$ can be uniquely determined by the spacetime transformations ${x'}^\mu={x'}^\mu(x)$. If so, we say we are considering a \emph{natural bundle}. In other words, the group $\Diffeo(\M)$ of base diffeomorphism (spacetime isometries in relativistic theories) canonically acts on $\Ci$ and so defines a subgroup of $\Aut(\Ci)$ which is reasonable required to contain the \emph{symmetries} of the theory. Sections, as well as the group action of spacetime diffeomorphisms, are prolonged to jet bundles and one can require these transformations to leave the Lagrangian invariant. A Lagrangian which is covariant with respect to $\Diffeo(\M)$ is called a \emph{natural Lagrangian} or a \emph{covariant Lagrangian}.
+
+\begin{defi}[Natural theory]
+    A \emph{natural theory} is a field theory defined on a natural bundle $\Ci$ over a spacetime $\M^\eta$ by a global Lagrangian which is covariant with respect to $\Diffeo(\M)$. A section $\sigma$ of the configuration bundle represents a set of fields $y^i:\M^\eta\to F$, all to be considered dynamical.
+\end{defi}
+
+\begin{defi}[Gauge--natural theory]
+     A \emph{gauge--natural theory} is a field theory defined on a gauge--natural bundle $\Ci$ associated to a $($so--called$)$ \emph{structure bundle} $(P,\pi,\M^\eta,\G)$ over a spacetime and defined by a global Lagrangian which is covariant with respect to $\Aut(P)$. A section $\sigma$ of the configuration bundle represents a set of fields, all to be considered dynamical.
+\end{defi}
+ 
+
+
+%as follow: once a chart of coordinates $x^\mu$ is fixed in spacetime $\M$, then a natural basis of tangent vectors $\der_\mu$ is induced, with respect to any tangent vector is written as $\xi=\xi^\mu\der_\mu$; so that a trivialisation
+%$$\begin{matrix}
+    %\t:\pi^{-1}(U)\to U\times\R^n\\
+    %\quad(x,\xi)\mapsto(x^\mu,\xi^\mu)
+%\end{matrix}$$
+%is there, so--called \emph{natural trivialisation} (it identifies a natural observer.), whose transition maps write as
+%$$\begin{cases}
+    %{x'}^\mu={x'}^\mu(x)\\
+    %{\xi'}^\mu=\J^\mu_\nu(x)\xi^\nu
+%\end{cases}$$
+
+%Of course, in $T\M$ one could also use more general \emph{non--natural trivialisations}, which arise from a general non--natural basis $\{\boldsymbol{\xi}_a\}$ such that $\widetilde{\t}(x,\xi)=(x^\mu,\xi^a)$ and
+%$$\begin{cases}
+    %{x'}^\mu={x'}^\mu(x)\\
+   % {\xi'}^a=\J^a_b(x)\xi^b
+%\end{cases}$$
+%where $\J^a_b$ is not a jacobian any longer, since it is related to the fixed basis $\boldsymbol{\xi}_a=\J_a^b{\boldsymbol{\xi}'}_b$ and one cannot get info on $\J_a^b$ from ${x'}^\mu={x'}^\mu(x)$.
+
+\begin{example}
+    
+        Any generally covariant field theory with a configuration bundle of tensorial type $\Ci=T^h_k\M$ is natural, being $T^h_k\M\cong L\M\times_{\GL_n}\left(\R^n\right)^{\otimes h}\otimes\left({\R^n}^*\right)^{\otimes k}$.\, Particularly, \emph{GR} in its first naïf formulation is a natural theory, having as configuration bundle $\Lor(\M)$. Also a field theory with $\Ci\cong\Con(\M):=L^2\M\times_{\GL_n^2}\mathbb{A}$ is natural while $\Ci\cong\Con(P)$ defines a gauge--natural theory---see \emph{Examples \ref{ex_ass}}.%The configuration bundle here $\Ci=:\Lor\left(\M^{1,3}\right)=:\Met\left(\M;\eta\right)$ is in fact trivialised $($around a spacetime point $x\in\M^{1,3})$ through 
+    %$$\phi:\pi^{-1}(U)\to U\times\overbrace{T^*_x U\otimes T^*_x U}^{=F\cong{\R^{1,3}}^*\otimes{\R^{1,3}}^*}$$
+    %and transition maps are in the form $\g_{\alpha\beta}:U_{\alpha\beta}\to\Diffeo(F)$ and
+    %$$\begin{matrix}
+        %\phi_{\alpha\beta}:U_{\alpha\beta}\times F\to U_{\alpha\beta}\times F\\\quad\qquad\qquad(x^\mu,g_{\mu\nu})\mapsto\left(x^\mu,\J^\alpha_\mu(x)\,g_{\alpha\beta}\,\J^\beta_\nu(x)\right)
+    %\end{matrix}$$
+    %and are induced by a spacetime diffeomorphism $x^\mu\to{x'}^\mu(x)$. Particularly, $\Lor(\M)$ turns out to be a natural bundle of fibered \emph{natural coordinates} $(x^\mu,g_{\mu\nu}(x))$. 
+
+   
+\end{example}
+
+%Gauge--natural theories, instead, rely on the existence of a left--action of some finite--dimensional subgroup $\G$ of $\Diffeo(F)$ on $F$ which allow to describe $\Ci=P\times_\G F$, for some principal bundle $P$. Here the transformation of fields depends on cocycles $\phi_{\alpha\beta}:U_{\alpha\beta}\to\G$ of some principal bundles, from which one reconstruct transition maps in $\Ci$ by composing with $\imath:\G\hookrightarrow\Diffeo(F)$ defining the left--action
+%$$\g\vartriangleright f:=\imath(\g)[\,f\,]$$
+%which endows $\Ci$ with the 'associated structure'. When this occurs we say we are considering a \emph{gauge--natural bundle}. By Proposition \ref{gauge_action_Aut(P)} ---analogously to the previous 'non--gauge' case ---we have $\Aut(P)$ canonically acts on $\Ci$ and so defines a subgroup of $\Aut(\Ci)$ which is reasonable required to contain the so--called \emph{gauge--transformation} of the theory. Sections, as well as the action of gauge transformations, are prolonged to jet bundles and one can require these transformations to leave the Lagrangian invariant. A Lagrangian which is covariant with respect to $\Aut(P)$ is called a \emph{gauge--natural Lagrangian} or a \emph{gauge covariant Lagrangian}.
+
+A \emph{natural observer} is so nothing but a spacetime--chart which canonically induces natural fibered coordinates on $\Ci\cong L^s\M\times_\lambda F$.\, A \emph{gauge--natural observer} is, instead, a system of principal fibered coordinates on $P$, which canonically induces an observer as a fibered chart in $\Ci\cong P\times_\G F$. 
+
+Therefore, unless we have a $\Diffeo(\M)$ action on $\Aut(\Ci)$ which provides general covariance, fibered coordinates on $P$ and $P\times_\G F$ are not induced by an atlas on $\M$: one needs to select a trivialisation on $P$, for example by selecting a family of local sections $\sigma:\pi^{-1}(U)\to U\times P$ each inducing a local trivialisation $\t_\sigma$. 
+
+Once a trivialisation on $P$ is given then its transition functions $\phi_{\beta\alpha}:U_{\alpha\beta}\to\G$ are determined.\\
+
+
+%$$\text{give a look to "Everything is in transf.rules" pag. 117}$$
+%$$\text{so define $\Con(P)=\J^1P/\G\quad$pag. 280}$$
+%$$\text{perchè (pag. 116) abbiamo una caratterizzazione dei gauge--natural}$$
+%$$\text{$\Ci$ come associati a $\J^kP\times_\M L^s\M$?.}$$
+%$$\vdots$$
+
+As a final note, by recalling the splitting lemma, the relevant transformation groups can be resumed through the following exact sequence:
+$$\1\to\overbrace{\Aut_V(P)}^{=\mathscr{G}}\to\Aut(P)\to\Diffeo(\M)\to\1$$
+which does not split as $\Aut(P)=\mathscr{G}\oplus\Diffeo(\M)$ in general. This is precisely the reason why spacetime diffeomorphisms do not act on configurations, in general.
+
+On the other hand, once general covariance is assumed, the exact sequence
+
+$$\1\to\Aut_V(\Ci)\to\Aut(\Ci)\to\Diffeo(\M)\to\1$$
+allows a canonical splitting given by the so--called \emph{natural lift} defined by
+$$\begin{matrix}
+    \widehat{\cdot}:\Diffeo(\M)\to\Aut(\Ci)\\
+    \phi\mapsto\widehat{\phi}
+\end{matrix}$$ 
+such that $(\widehat{\phi},\phi)$ is a fibered endomorphism of $\Ci$.
+
+
+
+%$$\vdots$$
+%$$\text{Continua con Chap.17, 1 e 4}$$
+%$$\vdots$$
+
+
+
+%\begin{remark}
+    
+%\emph{covariance} $\,\,\Rightarrow\,\,$\emph{globality}, though the contrary is not true (pag 145).
+
+
+%\end{remark}
+%$$\vdots$$
+%$$\text{continua a pag. 756}$$
+%$$\vdots$$
+
+
+
+%$$\vdots$$
+
+\subsubsection{Utiyama arguments}\label{utiyama}
+As a matter of fact, imposing (general) covariance with respect to $\Diffeo(\M^\eta)$ in a natural field theory, or covariance with respect to $\mathscr{G}\subseteq\Aut(P)$ in a gauge--natural field theory does constrain the allowed Lagrangians severely.
+
+When one is setting up a natural or a gauge--natural field theory, once fundamental fields have been fixed and the order at which they appear in the Lagrangian has been decided, then just some Lagrangians are allowed. The Utiyama--like theorems explicit the conditions to be checked for being generally (gauge) covariant and they fix which combinations of fields can appear in (gauge) covariant Lagrangians.
+
+The trick is to find combinations which transform well.
+
+As a final result, one gets respectively a general or gauge covariant Lagrangian when it transforms as weight--$1$ scalar densities under transformations respectively in $\Diffeo(\M)$ or $\mathscr{G}$. For deepen in, see Section 2.2 \cite{fatib}.
+
+
+\subsubsection{The hole argument}
+
+The hole argument is a fundamental piece of interpretation of relativistic theories and it gives kind of a no--go theorem for uniqueness of solutions of Cauchy problems in natural theories. It was formulated originally by Einstein to find out some physical interpretation of spacetime points (see \cite{kertsh}); we are instead presenting it here as a discussion on the observability of the gravitational field in Einstein--like theories.\, More in general, the first observation that is worth doing is that, in a natural theory, general covariance imposes diffeomorphisms $\phi\in\Diffeo(\M)$ to be symmetries, thus, if $\sigma\in\Gamma(\Ci)$ solves some EL--equations, then also $\widehat{\phi}\circ\sigma=:\sigma'$ does. For immediate convenience let us give now the following
+
+\begin{defi}[ADM--bundle]\label{ADM}
+An \emph{ADM--splitting} is a fiber bundle $(\M,\t,\R,\Sigma)$, foliating the total space $\M$ into a 1--parameter family of $(n-1)$--dimensional manifolds where each leaf \,$\t^{-1}(s)=:\Sigma_s$ is diffeomorphic to $\Sigma$. If a spacetime $\M^n$ admits such a splitting we call it \emph{globally hyperbolic}.
+\end{defi}
+\begin{remark}
+    An \emph{ADM}--bundle is trivial, the base space $\R$ being contractible \emph{(}see \emph{Corollary 4.8} of \emph{\cite{husemoller})}, thus, a globally hyperbolic spacetime is $\M^{1,n}\cong\R\times\Sigma^n$.
+\end{remark}
+\,\newline
+If one wanted to give initial conditions for the metric--field (e.g.) somewhere, it comes natural to ask them on a $\Sigma_0$ among the leaves of such a foliation; in general, the hypersurface of the initial value is called \emph{Cauchy--surface}. Assume there exists a curve $\gamma:\R\to\M$ such that, given a PDE on $\M$ (e.g. field equations), there exists a vector field on $\M$ with respect to $\gamma$ turns out to be an integral curve of, when restricted to $\Sigma_0$, i.e. the PDE restricts to an ODE on the Cauchy surface. Such a $\gamma$ is called \emph{characteristic curve} and it induces an equivalence relation $x\sim x'\in\gamma(\R)$ on $\M$, defining so a fiber bundle $\nicefrac{\M}{\sim}\to\M$ as follow 
+
+\begin{defi}[Rest--bundle]
+    A \emph{rest} or \emph{rest-motions bundle} is $(\M,\tau,\Sigma_0,\R)$, foliating the total space $\M^n$ into a 1--parameter family of curves where each leaf \,$\tau^{-1}(k)=:\gamma_k$ is a characteristic curve.
+\end{defi}
+
+\begin{prop}
+    Rest--bundles are trivial.
+\end{prop}
+\begin{proof}
+    Fix a point on the base space $\Sigma_0$ of coordinates $k$ and lift it to the characteristic curve $\gamma_k:\R\to\M$. Let then $\Phi_t\in\Diffeo(\M)$ be the flow dragging a point of fibered coordinates $(t,k)$ in $\M^{1,n}$ along $\gamma_k$ for a time $t$, so $\Phi:\M\times\R\to\M$ is a left--action, since
+    $$\begin{cases}
+        \Phi(0,\cdot\,)=\id_\M\\
+        \Phi(s,\cdot\,)\circ\Phi(t,\cdot\,)=\Phi(s+t,\cdot\,)
+    \end{cases}$$
+    gives a group homomorphism among $(\R,+)$ and $\big(\Diffeo(\M),\circ\big)$.\, In other words, $\Phi$ is a right--action, free and transitive on the fibers, hence $\M\xrightarrow{\tau}\Sigma_0$ is a principal bundle. Transition maps are on the form
+    $$\begin{cases}
+        k'=k'(k)\\
+        t'=t'(t,k)=t+\varepsilon(k)
+    \end{cases}$$
+    because the flow drags along integral curves, thus $(\M,\tau)$ is also an affine bundle and so it must be trivial (see \cite{husemoller}).
+
+\end{proof}
+\,\newline
+Assume now $\phi\in\Diffeo(\M)$ to be supported on a closed region\footnote{Notice that we could have even assumed $\phi$ to be a compatcly supported diffeomorphism without any other assumption, because a partition of unity does always exist in a smooth manifold.} $\D\subseteq\M$ not intersecting a Cauchy surface, so that it cannot affect the initial conditions, being the identity outside its support: this way, $\sigma$ and $\sigma'$ are two different solutions for the same initial conditions. Let us call such $\D$ and $\phi$ respectively a \emph{Cauchy--domain} (the hole) and a \emph{Cauchy symmetry}. It is clear that in this covariant framework one has to carefully review how a Cauchy problem should be formulated, in order to produce \emph{deterministic} field equations, i.e. critical configurations would be uniquely determined by the initial--values problem.
+
+A possible way out to this puzzle can be interpreting configurations $\sigma:\M\to\Ci$ yet as fundamental fields of the theory, but also as representations of \emph{physical states} of the system that the theory is modeling, being the truly objects that should be affected by some determinism. \\
+\\
+%i.e. physical states have to satisfied uniqueness results on initial--values problems, not the fundamental fields of the mathematical model. 
+Indeed, in field theories on which no concept of general covariance is assumed, said, \emph{non--relativistic}, it has always happened that a one--to--one correspondence among physical states and configurations did occur. But in presence of covariance principles, we just showed it, the correspondence can be one--to--many. 
+
+Thereafter, it can be checked that $\sigma\sim\sigma'$ is an equivalence relation, so that $\nicefrac{\Sec{\Ci}}{\sim}$ will be the quotient space of physical states. This way, covariant EL--equations $\delta\mathbf{S}(\sigma)=0$ are required to be compatible with the quotient structure, that is $\left[\delta\mathbf{S}(\sigma)\right]=\delta\mathbf{S}[\sigma]$, even though in such a phase space no much structure is there, and one is not able to even well--define a PDE, a--priori. Clearly, the whole argument applies also to gauge--covariance. Among the other things, this specifies the following
+
+
+\begin{defi}[Gauge theory]\label{def_gauge_theory}
+    A \emph{gauge theory} is a field theory allowing Cauchy--symmetries $($either diffeomorphisms or gauge--transformations$)$.
+\end{defi}
+
+So far, by recalling Remark \ref{bare}, spacetime is a bare manifold which allows Lorentzian metrics to be determined by deterministic field equations. But if we now re--apply the hole argument on $\M^\eta$, for a generally covariant theory, physical states have to lie in the quotient space induced by $\M\sim\phi(\M)$, if one wants to maintain determinism. So that, background--independence can be regarded as a generalisation of the general covariance principle.
+
+\,\newline
+For the sake of summarizing, we eventually observe that
+\,\newline
+\begin{remark}[Aftermaths of the hole argument]\label{hole}
+    In the modern jargon of covariant field theories, the hole argument implies
+    \begin{itemize}
+        \item If $(\Ci,\pi)$ is natural then the phase space is $\Gamma(\Ci)/{\Diffeo(\M)}$
+        \item If $(\Ci,\pi)$ is gauge--natural, then the phase space is $\Gamma(\Ci)/\mathscr{G}$ 
+        \item Spacetime is an equivalence class $[\M]$ of diffeo--equivalent bare manifolds which allow Lorentzian metrics $g$ to be determined by deterministic field equations;\, a \emph{geometry on spacetime} will so be a class $\big[(\M^\eta,g)\big]=\big\{\left[(\phi(\M),\phi_*g)\right]\big\}$ of isometric spacetimes.
+  
+    \end{itemize}
+\end{remark}
+As a matter of fact, from now on, when we are considering a spacetime $\M$ we are actually choose a representative on a diffeo--equivalence class $[\M]$.
+%$$\vdots$$
+%Kretschmann's objection: pag. 152; 
+
+%also: {dimostra qui equivalenza general covariance e background free}
+
+
+\subsection{Initial value problem for covariant theories}\label{covariant_Cauchy}
+
+%In this section we want to address the problem of how Cauchy--like results can be recovered in the covariant framework offers by relativistic theories on bare spacetimes $\M^\eta$. At the end of this section we will have really found out all the main reasons why a gravitational theory must be formulated on a manifold without any a--priori metric structure.
+
+
+Originally, Cauchy problems for covariant field equations arose in order to understand how an evolutionary Hamiltonian framework should have set for GR.\, For that, let $(\M^n,\t,\R,\Sigma^{n-1})$ be an ADM--foliation of a spacetime, so that $\t(x)=t_0\in\R$ is the ADM--time for the event $x$ %\footnote{It is worth noticing that ADM--time is not a Newtonian time, but it still is a relativistic time, since it depends on the trivialisation and so it changes for different observers.} 
+and the fiber $\t^{-1}(t_0)\cong\Sigma$ is a so--called $t_0$--\emph{isochronus hypersurface}, on which initial condition on the metric field can be given, once it decomposes in the globally hyperbolic splitting.
+
+One was expected such a Cauchy problem to be \emph{well--posed}, in the sense that the solution on each spatial leaf for $t>t_0$ is uniquely determined by the Cauchy surface $\t^{-1}(t_0)$, which evolves within the foliation to eventually reconstruct the geometry of spacetime.
+
+Unfortunately, we have already discovered the hole argument spoils any hope of such a determinism. Moreover, via characteristic curves' theory, one is ever carrying around also the rest motions trivial bundle, i.e. we have
+\[\begin{tikzcd}
+\M^{1,n}\cong\Sigma^n\times\R\arrow{r}{\t} \arrow[swap]{d}{\tau} & \R \\
+\Sigma
+\end{tikzcd}
+\]   
+It turns out that well--posedness of a covariant Cauchy problem is subjected to topological obstructions
+
+\begin{teo}[Geroch]\label{geroch_th}
+    On a natural bundle $\Ci\to\M$, let $\Sigma_0\subseteq\M^n$ be a Cauchy surface and assume there exists a unique critical configuration $\sigma\in\Gamma(\Ci)$ satisfying the Cauchy problem on $\Sigma_0$.\, Then, $\M$ is globally hyperbolic.%\footnote{See Definition \ref{ADM}.}.
+\end{teo}
+
+\begin{proof}
+    See \cite{geroch} or \cite{geroch2}.
+\end{proof}
+
+Being globally hyperbolic is a necessary condition to have well--posedness of an initial value problem within spacetimes, though. Thence, critical configuration satisfying a covariant Cauchy problem on $\M\cong\Sigma_0\times\R$ are over (by hole argument) and under determined at the same time, besides as many equation as fields are there, coming from a variational principle, meaning that some equations are not evolutionary but just constraint equations in the Cauchy surface, i.e. on the initial condition. %\, in this sense they are also \emph{over--determined}.
+
+Both fields and equations thus split into two classes, so--called \emph{bulk} or \emph{evolution} and \emph{gauge} or \emph{boundary} (or even constraint).\\
+
+It is quite evident that a relativistic dynamics is heavily constrained by covariance, which forces an initial--value problem to be in general \emph{ill--posed}. Thereafter, if one wants to take background independence seriously (as should), all the machinery above turns out to be non--sense, since no concepts of space and time are there a--priori, before solving field equations. For all these reasons we choose to do it our way: the tactic is to localize the problem, still maintaining covariance.
+
+\begin{defi}[Cauchy bubble]\label{cauchybubble}
+    Let $\M^{1,n}$ be a spacetime and consider an open region $\widehat{\imath}:\Dd\hookrightarrow\M$ with compact closure $\overline{\Dd}$ in $\M$ and a Cauchy surface $\imath:\Sigma\hookrightarrow\Dd$. Assume then $\zeta\in\Gamma(T\M)$ be non--vanishing and supported on $\Dd$, then the triple $(\overline{\Dd},\zeta,\imath)$ is called a \emph{Cauchy} or \emph{evolution (hyper)bubble}. 
+\end{defi}
+\,\newline
+In an evolution bubble $(\overline{\Dd},\zeta,\imath)$, the vector field $\zeta$ is meant to induce the evolution direction within $\Dd$ through its flow $\Phi_t\in\Diffeo(\Dd)$ dragging the Cauchy surface along its integral curves as $\imath\circ\Phi_t(\Sigma)=:\imath_t(\Sigma)=:\Sigma_t$, foliating the bubble in a regular foliation with space--like leaves.\, In this setting, one can choose adapted coordinates $(t,k^a)$ in $\Dd$ such that $\der_t=\zeta$ and $\Sigma_{t_0}=\{t=t_0\}$ and once the evolution is fixed to be tangent to the integral curves, the boundary splits as $\der\Dd=:\der\Dd_+\cup\der\Dd_-$ with respect to $\Sigma_0$. %as in Figure (vedi LN2 appunti). 
+Hence, by pulling--back we get the configuration bundle ${\widehat{\imath}\,}^*\Ci\to\overline{\Dd}$ and we claim our Cauchy problem for covariant field equations to be
+
+\begin{equation}\label{Cauchy_eqs}
+    \begin{cases}
+    \delta\mathbf{S}_\Dd[\sigma]=0\\
+    \sigma(k)=(k^a,\widetilde{y}^i(k))& k\in\der\Dd_-
+\end{cases}
+\end{equation}
+\,\newline
+This way, instead of having fields on each leaves of a foliation which are determined by initial data on a Cauchy surface and eventually evolve to the whole spacetime, we have fields which evolve from $\der \Dd_-$ to $\der\Dd_+$ within the whole Cauchy bubble $\Dd$.
+
+
+\begin{remark}
+    It may be objected that \emph{(\ref{Cauchy_eqs})} is just a local Cauchy problem and it cannot be extended to the whole spacetime, in general. It has to be noticed, instead, that it still is \emph{intrinsic}, since covariance of the involved \emph{PDEs} has not been broken, thus, it extends from $\Dd$ to $\M$, if needed.
+\end{remark}
+
+As a matter of fact, the theory of regularity of hyperbolic PDEs comes in help and gives conditions for having well--posed Cauchy problems even in the field theories framework: even though we have not provided the reader with the definitions necessary to understand, we state the following theorem just for the sake of completeness---see \cite{LN2}
+
+\begin{teo}[Taylor \cite{taylor}]
+    If a quasi--linear equation is symmetric--hyperbolic, then it satisfies a well--posed Cauchy problem \emph{(\ref{Cauchy_eqs})}. 
+\end{teo}
+
+\begin{cor}
+    Einstein field equations are not symmetric--hyperbolic.  
+\end{cor}
+\begin{proof}
+    If they were, then they would satisfy a well--posed Cauchy problem, and the hole argument yields a contradiction.
+    \,\newline
+\end{proof}
+\,\newline
+Anyway, we will see in the following that Einstein field equations can be reduced to be somehow \emph{hyperbolic} and they eventually will satisfy a well--posed initial value problem.
+
+\begin{defi}[Pre--quantum states]\label{prequantum_states}
+Given an evolution bubble $(\overline{\Dd},\zeta,\imath)$, we can pull--back the configuration bundle $\Ci\to\M$ along the embedding $\imath_{\der\Dd}:\der\Dd\hookrightarrow\M$. A section of this pulled--back bundle represents the value of fundamental fields on the boundary, which is called \emph{pre--quantum configuration};\, if it also satisfies boundary equations it is called \emph{pre--quantum state}. Any pre--quantum state contains boundary information about the value of fields \emph{(}given on $\der\Dd=\der\Dd^-\cup\der\Dd^+)$ which satisfy boundary equations.
+\end{defi}
+
+We conclude the chapter with a discussion of Hamilton--Jacobi equations for covariant theories, which will be fundamental to handle boundary equations of the gauge--like formulation of GR, which plays a central role in quantisation of GR.
+
+
+%It is worth mentioning here that it is possible to generalize the Hamiltonian formulation also to field theories, that we have so far expressed only in the Lagrangian formalism. aim: canonical analysis in order to get constraint equations for a field theory.
+
+%$$\vdots$$
+
+%But, in field theory, there are many slightly different possible Hamiltonian formalisms and all of them face two main issues: first, because field theory systems allow infinitely many degrees of freedom (i.e. physical states are parametrized by boundary fields rather than numbers) the Hamiltonian function is actually a functional; second, dynamics in field theories are often degenerate and there is so no much hope to invert the  Legendre transform. Anyway, Hamiltonian formulation of field theories produces an equivalent way to formulate Euler--Lagrange dynamics and the canonical analysis of constraint equations can be of course discussed in either formulation, equivalently. For the sake of consistency, we choose to drop the discussion of the general Hamiltonian framework (for which we remand to LN4) and we go ahead throughout Hamilton--Jacobi (HJ) setting for relativistic theories.
+
+
+\subsubsection{Hamilton--Jacobi setting for field theories}\label{HJ}
+
+In mechanics, once Hamilton--Jacobi equations $\frac{\der S}{\der{t}}+H\bigg(t,q,\frac{\der S}{\der q}\bigg)=0$ are derived, one shows that, by evaluating the action functional on a solution of Hamilton (equivalently, Euler--Lagrange) equations, the so--called Hamilton function $S$ does only depend on the initial and final position and satisfies HJ--equations, i.e., somehow, dynamics does only depend on the boundary behaviour of the dynamical variables. We are able to extend this trait also in our covariant framework.\\
+\,\newline
+\,\newline
+Let $\Ci\to\M$ be a configuration bundle of fibered coordinates $(x^\mu,y^i)$, on which we solve field equations $\delta\mathbf{S}_\Dd(\sigma)=0$ for some critical configuration $\sigma(x)=(x^\mu,y^i(x))$. Consider then a projectable vector field $\Xi=\xi^\mu(x)\der_\mu+\xi^i(x,y)\der_i$ in $\Ci$ inducing a flow of symmetries $\Phi_\epsilon(x^\mu,y^i)=\left({x'}^\mu_\epsilon(x),{y'}^i_\epsilon(x,y)\right)$ such that
+$$\begin{cases}
+    {\frac{\d}{\d\epsilon}{x'}^\mu_\epsilon(x)}_{|_{\epsilon=0}}=\xi^\mu(x)=:\delta {x'}^\mu(x)\\
+    {\frac{\d}{\d \epsilon}{y'}^i_\epsilon(x,y)}_{|_{\epsilon=0}}=\xi^i(x,y)
+\end{cases}$$
+which projects onto a flow $\varphi_\epsilon(x^\mu)=x^\mu_\epsilon$ on the base manifold $\M$. We gotta notice that $\sigma$ moves along the flow as $\Phi_\epsilon\circ\sigma\circ\varphi_{-\epsilon}=:\sigma_\epsilon$ and also the domain $\Dd$ is dragged as $\varphi_\epsilon(\Dd)=:\Dd_\epsilon$;\, moreover, for the Lie derivatives of fundamental fields it holds\footnote{The above argument and also the forthcoming computation are the reasons why we discussed Section \ref{jet}: all the necessary definitions to handle these lines can be found there.}
+$$\begin{cases}
+    {\frac{\d}{\d\epsilon}{y}^i_\epsilon(x)}_{|_{\epsilon=0}}=-\pounds_\Xi y^i=:\delta y^i(x)\\
+    {\frac{\d}{\d\epsilon}{(\der_\mu y^i_\epsilon(x))}}_{|_{\epsilon=0}}=-\d_\mu\pounds_\Xi y^i:=\delta y^i_\mu(x)
+\end{cases}$$
+By now retracing the proof of Theorem \ref{least_action} with respect to a variation along a non--vertical field, we compute variation along $\Xi$ of the action functional evaluated on a solution; notice that, since $\Xi$ is assumed to generate a symmetry, then $\sigma_\epsilon$ is solution on each leaves.
+
+\begin{align*}
+    \delta_\Xi\mathbf{S}_{\Dd}(\sigma)&={\frac{\d}{\d\epsilon}}_{|_{\epsilon=0}}\mathbf{S}_{\Dd_\epsilon}(\sigma_\epsilon)=\int_{\Dd_\epsilon}{\frac{\d}{\d\epsilon}}_{|_{\epsilon=0}}\left(j^1\sigma_\epsilon\right)^*\mathbf{L}=\int_\Dd{\frac{\d}{\d\epsilon}}_{|_{\epsilon=0}}\L\left(x^\mu_\epsilon,y^i_\epsilon,\der_\mu y^i_\epsilon\right)\J_\epsilon\,\d\boldsymbol{\sigma}\\
+    &=\int_\Dd\delta_\Xi\left(\L\,\J_\epsilon\,\d\boldsymbol{\sigma}\right)=\int_\Dd\L\delta_\Xi\J_\epsilon+\J_\epsilon\delta_\Xi\L\,\d\boldsymbol{\sigma}=\int_\Dd\L\der_\mu\delta x^\mu+\frac{\der\L}{\der x^\mu}\delta x^\mu+\\
+    &+\frac{\der\L}{\der y^i_\epsilon}\delta y^i+\frac{\der\L}{\der y^i_\epsilon}\der_\mu y^i_\epsilon\,\delta x^\mu+\frac{\der\L}{\der(\der_\mu y^i_\epsilon)}\delta y^i_\mu+\frac{\der\L}{\der(\der_\mu y^i_\epsilon)}\der_{\mu\nu}y^i_\epsilon\,\delta x^\mu\,\d\boldsymbol{\sigma}\\
+    %&=\int_\Dd\left(\frac{\der\L}{\der x^\mu_\epsilon}\delta x^\mu+\frac{\der\L}{\der y^i_\epsilon}\delta y^i+\frac{\der\L}{\der (\der_\mu y^i_\epsilon)}\delta y^i_\mu\right) +\L\der_\mu\xi^\mu\,\d\boldsymbol{\sigma}\\
+    &=\int_\Dd\d_\mu\bigg(\L\delta x^\mu\bigg)-\frac{\der\L}{\der y^i_\epsilon}\pounds_\Xi y^i-\frac{\der\L}{\der(\der_\mu y^i_\epsilon)}\d_\mu\pounds_\Xi y^i\,\d\boldsymbol{\sigma}\\
+    &=\int_\Dd\d_\mu\left(\L\delta x^\mu-\frac{\der\L}{\der(\der_\mu y^i_\epsilon)}\pounds_\Xi y^i\right)-\cancel{\left(\frac{\der\L}{\der y^i_\epsilon}-\d_\mu\frac{\der\L}{\der(\der_\mu y^i_\epsilon)}\right)}\pounds_\Xi y^i\,\d\boldsymbol{\sigma}\\
+    &=\int_{\der\Dd}\left(\L\delta x^\mu-\frac{\der\L}{\der(\der_\mu y^i_\epsilon)}\pounds_\Xi y^i\right)\d\boldsymbol{\sigma}_\mu
+\end{align*} 
+where we just used the base flow $\varphi_\epsilon(x^\mu)=x^\mu_\epsilon$ as change of coordinates from which the jacobian determinant $\J_\epsilon=\det(\der_\mu x^\nu_\epsilon)$ comes out, we gather together terms arise both from $\delta_\Xi\J_\epsilon$ and $\delta_\Xi\L$ to get the total derivative of $\L\xi^\mu$ and then we integrate by parts and use Stokes theorem.\, This is the perfect timing to give the following
+
+\begin{defi}[Conjugate momenta]\label{momenta}
+    $$\frac{\der\L}{\der y^i_\mu}=:p^\mu_i$$
+\end{defi}
+\,\newline
+If we now expand the Lie derivative as $\pounds_\Xi y^i=y^i_\mu\xi^\mu-\xi^i$ in the previous computation, we get 
+$$\delta_\Xi\mathbf{S}(\sigma)=\int_{\der\Dd}\left(\L-p^\mu_iy^i_\mu\right)\delta x^\mu+p^\mu_i\delta y^i\n_\mu\,\d S$$
+where $\n_\mu$ is the canonical covector associated to $\der\Dd\subseteq\M$ and $\d S$ is the local volume form on the boundary.\, Particularly, this shows that the vertical variation of the action functional is given by the formula
+\begin{equation}\label{boundary_S}
+    \frac{\delta\mathbf{S}}{\delta y^i}=p^\mu_i\n_\mu
+\end{equation}
+characterising conjugated momenta which, in coordinates adapted to an ADM--foliation, will read as $p^0_i$.\, This will be of fundamental importance in the forthcoming computation of the boundary equations for the Holst gravitational model.\\
+
+By summarizing, we showed the so--called Hamilton functional to be a \emph{boundary functional} thus it may depend on all fields at the boundary (or just some combinations of them) depending on the symmetries of the system.
+
