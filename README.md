@@ -1,6 +1,6 @@
 # My master's thesis in LQG
 
-This repository contains my master's thesis at the University of Trento. I have been supervised by professor Lorenzo Fatibene of University of Torino, my work being based on a collection of 
+This repository contains my [https://github.com/Joyboy0056/A-Mathematical-Introduction-to-LQG-and-Quantum-Geometry/blob/main/A_Mathematical_Introduction_to_LQG_and_Quantum_Geometry.pdf](master's thesis) at the University of Trento. I have been supervised by professor Lorenzo Fatibene of University of Torino, my work being based on a collection of 
 9 lecture notes of him, on the Loop Quantisation of Gravity (LQG), still in process of publication. 
 The purpose of this work would be to provide the reader with a comprehensive mathematical self-consistent review of LQG, which is indeed pioneered by physicists. 
 
